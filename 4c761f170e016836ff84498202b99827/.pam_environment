@@ -1,0 +1,5 @@
+# 输入法配置
+LC_ALL=zh_CN.UTF-8
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS="@im=fcitx"

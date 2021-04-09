@@ -1,0 +1,41 @@
+[diff]
+    tool = icdiff
+[difftool "icdiff"]
+    cmd = icdiff --highlight --line-numbers "$LOCAL" "$REMOTE"
+[http "https://github.com"]
+    proxy = socks5://127.0.0.1:1080
+[http "https://go.googlesource.com"]
+    proxy = socks5://127.0.0.1:1080
+[http "https://code.videolan.org"]
+    proxy = socks5://127.0.0.1:1080
+[http "https://code.qt.io"]
+    proxy = socks5://127.0.0.1:1080
+[core]
+    autocrlf = false
+    safecrlf = false
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[help]
+    autocorrect = -1
+[i18n]
+    commitencoding = utf-8
+    logoutputencoding = utf-8
+[gui]
+    encoding = utf-8
+[pull]
+    rebase = true
+[include]
+    path = ~/.gitconfig.user
+    path = ~/.gitconfig.system

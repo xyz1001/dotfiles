@@ -1,0 +1,70 @@
+priority 1
+
+global !p
+import vim
+import snippet_helpers as helpers
+import os.path
+endglobal
+
+snippet monce "Include header once only guard"
+`!p
+HOME = os.path.expanduser('~');
+LISENCE_PATH = os.path.join(HOME, ".license")
+lisence = os.path.abspath(LISENCE_PATH)
+with open(lisence) as fin:
+	snip.rv = fin.read().strip()`
+
+#ifndef ${2:`!p
+if not snip.c:
+	prefix = helpers.get_project_root()
+	if prefix:
+		prefix = prefix.decode('utf-8').rstrip()
+		path = vim.current.buffer.name
+		path = path[len(prefix) + 1:]
+
+		tokens = [path]
+		tokens = [helpers.replace_nonalphnum(token, '_') for token in tokens]
+
+		snip.rv = '_'.join(tokens).upper() + '_'
+	else:
+		name = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+		rand = ''.join(random.sample(string.ascii_letters+string.digits, 8))
+		snip.rv = ('%s_%s' % (name,rand)).upper()
+else:
+	snip.rv = snip.c`}
+#define $2
+
+${VISUAL}${0}
+
+
+#endif  // $2
+endsnippet
+
+snippet once "Include header once only guard"
+`!p
+HOME = os.path.expanduser('~');
+LISENCE_PATH = os.path.join(HOME, ".license")
+lisence = os.path.abspath(LISENCE_PATH)
+with open(lisence) as fin:
+	snip.rv = fin.read().strip()`
+
+#pragma once
+endsnippet
+
+
+snippet main "main() (main)"
+int main() {
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet fori "for size_t loop (fori)"
+for (${4:size_t} ${2:i} = 0; $2 < ${1:count}; ${3:++$2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet code "code"
+// -*- coding: utf-8 -*-
+endsnippet

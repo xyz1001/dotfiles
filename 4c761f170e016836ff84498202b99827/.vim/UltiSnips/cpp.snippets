@@ -1,0 +1,156 @@
+priority 1
+
+snippet inc "include head"
+#include <${1:iostream}>${0}
+endsnippet
+
+snippet foff "turn off the clang format"
+// clang-format off
+${VISUAL}
+// clang-format on
+endsnippet
+
+snippet cl "class .. (class)"
+class ${1:`!p
+basename =  snip.basename or "name"
+
+tokens = basename.split('_')
+tokens = [token.title() for token in tokens]
+
+snip.rv = "".join(tokens)
+`} {
+public:
+	${1/(\w+).*/$1/}(${2:arguments});
+	~${1/(\w+).*/$1/}();
+
+	${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &) = delete;
+	${1/(\w+).*/$1/} &operator=(const ${1/(\w+).*/$1/} &) = delete;
+
+public:
+
+};
+endsnippet
+
+snippet qwidget "class .. (QWidget class)"
+#include <${1:QWidget}>
+
+namespace Ui {
+class ${2:`!p
+basename =  snip.basename or "name"
+
+tokens = basename.split('_')
+tokens = [token.title() for token in tokens]
+
+snip.rv = "".join(tokens)
+`};
+}
+
+class $2 : public $1 {
+	Q_OBJECT
+
+public:
+	explicit ${2/(\w+).*/$1/}(${3:arguments, }QWidget *parent = nullptr);
+
+private:
+	${0:/* data */}
+
+private:
+	using Super = $1;
+
+	Ui::$2 *ui{};
+};
+endsnippet
+
+snippet qobject "class .. (QObject class)"
+#include <${1:QObject}>
+
+class ${2:`!p
+basename =  snip.basename or "name"
+
+tokens = basename.split('_')
+tokens = [token.title() for token in tokens]
+
+snip.rv = "".join(tokens)
+`} : public $1 {
+	Q_OBJECT
+
+public:
+	explicit ${2/(\w+).*/$1/}(${3:arguments, }QObject *parent = nullptr);
+
+private:
+	using Super = $1;
+
+	${0:/* data */}
+};
+endsnippet
+
+snippet try "try ... catch"
+try {
+	${0:${VISUAL}}
+} catch (${1:std::exception& exc}) {
+	${2:// TODO}
+}
+endsnippet
+
+snippet ns "namespace"
+namespace ${1}{
+${2}
+
+}  // namespace $1
+endsnippet
+
+snippet todo "add to do task"
+// TODO(Zhang Fan) ${1}
+endsnippet
+
+snippet fore "foreach loop (fore)"
+for (auto ${2:&i} : ${1:container}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet tag "add a kTag"
+const LogTag kTag("${1:`!p
+snip.rv = snip.basename
+`}");
+endsnippet
+
+snippet nstag "add a kTag in a anonymous namespace"
+namespace {
+const LogTag kTag("${1:`!p
+snip.rv = snip.basename
+`}");
+}  // namespace
+endsnippet
+
+snippet cs "const std::string &"
+const std::string &${1:str}
+endsnippet
+
+snippet logt "a trace log"
+LOGT(kTag, "${1:trace}");
+endsnippet
+
+snippet logd "a debug log"
+LOGD(kTag, "${1:debug}");
+endsnippet
+
+snippet logi "a info log"
+LOGI(kTag, "${1:info}");
+endsnippet
+
+snippet logw "a warning log"
+LOGW(kTag, "${1:warning}");
+endsnippet
+
+snippet loge "a error log"
+LOGE(kTag, "${1:error}");
+endsnippet
+
+snippet sleep "sleep this thread"
+std::this_thread::sleep_for(std::chrono::seconds(${1:2}));
+endsnippet
+
+snippet mv "wrap selected with std::move()"
+std::move(${VISUAL})
+endsnippet

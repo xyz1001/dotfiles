@@ -1,0 +1,13 @@
+
+
+priority 1
+
+snippet header "header"
+`!p
+HOME = os.path.expanduser('~');
+LISENCE_PATH = os.path.join(HOME, ".license")
+lisence = os.path.abspath(LISENCE_PATH)
+with open(lisence) as fin:
+	snip.rv = fin.read().strip()`
+
+endsnippet

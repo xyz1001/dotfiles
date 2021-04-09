@@ -1,0 +1,10 @@
+# 输入法配置
+export LC_ALL=zh_CN.UTF-8
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
+# 将大小写切换键映射为ctrl
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
