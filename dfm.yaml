@@ -80,6 +80,8 @@ dotfiles:
     linux:
       path: ~/.zshrc
   4c761f170e016836ff84498202b99827/linux/.gitconfig.system:
+    darwin:
+      path: ~/.gitconfig.system
     linux:
       path: ~/.gitconfig.system
   4c761f170e016836ff84498202b99827/windows/.gitconfig.system:
