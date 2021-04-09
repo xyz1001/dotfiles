@@ -6,24 +6,34 @@ dotfiles:
     windows:
       path: ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
   4c761f170e016836ff84498202b99827/.agignore:
+    darwin:
+      path: ~/.agignore
     linux:
       path: ~/.agignore
   4c761f170e016836ff84498202b99827/.aria2:
+    darwin:
+      path: ~/.aria2
     linux:
       path: ~/.aria2
   4c761f170e016836ff84498202b99827/.clang-format:
+    darwin:
+      path: ~/.clang-format
     linux:
       path: ~/.clang-format
   4c761f170e016836ff84498202b99827/.cmake-format.yaml:
     linux:
       path: ~/.cmake-format.yaml
   4c761f170e016836ff84498202b99827/.dir_colors:
+    darwin:
+      path: ~/.dir_colors
     linux:
       path: ~/.dir_colors
   4c761f170e016836ff84498202b99827/.gdbinit:
     linux:
       path: ~/.gdbinit
   4c761f170e016836ff84498202b99827/.gitconfig:
+    darwin:
+      path: ~/.gitconfig
     linux:
       path: ~/.gitconfig
     windows:
@@ -32,6 +42,8 @@ dotfiles:
     linux:
       path: ~/.ideavim
   4c761f170e016836ff84498202b99827/.npmrc:
+    darwin:
+      path: ~/.npmrc
     linux:
       path: ~/.npmrc
     windows:
@@ -40,21 +52,31 @@ dotfiles:
     linux:
       path: ~/.pam_environment
   4c761f170e016836ff84498202b99827/.tmux.conf:
+    darwin:
+      path: ~/.tmux.conf
     linux:
       path: ~/.tmux.conf
   4c761f170e016836ff84498202b99827/.vim:
+    darwin:
+      path: ~/.vim
     linux:
       path: ~/.vim
   4c761f170e016836ff84498202b99827/.vimrc:
+    darwin:
+      path: ~/.vimrc
     linux:
       path: ~/.vimrc
   4c761f170e016836ff84498202b99827/.xprofile:
     linux:
       path: ~/.xprofile
   4c761f170e016836ff84498202b99827/.zsh:
+    darwin:
+      path: ~/.zsh
     linux:
       path: ~/.zsh
   4c761f170e016836ff84498202b99827/.zshrc:
+    darwin:
+      path: ~/.zshrc
     linux:
       path: ~/.zshrc
   4c761f170e016836ff84498202b99827/linux/.gitconfig.system:
