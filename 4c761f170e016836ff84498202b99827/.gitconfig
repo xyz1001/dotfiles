@@ -1,7 +1,3 @@
-[diff]
-    tool = icdiff
-[difftool "icdiff"]
-    cmd = icdiff --highlight --line-numbers "$LOCAL" "$REMOTE"
 [http "https://github.com"]
     proxy = socks5://127.0.0.1:1080
 [http "https://go.googlesource.com"]
