@@ -39,7 +39,7 @@ export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/16.1.4479499
 export LIBVA_DRIVER_NAME=iHD
 export GOPATH=$HOME/go
 
-export PATH=$PATH:$HOME/Application:$GOPATH/bin
+export PATH=$PATH:$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin
 
 function mkcd() { mkdir -p "$@" && cd "$@"; }
 

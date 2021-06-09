@@ -1,8 +1,7 @@
-**/.vim/autoload/
-**/.vim/plugged/
-**/.vim/bundle/
-**/.vim/pluginconfig/.ycm_extra_conf.pyc
-**/.vim/.netrwhist
-**/.vim/pythonx/__pycache__/
+**/.vim/*
+!**/.vim/config
+!**/.vim/UltiSnips
+!**/.vim/coc-settings.json
 *.swp
 *.swo
+*.pyc

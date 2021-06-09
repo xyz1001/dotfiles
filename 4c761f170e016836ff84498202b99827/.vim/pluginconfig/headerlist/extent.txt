@@ -1,2 +1,0 @@
-avdevice/avdevice.h
-avdevice/avutil.h
