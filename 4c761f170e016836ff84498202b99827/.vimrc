@@ -87,6 +87,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'vim-scripts/vim-nerdtree_plugin_open'
 Plug 'weirongxu/plantuml-previewer.vim'
 
+" 运行
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.extra'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -125,3 +130,7 @@ source ~/.vim/config/plugin/nerdcommenter.vim
 source ~/.vim/config/plugin/doxygentoolkit.vim
 source ~/.vim/config/plugin/vim-polyglot.vim
 source ~/.vim/config/plugin/coc.vim
+
+" 运行
+source ~/.vim/config/plugin/asyncrun.vim
+source ~/.vim/config/plugin/asynctasks.vim
