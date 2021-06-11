@@ -43,7 +43,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/committia.vim'
 Plug 'Valloric/ListToggle'
-Plug 'ZhiyuanLck/vim-float-terminal'
+Plug 'voldikss/vim-floaterm'
 Plug 'chrisbra/Recover.vim'
 
 " 编辑
@@ -109,7 +109,7 @@ source ~/.vim/config/plugin/tmuxline.vim
 " 窗口
 source ~/.vim/config/plugin/nerdtree.vim
 source ~/.vim/config/plugin/committia.vim
-source ~/.vim/config/plugin/vim-float-terminal.vim
+source ~/.vim/config/plugin/vim-floaterm.vim
 
 " 编辑
 source ~/.vim/config/plugin/vim-easy-align.vim
