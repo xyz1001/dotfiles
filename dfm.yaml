@@ -90,3 +90,6 @@ dotfiles:
   7db20105ed83a56e1a86dcc64c27f646/user-dirs.dirs:
     linux:
       path: ~/.config/user-dirs.dirs
+  9a4b2ef20dd454621f827dfc48ee9a73/Solarized Dark.colorscheme:
+    linux:
+      path: ~/.kde4/share/apps/color-schemes/Solarized Dark.colorscheme
