@@ -153,3 +153,32 @@ nmap <silent> <Leader>s ::CocCommand clangd.switchSourceHeader<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   format                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+let g:format_on_save = 1
+
+command! -nargs=? ToggleFormatOnSave call ToggleFormatOnSave()
+
+function! ToggleFormatOnSave()
+    if g:format_on_save
+        echo "Format on save is off"
+        let g:format_on_save = 0
+    else
+        echo "Format on save is on"
+        let g:format_on_save = 1
+    endif
+endfunction
+
+function! FormatOnSave()
+    let g:save_on_format_filetypes= ['cpp', 'python', 'go', 'c', 'objc', 'glsl', 'html', 'css', 'javascript']
+    if index(g:save_on_format_filetypes, &ft) >= 0 && g:format_on_save
+        Format
+    endif
+endfunction
+
+autocmd BufWritePre * call FormatOnSave()
+
