@@ -40,6 +40,9 @@ export LIBVA_DRIVER_NAME=iHD
 export GOPATH=$HOME/go
 
 export PATH=$PATH:$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin
+if [[ "$(uname 2> /dev/null)" == "Darwin"* ]]; then
+    export PATH="/usr/local/opt/llvm/bin":$PATH
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
