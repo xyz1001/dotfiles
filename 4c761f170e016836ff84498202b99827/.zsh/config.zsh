@@ -48,8 +48,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-function mkcd() { mkdir -p "$@" && cd "$@"; }
-
-function gi() { curl -sLw n https://www.gitignore.io/api/$@ | tee -a .gitignore;}
-
-function caps() { setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape' }
+if [[ "$(uname 2> /dev/null)" == "Darwin"* ]]; then
+    export PATH="/usr/local/opt/llvm/bin":$PATH
+fi
