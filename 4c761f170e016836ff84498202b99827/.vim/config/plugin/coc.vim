@@ -1,4 +1,4 @@
-let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-tabnine', 'coc-spell-checker', 'coc-snippets', 'coc-lists', 'coc-html', 'coc-floaterm', 'coc-eslint', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-htmlhint', 'coc-go', 'coc-css', 'coc-cmake', 'coc-clangd']
+let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-tabnine', 'coc-cssmodules', 'coc-snippets', 'coc-lists', 'coc-html', 'coc-floaterm', 'coc-eslint', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-tsserver', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-htmlhint', 'coc-go', 'coc-css', 'coc-cmake', 'coc-clangd']
 
 
 " Don't pass messages to |ins-completion-menu|.

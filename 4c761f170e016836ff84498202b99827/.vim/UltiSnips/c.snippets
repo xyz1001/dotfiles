@@ -7,8 +7,9 @@ import subprocess
 from datetime import datetime
 endglobal
 
-snippet once "Include header once only guard"
-// author: `!p
+snippet header "Include header for source file"
+/*
+ * author: `!p
 username = subprocess.run(["git","config","user.name"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
 if username != "":
     email = subprocess.run(["git","config","user.email"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
@@ -17,8 +18,26 @@ else:
     username = os.getlogin()
     snip.rv = "%s" % username
 `
-// created at: `!p snip.rv = datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
-// coding: utf-8
+ * created at: `!p snip.rv = datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
+ * coding: utf-8
+ */
+
+endsnippet
+
+snippet once "Include header for header file"
+/*
+ * author: `!p
+username = subprocess.run(["git","config","user.name"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+if username != "":
+    email = subprocess.run(["git","config","user.email"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+    snip.rv = "%s <%s>" %(username, email)
+else:
+    username = os.getlogin()
+    snip.rv = "%s" % username
+`
+ * created at: `!p snip.rv = datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
+ * coding: utf-8
+ */
 
 #pragma once
 

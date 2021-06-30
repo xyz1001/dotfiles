@@ -87,4 +87,3 @@ vnoremap <C-p> "+gp
 vnoremap <C-y> "+y
 
 nnoremap <silent> <Backspace> :nohl<CR>
-vnoremap <silent> <Space> zf<CR>
