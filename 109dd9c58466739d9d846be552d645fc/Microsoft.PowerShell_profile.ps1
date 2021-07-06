@@ -2,6 +2,7 @@ Import-Module "Oh-My-Posh" -DisableNameChecking -NoClobber
 Import-Module posh-git
 Import-Module PSReadLine
 Import-Module git-aliases -DisableNameChecking
+Import-Module Pscx
 Set-PSReadLineOption -EditMode vi
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
