@@ -2,9 +2,8 @@ source $HOME/.zsh/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen theme robbyrussell
-#antigen theme Honukai
-#antigen theme agnoster
+#antigen theme robbyrussell
+antigen theme agnoster
 #antigen theme jreese
 #antigen theme arrow
 
