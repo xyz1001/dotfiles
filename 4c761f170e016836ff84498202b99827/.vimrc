@@ -74,6 +74,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'sheerun/vim-polyglot'
 Plug 'dyng/ctrlsf.vim'
+Plug 'mileszs/ack.vim'
 
 " 开发
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -124,6 +125,7 @@ source ~/.vim/config/plugin/youdao-translater.vim
 source ~/.vim/config/plugin/easymotion.vim
 source ~/.vim/config/plugin/vim-visual-multi.vim
 source ~/.vim/config/plugin/ctrlsf.vim
+source ~/.vim/config/plugin/ack.vim
 
 " 开发
 source ~/.vim/config/plugin/ultisnips.vim
