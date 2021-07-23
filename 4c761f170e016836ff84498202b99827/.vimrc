@@ -15,14 +15,15 @@
 " enable matchit
 runtime macro/matchit.vim
 
-if empty(glob('~/.vim/autoload/plug.vim')) && !has('win32')
+if empty(glob('$HOME/.vim/autoload/plug.vim'))
     if has('win32')
-        silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        silent execute '!powershell "iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni $HOME/.vim/autoload/plug.vim -Force"'
     else
-        silent execute "!iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`ni $HOME/vimfiles/autoload/plug.vim -Force"
+        silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     endif
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
+    
 
 """"""""""""""""""""""""""""""""""""
 "             插件列表             "

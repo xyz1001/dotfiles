@@ -23,3 +23,5 @@
 [include]
     path = ~/.gitconfig.user
     path = ~/.gitconfig.system
+[credential "helperselector"]
+	selected = manager-core

@@ -1,6 +1,6 @@
 set background=dark
 if has('win32')
-    colorscheme solarized8_dark
+    colorscheme Tomorrow-Night-Bright
 else
     colorscheme solarized
 endif
