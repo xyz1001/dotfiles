@@ -16,6 +16,8 @@ dotfiles:
     linux:
       path: ~/.aria2
   4c761f170e016836ff84498202b99827/.clang-format:
+    android:
+      path: ~/.clang-format
     darwin:
       path: ~/.clang-format
     linux:
@@ -24,6 +26,8 @@ dotfiles:
     linux:
       path: ~/.cmake-format.yaml
   4c761f170e016836ff84498202b99827/.dir_colors:
+    android:
+      path: ~/.dir_colors
     darwin:
       path: ~/.dir_colors
     linux:
@@ -32,6 +36,8 @@ dotfiles:
     linux:
       path: ~/.gdbinit
   4c761f170e016836ff84498202b99827/.gitconfig:
+    android:
+      path: ~/.gitconfig
     darwin:
       path: ~/.gitconfig
     linux:
@@ -39,6 +45,8 @@ dotfiles:
     windows:
       path: ~\.gitconfig
   4c761f170e016836ff84498202b99827/.gitconfig.diff:
+    android:
+      path: ~/.gitconfig.diff
     darwin:
       path: ~/.gitconfig.diff
     linux:
@@ -52,6 +60,8 @@ dotfiles:
     linux:
       path: ~/.ideavim
   4c761f170e016836ff84498202b99827/.npmrc:
+    android:
+      path: ~/.npmrc
     darwin:
       path: ~/.npmrc
     linux:
@@ -62,11 +72,15 @@ dotfiles:
     linux:
       path: ~/.pam_environment
   4c761f170e016836ff84498202b99827/.tmux.conf:
+    android:
+      path: ~/.tmux.conf
     darwin:
       path: ~/.tmux.conf
     linux:
       path: ~/.tmux.conf
   4c761f170e016836ff84498202b99827/.vim:
+    android:
+      path: ~/.vim
     darwin:
       path: ~/.vim
     linux:
@@ -74,6 +88,8 @@ dotfiles:
     windows:
       path: ~\.vim
   4c761f170e016836ff84498202b99827/.vimrc:
+    android:
+      path: ~/.vimrc
     darwin:
       path: ~/.vimrc
     linux:
@@ -84,11 +100,15 @@ dotfiles:
     linux:
       path: ~/.xprofile
   4c761f170e016836ff84498202b99827/.zsh:
+    android:
+      path: ~/.zsh
     darwin:
       path: ~/.zsh
     linux:
       path: ~/.zsh
   4c761f170e016836ff84498202b99827/.zshrc:
+    android:
+      path: ~/.zshrc
     darwin:
       path: ~/.zshrc
     linux:
@@ -103,6 +123,8 @@ dotfiles:
     linux:
       path: ~/.config/user-dirs.dirs
   941b30d1b9151621491c82b8f0950a97/init.vim:
+    android:
+      path: ~/.config/nvim/init.vim
     darwin:
       path: ~/.config/nvim/init.vim
     linux:
