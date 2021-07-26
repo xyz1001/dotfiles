@@ -11,6 +11,8 @@ dotfiles:
     linux:
       path: ~/.agignore
   4c761f170e016836ff84498202b99827/.aria2:
+    android:
+      path: ~/.aria2
     darwin:
       path: ~/.aria2
     linux:
