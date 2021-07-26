@@ -22,6 +22,7 @@
     rebase = true
 [include]
     path = ~/.gitconfig.user
-    path = ~/.gitconfig.system
+    path = ~/.gitconfig.diff
+    path = ~/.gitconfig.proxy
 [credential "helperselector"]
 	selected = manager-core
