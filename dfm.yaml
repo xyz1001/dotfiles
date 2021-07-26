@@ -39,9 +39,13 @@ dotfiles:
     windows:
       path: ~\.gitconfig
   4c761f170e016836ff84498202b99827/.gitconfig.diff:
+    darwin:
+      path: ~/.gitconfig.diff
     linux:
       path: ~/.gitconfig.diff
   4c761f170e016836ff84498202b99827/.gitconfig.proxy:
+    darwin:
+      path: ~/.gitconfig.proxy
     linux:
       path: ~/.gitconfig.proxy
   4c761f170e016836ff84498202b99827/.ideavim:
@@ -89,9 +93,6 @@ dotfiles:
       path: ~/.zshrc
     linux:
       path: ~/.zshrc
-  4c761f170e016836ff84498202b99827/linux/.gitconfig.system:
-    darwin:
-      path: ~/.gitconfig.system
   4c761f170e016836ff84498202b99827/windows/.gitconfig.system:
     windows:
       path: ~\.gitconfig.system
