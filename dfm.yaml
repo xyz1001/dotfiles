@@ -53,11 +53,15 @@ dotfiles:
       path: ~/.gitconfig.diff
     linux:
       path: ~/.gitconfig.diff
+    windows:
+      path: ~\.gitconfig.diff
   4c761f170e016836ff84498202b99827/.gitconfig.proxy:
     darwin:
       path: ~/.gitconfig.proxy
     linux:
       path: ~/.gitconfig.proxy
+    windows:
+      path: ~\.gitconfig.proxy
   4c761f170e016836ff84498202b99827/.ideavim:
     linux:
       path: ~/.ideavim
@@ -115,9 +119,6 @@ dotfiles:
       path: ~/.zshrc
     linux:
       path: ~/.zshrc
-  4c761f170e016836ff84498202b99827/windows/.gitconfig.system:
-    windows:
-      path: ~\.gitconfig.system
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme
