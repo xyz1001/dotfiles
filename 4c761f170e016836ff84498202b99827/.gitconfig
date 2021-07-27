@@ -1,11 +1,3 @@
-[http "https://github.com"]
-    proxy = socks5://127.0.0.1:1080
-[http "https://go.googlesource.com"]
-    proxy = socks5://127.0.0.1:1080
-[http "https://code.videolan.org"]
-    proxy = socks5://127.0.0.1:1080
-[http "https://code.qt.io"]
-    proxy = socks5://127.0.0.1:1080
 [core]
     autocrlf = false
     safecrlf = false
