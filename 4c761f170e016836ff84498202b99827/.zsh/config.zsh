@@ -38,6 +38,7 @@ export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/16.1.4479499
 
 export LIBVA_DRIVER_NAME=iHD
 export GOPATH=$HOME/go
+export MAKEFLAGS=-j$(nproc)
 
 export PATH=$PATH:$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.local/bin
 if [[ "$(uname 2> /dev/null)" == "Darwin"* ]]; then
