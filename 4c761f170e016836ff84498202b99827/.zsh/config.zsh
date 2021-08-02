@@ -1,6 +1,6 @@
 # for zsh
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 
