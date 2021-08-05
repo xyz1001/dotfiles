@@ -140,7 +140,7 @@
                 "acrylicOpacity": 0.69999999999999996,
                 "colorScheme": "Solarized Dark",
                 "commandline": "powershell.exe",
-                "fontFace": "Fira Code",
+                "fontFace": "FiraCode NF",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "historySize": 32000,
@@ -149,20 +149,25 @@
                 "useAcrylic": true
             },
             {
+                "acrylicOpacity": 0.69999999999999996,
                 "colorScheme": "Solarized Dark",
                 "commandline": "cmd.exe",
                 "fontFace": "Fira Code",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "name": "cmd"
+                "name": "cmd",
+                "useAcrylic": true
             },
             {
-                "colorScheme": "One Half Light",
-                "fontFace": "Fira Code",
+                "acrylicOpacity": 0.69999999999999996,
+                "colorScheme": "Solarized Dark",
+                "fontFace": "FiraCode NF",
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl"
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "D:",
+                "useAcrylic": true
             },
             {
                 "colorScheme": "Solarized Dark",
