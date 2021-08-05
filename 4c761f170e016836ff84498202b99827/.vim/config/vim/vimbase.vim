@@ -45,6 +45,8 @@ set cmdheight=2
 " 编码设置
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,GB2312,big5
+set fileformat=unix
+set fileformats=unix,dos
 
 " 高亮当前行
 set cursorline
