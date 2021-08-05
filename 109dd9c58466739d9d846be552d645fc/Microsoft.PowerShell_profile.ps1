@@ -1,4 +1,4 @@
-Import-Module "Oh-My-Posh" -DisableNameChecking -NoClobber
+Import-Module Oh-My-Posh -DisableNameChecking -NoClobber
 Import-Module posh-git
 Import-Module PSReadLine
 Import-Module git-aliases -DisableNameChecking
