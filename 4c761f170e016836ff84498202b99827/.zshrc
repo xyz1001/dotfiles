@@ -11,7 +11,6 @@ antigen bundle git
 antigen bundle extract
 antigen bundle colored-man-pages
 antigen bundle git
-antigen bundle sudo
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle vi-mode
