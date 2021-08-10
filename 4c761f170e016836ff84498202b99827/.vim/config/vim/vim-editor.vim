@@ -35,10 +35,6 @@ set undodir=~/.undo_history/
 " 使用 %% 扩展当前文件的路径
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" j/k在没有计数的时候按虚拟行移动，有计数的时候按实际行移动
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
-
 " 将光标设为上次退出时的位置
 autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |

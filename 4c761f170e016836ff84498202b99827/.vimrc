@@ -48,7 +48,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'chrisbra/Recover.vim'
 
 " 编辑
-Plug 'RRethy/vim-illuminate'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'google/vim-searchindex'
