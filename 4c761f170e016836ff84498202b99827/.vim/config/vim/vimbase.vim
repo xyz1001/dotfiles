@@ -48,8 +48,9 @@ set fileencodings=utf-8,ucs-bom,GB2312,big5
 set fileformat=unix
 set fileformats=unix,dos
 
+" 该功能会导致nvim极度卡顿
 " 高亮当前行
-set cursorline
+"set cursorline
 
 " 智能补全命令行
 set wildmenu
