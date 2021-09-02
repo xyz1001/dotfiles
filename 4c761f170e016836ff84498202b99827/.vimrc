@@ -133,6 +133,7 @@ source ~/.vim/config/plugin/nerdcommenter.vim
 source ~/.vim/config/plugin/doxygentoolkit.vim
 source ~/.vim/config/plugin/vim-polyglot.vim
 source ~/.vim/config/plugin/coc.vim
+source ~/.vim/config/plugin/vista.vim
 
 " 运行
 source ~/.vim/config/plugin/asyncrun.vim
