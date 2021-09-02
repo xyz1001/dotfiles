@@ -45,3 +45,5 @@ autocmd BufNewFile,BufFilePre,BufRead *.qss set filetype=css
 autocmd BufNewFile,BufFilePre,BufRead *.ts set filetype=xml
 autocmd BufNewFile,BufFilePre,BufRead *.ui set filetype=xml
 autocmd BufNewFile,BufFilePre,BufRead *.qrc set filetype=xml
+autocmd BufNewFile,BufFilePre,BufRead *.mm set filetype=objc
+autocmd BufNewFile,BufFilePre,BufRead *.m set filetype=objcpp
