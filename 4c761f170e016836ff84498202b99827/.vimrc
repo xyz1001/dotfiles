@@ -64,7 +64,6 @@ Plug 'vim-scripts/VisIncr'
 Plug 'ianva/vim-youdao-translater'
 Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown']}
 Plug 'easymotion/vim-easymotion'
-Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-eunuch'
