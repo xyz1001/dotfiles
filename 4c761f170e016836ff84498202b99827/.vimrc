@@ -37,8 +37,7 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " 窗口
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
@@ -85,7 +84,6 @@ Plug 'liuchengxu/vista.vim'
 " 外部
 Plug 'xyz1001/WebSearch.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'vim-scripts/vim-nerdtree_plugin_open'
 Plug 'weirongxu/plantuml-previewer.vim'
 
 " 运行
@@ -113,7 +111,6 @@ source ~/.vim/config/plugin/airline.vim
 source ~/.vim/config/plugin/tmuxline.vim
 
 " 窗口
-source ~/.vim/config/plugin/nerdtree.vim
 source ~/.vim/config/plugin/committia.vim
 source ~/.vim/config/plugin/vim-floaterm.vim
 
