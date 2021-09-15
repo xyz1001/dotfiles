@@ -136,6 +136,8 @@ dotfiles:
       path: ~/.config/nvim/coc-settings.json
     linux:
       path: ~/.config/nvim/coc-settings.json
+    windows:
+      path: ~\AppData\Local\nvim\coc-settings.json
   941b30d1b9151621491c82b8f0950a97/init.vim:
     android:
       path: ~/.config/nvim/init.vim
