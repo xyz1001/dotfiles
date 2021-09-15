@@ -12,3 +12,5 @@ Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
 Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
 Set-Theme robbyrussell
 $Env:LESSCHARSET="utf-8"
+
+Remove-Item Alias:rm
