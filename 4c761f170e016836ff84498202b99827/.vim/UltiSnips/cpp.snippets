@@ -26,7 +26,12 @@ public:
 	${1/(\w+).*/$1/}(const ${1/(\w+).*/$1/} &) = delete;
 	${1/(\w+).*/$1/} &operator=(const ${1/(\w+).*/$1/} &) = delete;
 
+	${1/(\w+).*/$1/}(${1/(\w+).*/$1/} &&) = default;
+	${1/(\w+).*/$1/} &operator=(${1/(\w+).*/$1/} &&) = default;
+
 public:
+
+private:
 
 };
 endsnippet
@@ -123,7 +128,7 @@ snip.rv = snip.basename
 }  // namespace
 endsnippet
 
-snippet cs "const std::string &"
+snippet cs "const std::string &" i
 const std::string &${1:str}
 endsnippet
 
@@ -151,6 +156,6 @@ snippet sleep "sleep this thread"
 std::this_thread::sleep_for(std::chrono::seconds(${1:2}));
 endsnippet
 
-snippet mv "wrap selected with std::move()"
+snippet mv "wrap selected with std::move()" i
 std::move(${VISUAL})
 endsnippet

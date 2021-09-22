@@ -24,7 +24,7 @@ else:
 
 endsnippet
 
-snippet once "Include header for header file"
+snippet hh "Include header for header file"
 /*
  * author: `!p
 username = subprocess.run(["git","config","user.name"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
@@ -44,6 +44,28 @@ else:
 
 endsnippet
 
+
+snippet sh "Include header for source file"
+/*
+ * author: `!p
+username = subprocess.run(["git","config","user.name"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+if username != "":
+    email = subprocess.run(["git","config","user.email"],stdout=subprocess.PIPE).stdout.decode("utf-8").strip()
+    snip.rv = "%s <%s>" %(username, email)
+else:
+    username = os.getlogin()
+    snip.rv = "%s" % username
+`
+ * created at: `!p snip.rv = datetime.now().strftime("%Y-%m-%d %H:%M:%S")`
+ * coding: utf-8
+ */
+
+#include "${1:`!p
+snip.rv = snip.basename
+`}.h"
+
+
+endsnippet
 
 snippet main "main() (main)"
 int main() {
