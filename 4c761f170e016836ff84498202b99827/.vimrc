@@ -37,7 +37,6 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " 窗口
-Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
@@ -85,7 +84,7 @@ Plug 'liuchengxu/vista.vim'
 " 外部
 Plug 'xyz1001/WebSearch.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim' | Plug 'weirongxu/plantuml-previewer.vim'
 
 " 运行
 Plug 'skywind3000/asynctasks.vim'

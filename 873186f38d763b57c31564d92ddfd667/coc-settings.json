@@ -64,6 +64,5 @@
     }
   },
   "explorer.icon.enableNerdfont": true,
-  "explorer.icon.source": "vim-devicons",
   "explorer.width": 30
 }
