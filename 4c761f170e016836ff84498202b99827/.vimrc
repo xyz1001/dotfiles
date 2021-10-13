@@ -44,6 +44,9 @@ Plug 'rhysd/committia.vim'
 Plug 'Valloric/ListToggle'
 Plug 'voldikss/vim-floaterm'
 Plug 'chrisbra/Recover.vim'
+if has("nvim")
+    Plug 'nvim-lua/plenary.nvim'| Plug 'kyazdani42/nvim-web-devicons' | Plug 'nvim-telescope/telescope.nvim'
+endif
 
 " 编辑
 Plug 'bronson/vim-trailing-whitespace'
@@ -113,6 +116,7 @@ source ~/.vim/config/plugin/tmuxline.vim
 " 窗口
 source ~/.vim/config/plugin/committia.vim
 source ~/.vim/config/plugin/vim-floaterm.vim
+source ~/.vim/config/plugin/telescope.vim
 
 " 编辑
 source ~/.vim/config/plugin/vim-easy-align.vim

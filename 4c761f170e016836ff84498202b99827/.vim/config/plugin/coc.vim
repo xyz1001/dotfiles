@@ -1,4 +1,4 @@
-let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-tabnine', 'coc-snippets', 'coc-lists', 'coc-html', 'coc-floaterm', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-go', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-explorer']
+let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-tabnine', 'coc-html', 'coc-lists', 'coc-floaterm', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-go', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-explorer']
 
 
 " Don't pass messages to |ins-completion-menu|.
@@ -95,20 +95,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList cmdhistory<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" recent buffers
-nnoremap <silent><nowait> <space>f  :<C-u>CocList buffers<CR>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   clangd                                   "
