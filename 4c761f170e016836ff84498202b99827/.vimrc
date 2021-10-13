@@ -75,6 +75,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dyng/ctrlsf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'ngg/vim-gn'
+Plug 'psliwka/vim-smoothie'
+Plug 'itchyny/vim-cursorword'
 
 " 开发
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
