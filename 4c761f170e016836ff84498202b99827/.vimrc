@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
+Plug 'overcache/NeoSolarized'
 
 " 窗口
 Plug 'christoomey/vim-tmux-navigator'

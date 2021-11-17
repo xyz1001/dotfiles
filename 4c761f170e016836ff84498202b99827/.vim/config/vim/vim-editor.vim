@@ -5,6 +5,8 @@ set mouse=a
 
 set updatetime=300
 
+set termguicolors
+
 set nobackup
 set nowritebackup
 
@@ -40,6 +42,9 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+" 清空背景色，支持透明背景
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 
 autocmd BufNewFile,BufFilePre,BufRead *.qss set filetype=css
 autocmd BufNewFile,BufFilePre,BufRead *.ts set filetype=xml
