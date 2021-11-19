@@ -36,6 +36,23 @@ private:
 };
 endsnippet
 
+snippet vcl "virtual class .. (virtualclass)"
+class ${1:`!p
+basename =  snip.basename or "name"
+
+tokens = basename.split('_')
+tokens = [token.title() for token in tokens]
+
+snip.rv = "I" + "".join(tokens)
+`} {
+public:
+	virtual ~${1/(\w+).*/$1/}() = default;
+
+public:
+
+};
+endsnippet
+
 snippet qwidget "class .. (QWidget class)"
 #include <${1:QWidget}>
 
