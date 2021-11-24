@@ -23,7 +23,7 @@ if empty(glob('$HOME/.vim/autoload/plug.vim'))
     endif
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
-    
+
 
 """"""""""""""""""""""""""""""""""""
 "             插件列表             "
@@ -51,7 +51,9 @@ endif
 
 " 编辑
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'lilydjwg/fcitx.vim'
+if has("x11")
+    Plug 'lilydjwg/fcitx.vim'
+endif
 Plug 'google/vim-searchindex'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
