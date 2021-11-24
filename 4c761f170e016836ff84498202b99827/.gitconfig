@@ -2,6 +2,9 @@
     autocrlf = false
     safecrlf = false
 	editor = nvim
+[user]
+    email = zgzf1001@gmail.com
+    name = xyz1001
 [color]
     ui = true
 [help]
@@ -14,8 +17,8 @@
 [pull]
     rebase = true
 [include]
-    path = ~/.gitconfig.user
     path = ~/.gitconfig.diff
     path = ~/.gitconfig.proxy
+    path = ~/.gitconfig.work
 [credential "helperselector"]
 	selected = manager-core
