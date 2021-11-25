@@ -153,3 +153,6 @@ dotfiles:
       path: ~/.config/nvim/init.vim
     windows:
       path: ~\AppData\Local\nvim\init.vim
+  d5cf7fa704e0e979acb9b7cfbdfb2b5d/profiles:
+    windows:
+      path: ~\.conan\profiles
