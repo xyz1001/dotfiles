@@ -99,7 +99,16 @@
     "launchMode": "maximized",
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "colorScheme": "Solarized Dark",
+            "font": 
+            {
+                "face": "FiraCode NF",
+                "size": 11
+            },
+            "historySize": 50001
+        },
         "list": 
         [
             {
@@ -113,22 +122,16 @@
                 "hidden": false,
                 "historySize": 32000,
                 "name": "Windows PowerShell",
-                "startingDirectory": "D:",
-                "useAcrylic": true
+                "startingDirectory": "D:\\",
+                "useAcrylic": false
             },
             {
-                "acrylicOpacity": 0.90000000000000002,
                 "colorScheme": "Solarized Dark",
-                "font": 
-                {
-                    "face": "FiraCode NF"
-                },
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "historySize": 50001,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl",
-                "useAcrylic": true
+                "commandline": "wsl.exe -d Manjaro  --cd ~ -e tmux",
+                "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "Manjaro",
+                "startingDirectory": null
             }
         ]
     },
