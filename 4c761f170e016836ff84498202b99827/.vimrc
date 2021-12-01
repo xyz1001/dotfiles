@@ -89,6 +89,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " 外部
 Plug 'xyz1001/WebSearch.vim'
