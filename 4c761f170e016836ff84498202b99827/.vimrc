@@ -36,6 +36,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'overcache/NeoSolarized'
+Plug 'Yggdroot/indentLine'
 
 " 窗口
 Plug 'christoomey/vim-tmux-navigator'
