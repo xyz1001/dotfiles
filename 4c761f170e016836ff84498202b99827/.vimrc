@@ -80,6 +80,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'ngg/vim-gn'
 Plug 'psliwka/vim-smoothie'
+Plug 'simnalamburt/vim-mundo'
 
 " 开发
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -130,6 +131,7 @@ source ~/.vim/config/plugin/easymotion.vim
 source ~/.vim/config/plugin/vim-visual-multi.vim
 source ~/.vim/config/plugin/ctrlsf.vim
 source ~/.vim/config/plugin/ack.vim
+source ~/.vim/config/plugin/vim-mundo.vim
 
 " 开发
 source ~/.vim/config/plugin/ultisnips.vim
