@@ -81,6 +81,7 @@ Plug 'mileszs/ack.vim'
 Plug 'ngg/vim-gn'
 Plug 'psliwka/vim-smoothie'
 Plug 'simnalamburt/vim-mundo'
+Plug 'editorconfig/editorconfig-vim'
 
 " 开发
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
