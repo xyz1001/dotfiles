@@ -60,6 +60,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-operator-user'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'terryma/vim-expand-region'
@@ -86,11 +87,11 @@ Plug 'editorconfig/editorconfig-vim'
 " 开发
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'liuchengxu/vista.vim'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tyru/caw.vim'
 
 " 外部
 Plug 'xyz1001/WebSearch.vim'
@@ -138,11 +139,11 @@ source ~/.vim/config/plugin/vim-mundo.vim
 " 开发
 source ~/.vim/config/plugin/ultisnips.vim
 source ~/.vim/config/plugin/neoformat.vim
-source ~/.vim/config/plugin/nerdcommenter.vim
 source ~/.vim/config/plugin/doxygentoolkit.vim
 source ~/.vim/config/plugin/vim-polyglot.vim
 source ~/.vim/config/plugin/coc.vim
 source ~/.vim/config/plugin/vista.vim
+source ~/.vim/config/plugin/caw.vim
 
 " 运行
 source ~/.vim/config/plugin/asyncrun.vim
