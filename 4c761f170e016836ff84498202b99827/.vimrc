@@ -17,9 +17,9 @@ runtime macro/matchit.vim
 
 if empty(glob('$HOME/.vim/autoload/plug.vim'))
     if has('win32')
-        silent execute '!powershell "iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni $HOME/.vim/autoload/plug.vim -Force"'
+        execute '!powershell "iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni $HOME/.vim/autoload/plug.vim -Force"'
     else
-        silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     endif
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
