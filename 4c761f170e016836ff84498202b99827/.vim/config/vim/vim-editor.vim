@@ -1,38 +1,30 @@
 " VIM编辑器配置
 
+" leader键
+let mapleader = ' '
 " 开启鼠标
 set mouse=a
-
-set updatetime=300
-
+" 消息输出窗口高j
+set cmdheight=2
+" 终端色彩
 set termguicolors
-
-set nobackup
-set nowritebackup
-
-if has('win32')
-    let &shell = has('win32') ? 'powershell' : 'pwsh'
-    let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-    let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-    let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-    set shellquote= shellxquote=
+" 禁用交换文件
+set noswapfile
+" 自动备份
+set backup
+set writebackup
+set backupext=.bak
+set updatetime=4000
+if !isdirectory($HOME."/.vim/backup")
+    call mkdir($HOME."/.vim/backup", "p", 0700)
 endif
-
-" 修改leader键
-let mapleader = ';'
-let maplocalleader = ','
-
-" 使用+ -代替被占用的; ,的功能
-noremap + ;
-noremap - ,
-
+set backupdir=~/.vim/backup/
 " 开启保存 undo 历史功能
 set undofile
-" undo 历史保存路径
-if !isdirectory($HOME."/.undo_history")
-    call mkdir($HOME."/.undo_history", "", 0700)
+if !isdirectory($HOME."/.vim/undo")
+    call mkdir($HOME."/.vim/undo", "p", 0700)
 endif
-set undodir=~/.undo_history/
+set undodir=~/.vim/undo/
 
 " 使用 %% 扩展当前文件的路径
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -42,6 +34,15 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+" Windows powershell 终端设置
+if has('win32')
+    let &shell = has('win32') ? 'powershell' : 'pwsh'
+    let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+    let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+    let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+    set shellquote= shellxquote=
+endif
 
 " 清空背景色，支持透明背景
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE

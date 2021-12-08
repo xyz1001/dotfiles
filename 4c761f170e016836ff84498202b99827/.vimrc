@@ -110,7 +110,7 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""
 
 
-source ~/.vim/config/vim/vimbase.vim
+source ~/.vim/config/vim/vim-base.vim
 source ~/.vim/config/vim/vim-editor.vim
 
 " +++++++++++++++++++++++++++++++++++++++
