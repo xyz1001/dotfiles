@@ -40,7 +40,7 @@ export LIBVA_DRIVER_NAME=iHD
 export GOPATH=$HOME/go
 export MAKEFLAGS=-j$(nproc)
 
-export PATH=$PATH:$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.local/bin
+export PATH=$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.local/bin:$PATH
 if [[ "$(uname 2> /dev/null)" == "Darwin"* ]]; then
     export PATH="/usr/local/opt/llvm/bin":$PATH
 fi
