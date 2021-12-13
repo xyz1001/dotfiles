@@ -2,9 +2,10 @@
 
 export EDITOR="nvim"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
-
 export CHEATCOLORS=true
+export COLORTERM=truecolor
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 
 case "$(uname -s)" in 
 Darwin)
