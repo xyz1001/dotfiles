@@ -3,18 +3,6 @@
     "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+f"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "ctrl+h"
-        },
-        {
             "command": 
             {
                 "action": "moveFocus",
@@ -25,10 +13,14 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "horizontal"
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "keys": "ctrl+alt+s"
+            "keys": "ctrl+h"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+f"
         },
         {
             "command": 
@@ -36,6 +28,14 @@
                 "action": "newTab"
             },
             "keys": "ctrl+shift+c"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "horizontal"
+            },
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -101,6 +101,7 @@
     {
         "defaults": 
         {
+            "bellStyle": "none",
             "colorScheme": "Solarized Dark",
             "font": 
             {
@@ -127,7 +128,7 @@
             },
             {
                 "colorScheme": "Solarized Dark",
-                "commandline": "wsl.exe -d Manjaro  --cd ~ -e tmux",
+                "commandline": "wsl.exe -d Manjaro  --cd ~ -e genie -c tmux",
                 "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Manjaro",
