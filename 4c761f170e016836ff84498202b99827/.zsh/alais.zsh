@@ -1,7 +1,9 @@
-alias o="xdg-open"
 alias history="fc -il 1"
 alias make="make -j8"
 
+command -v xdg-open &> /dev/null && alias o="xdg-open"
+command -v open &> /dev/null && alias o="open"
+command -v termux-open &> /dev/null && alias o="termux-open"
 command -v aria2c &> /dev/null && alias aria2="aria2c --conf=$HOME/.aria2/aria2.conf"
 command -v fuck &> /dev/null && eval $(thefuck --alias) && alias fix="fuck"
 command -v bat &> /dev/null && alias cat="bat"
