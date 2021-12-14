@@ -5,6 +5,13 @@
         {
             "command": 
             {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "right"
             },
@@ -54,6 +61,38 @@
             "keys": "ctrl+j"
         },
         {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+down"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+right"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+left"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+down"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+minus"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+shift+plus"
+        },
+        {
             "command": 
             {
                 "action": "resizePane",
@@ -92,6 +131,13 @@
                 "split": "vertical"
             },
             "keys": "ctrl+alt+v"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+k"
         }
     ],
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
@@ -120,7 +166,7 @@
                     "face": "FiraCode NF"
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
+                "hidden": true,
                 "historySize": 32000,
                 "name": "Windows PowerShell",
                 "startingDirectory": "D:\\",
@@ -133,6 +179,13 @@
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Manjaro",
                 "startingDirectory": null
+            },
+            {
+                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PowerShell",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
@@ -232,7 +285,7 @@
         },
         {
             "background": "#002B36",
-            "black": "#002B36",
+            "black": "#667899",
             "blue": "#268BD2",
             "brightBlack": "#667899",
             "brightBlue": "#839496",
