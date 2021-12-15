@@ -13,4 +13,6 @@ Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
 Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
 Set-Theme robbyrussell
+
 $Env:LESSCHARSET="utf-8"
+[console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
