@@ -33,17 +33,16 @@ call plug#begin('~/.vim/plugged')
 
 " 外观
 Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 if has("unix")
-    Plug 'edkolev/tmuxline.vim'
+    " 修改statusline配色后启用该插件生成tmuxline配色文件
+    " Plug 'edkolev/tmuxline.vim'
 endif
 Plug 'overcache/NeoSolarized'
 Plug 'Yggdroot/indentLine'
 
 " 窗口
-if has("unix")
-    Plug 'christoomey/vim-tmux-navigator'
-endif
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/committia.vim'
@@ -123,7 +122,7 @@ source ~/.vim/config/vim/vim-editor.vim
 
 " 外观
 source ~/.vim/config/plugin/colorscheme.vim
-source ~/.vim/config/plugin/airline.vim
+source ~/.vim/config/plugin/lightline.vim
 if has("unix")
     source ~/.vim/config/plugin/tmuxline.vim
 endif
