@@ -1,6 +1,6 @@
 " ultisnips "
 """""""""""""
-let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsExpandTrigger="<c-u>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
