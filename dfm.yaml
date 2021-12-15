@@ -137,6 +137,9 @@ dotfiles:
   7db20105ed83a56e1a86dcc64c27f646/user-dirs.dirs:
     linux:
       path: ~/.config/user-dirs.dirs
+  8147832b2738c189d63005d4cf8199f8/tmuxcolor-solarized-dark.conf:
+    linux:
+      path: ~/.tmux/tmuxcolor-solarized-dark.conf
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
