@@ -93,7 +93,7 @@ set ttimeoutlen=50
 set fo+=mB
 " 括号匹配
 set showmatch
-set matchtime=200
+set matchtime=2
 " 删除设置
 set backspace=eol,start,indent
 
