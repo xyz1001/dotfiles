@@ -37,9 +37,9 @@ autocmd BufReadPost *
 
 " Windows powershell 终端设置
 if has('win32')
-    let &shell = 'pwsh'
-    let &shellcmdflag = '-NoLogo -NoProfile -c'
-    set shellquote= shellxquote=
+  set shell=pwsh\ -NoLogo shellpipe=\| shellxquote=
+  set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
+  set shellredir=\|\ Out-File\ -Encoding\ UTF8
 endif
 
 " 清空背景色，支持透明背景
