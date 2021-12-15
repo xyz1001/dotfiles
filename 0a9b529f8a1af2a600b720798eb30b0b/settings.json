@@ -61,38 +61,6 @@
             "keys": "ctrl+j"
         },
         {
-            "command": "unbound",
-            "keys": "alt+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+down"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+right"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+left"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+shift+down"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+shift+minus"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+shift+plus"
-        },
-        {
             "command": 
             {
                 "action": "resizePane",
@@ -140,7 +108,7 @@
             "keys": "ctrl+shift+k"
         }
     ],
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
     "initialRows": 80,
     "launchMode": "maximized",
     "profiles": 
@@ -161,6 +129,7 @@
             {
                 "acrylicOpacity": 0.69999999999999996,
                 "colorScheme": "Solarized Dark",
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo",
                 "font": 
                 {
                     "face": "FiraCode NF"
@@ -181,7 +150,7 @@
                 "startingDirectory": null
             },
             {
-                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
@@ -398,5 +367,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "windowingBehavior": "useExisting"
 }
