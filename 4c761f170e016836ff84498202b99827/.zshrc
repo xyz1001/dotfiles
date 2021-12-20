@@ -14,6 +14,8 @@ antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle vi-mode
+antigen bundle docker
+antigen bundle docker-compose
 antigen bundle skywind3000/z.lua
 
 antigen bundle zsh-users/zsh-autosuggestions
