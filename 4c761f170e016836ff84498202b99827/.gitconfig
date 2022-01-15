@@ -2,6 +2,7 @@
     autocrlf = false
     safecrlf = false
 	editor = nvim
+    excludesfile = ~/.gitignore_global
 [user]
     email = zgzf1001@gmail.com
     name = xyz1001
