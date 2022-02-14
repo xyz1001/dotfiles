@@ -164,7 +164,7 @@ dotfiles:
   939a22ac92fe5afbc1ba1ddc16ba3953/darwin/profiles:
     darwin:
       path: ~/.conan/profiles
-  939a22ac92fe5afbc1ba1ddc16ba3953/profiles:
+  939a22ac92fe5afbc1ba1ddc16ba3953/linux/profiles:
     linux:
       path: ~/.conan/profiles
   941b30d1b9151621491c82b8f0950a97/init.vim:
