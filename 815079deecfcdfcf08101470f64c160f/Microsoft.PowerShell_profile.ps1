@@ -16,3 +16,12 @@ Set-Theme robbyrussell
 
 $Env:LESSCHARSET="utf-8"
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
+$zlua_path = Join-Path $HOME "Documents\Powershell\Modules\z.lua"
+$zlua_url = "https://raw.githubusercontent.com/skywind3000/z.lua/master/z.lua"
+if (!(Test-Path($zlua_path)))
+{
+    Invoke-WebRequest $zlua_url -OutFile $zlua_path
+}
+
+Invoke-Expression (& { (lua $HOME/Documents/Powershell/Modules/z.lua --init powershell) -join "`n" })
