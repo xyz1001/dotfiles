@@ -1,7 +1,16 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+alt+s"
+        },
         {
             "command": 
             {
@@ -13,21 +22,29 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+l"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
                 "direction": "left"
             },
             "keys": "ctrl+h"
         },
         {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+l"
+        },
+        {
             "command": "find",
             "keys": "ctrl+f"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
         },
         {
             "command": 
@@ -40,17 +57,9 @@
             "command": 
             {
                 "action": "splitPane",
-                "split": "horizontal"
+                "split": "right"
             },
-            "keys": "ctrl+alt+s"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "ctrl+k"
+            "keys": "ctrl+alt+v"
         },
         {
             "command": 
@@ -72,14 +81,6 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
                 "direction": "left"
             },
             "keys": "ctrl+alt+h"
@@ -88,17 +89,17 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "right"
+                "direction": "down"
             },
-            "keys": "ctrl+alt+l"
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "vertical"
+                "action": "resizePane",
+                "direction": "right"
             },
-            "keys": "ctrl+alt+v"
+            "keys": "ctrl+alt+l"
         },
         {
             "command": 
@@ -127,7 +128,6 @@
         "list": 
         [
             {
-                "acrylicOpacity": 0.69999999999999996,
                 "colorScheme": "Solarized Dark",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo",
                 "font": 
@@ -138,6 +138,7 @@
                 "hidden": true,
                 "historySize": 32000,
                 "name": "Windows PowerShell",
+                "opacity": 70,
                 "startingDirectory": "D:\\",
                 "useAcrylic": false
             },
@@ -155,6 +156,12 @@
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{1dd87ae3-5daa-537c-82f0-bbe79a612989}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2017",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
