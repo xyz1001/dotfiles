@@ -147,6 +147,8 @@ dotfiles:
     linux:
       path: ~/.config/user-dirs.dirs
   8147832b2738c189d63005d4cf8199f8/tmuxcolor-solarized-dark.conf:
+    android:
+      path: ~/.tmux/tmuxcolor-solarized-dark.conf
     darwin:
       path: ~/.tmux/tmuxcolor-solarized-dark.conf
     linux:
