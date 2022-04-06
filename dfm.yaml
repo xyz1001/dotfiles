@@ -155,6 +155,8 @@ dotfiles:
     windows:
       path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
   873186f38d763b57c31564d92ddfd667/coc-settings.json:
+    android:
+      path: ~/.config/nvim/coc-settings.json
     darwin:
       path: ~/.config/nvim/coc-settings.json
     linux:
