@@ -4,6 +4,17 @@
     "actions": 
     [
         {
+            "command": "find",
+            "keys": "ctrl+f"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -14,9 +25,10 @@
         {
             "command": 
             {
-                "action": "scrollUp"
+                "action": "moveFocus",
+                "direction": "right"
             },
-            "keys": "ctrl+shift+j"
+            "keys": "ctrl+l"
         },
         {
             "command": 
@@ -30,28 +42,9 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "ctrl+l"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+f"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
                 "direction": "up"
             },
             "keys": "ctrl+k"
-        },
-        {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+c"
         },
         {
             "command": 
@@ -60,6 +53,13 @@
                 "split": "right"
             },
             "keys": "ctrl+alt+v"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+c"
         },
         {
             "command": 
@@ -151,17 +151,11 @@
                 "startingDirectory": null
             },
             {
-                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe -NoLogo",
+                "commandline": "pwsh.exe -NoLogo",
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
                 "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "guid": "{1dd87ae3-5daa-537c-82f0-bbe79a612989}",
-                "hidden": true,
-                "name": "Developer Command Prompt for VS 2017",
-                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
