@@ -4,6 +4,7 @@ Import-Module PSReadLine
 Import-Module git-aliases -DisableNameChecking
 Import-Module VSSetup
 Import-Module Pscx
+Import-Module Terminal-Icons
 
 Set-PSReadLineOption -EditMode vi
 Set-PSReadLineOption -PredictionSource History
