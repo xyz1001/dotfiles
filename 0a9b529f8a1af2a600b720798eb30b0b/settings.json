@@ -152,6 +152,7 @@
             },
             {
                 "commandline": "pwsh.exe -NoLogo",
+                "colorScheme": "Solarized Dark",
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
