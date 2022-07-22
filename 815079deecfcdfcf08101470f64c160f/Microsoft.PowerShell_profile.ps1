@@ -7,7 +7,7 @@ Import-Module Pscx
 Import-Module Terminal-Icons
 
 Set-PSReadLineOption -EditMode vi
-Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
