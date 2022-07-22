@@ -2,7 +2,7 @@
 [main]
   color-tsharks = ["/usr/bin/tshark", "/usr/sbin/tshark"]
   dark-mode = true
-  last-used-tshark = "/usr/sbin/tshark"
+  last-used-tshark = "/usr/bin/tshark"
   theme-256 = "solarized"
   theme-truecolor = "solarized"
   validated-tsharks = ["/usr/bin/tshark", "/usr/sbin/tshark"]
