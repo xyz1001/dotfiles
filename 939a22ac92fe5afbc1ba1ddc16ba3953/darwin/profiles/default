@@ -2,8 +2,8 @@
 os=Macos
 os.version=10.10
 os_build=Macos
-arch=x86_64
-arch_build=x86_64
+arch=armv8
+arch_build=armv8
 compiler=apple-clang
 compiler.version=13.1
 compiler.libcxx=libc++
