@@ -5,6 +5,9 @@ dotfiles:
   109dd9c58466739d9d846be552d645fc\Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+  41d62a13ee890cadca00a018476d3d6f/pip.conf:
+    darwin:
+      path: ~/.config/pip/pip.conf
   4c761f170e016836ff84498202b99827/.agignore:
     darwin:
       path: ~/.agignore
