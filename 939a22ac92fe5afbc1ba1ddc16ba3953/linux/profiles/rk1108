@@ -1,0 +1,10 @@
+[settings]
+os=Linux
+arch=armv7
+compiler=gcc
+compiler.version=4.8
+compiler.libcxx=libstdc++11
+build_type=Release
+
+[build_requires]
+rk1108/cci.20220304@screenshare/stable

@@ -1,0 +1,10 @@
+[settings]
+os=Linux
+arch=mips
+compiler=gcc
+compiler.version=5.4
+compiler.libcxx=libstdc++11
+build_type=Release
+
+[build_requires]
+t31x_toolchains/3.3.0@screenshare/stable
