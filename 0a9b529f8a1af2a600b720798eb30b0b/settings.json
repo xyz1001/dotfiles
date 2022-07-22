@@ -4,23 +4,16 @@
     "actions": 
     [
         {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
+        },
+        {
             "command": "find",
             "keys": "ctrl+f"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -33,6 +26,21 @@
         {
             "command": 
             {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
                 "action": "moveFocus",
                 "direction": "left"
             },
@@ -41,10 +49,17 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "up"
+                "action": "scrollDown"
             },
-            "keys": "ctrl+k"
+            "keys": "ctrl+shift+k"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -73,14 +88,6 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "ctrl+alt+k"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
                 "direction": "left"
             },
             "keys": "ctrl+alt+h"
@@ -89,9 +96,9 @@
             "command": 
             {
                 "action": "resizePane",
-                "direction": "down"
+                "direction": "up"
             },
-            "keys": "ctrl+alt+j"
+            "keys": "ctrl+alt+k"
         },
         {
             "command": 
@@ -100,17 +107,11 @@
                 "direction": "right"
             },
             "keys": "ctrl+alt+l"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+k"
         }
     ],
     "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
     "initialRows": 80,
+    "language": "zh-Hans-CN",
     "launchMode": "maximized",
     "profiles": 
     {
@@ -151,12 +152,53 @@
                 "startingDirectory": null
             },
             {
-                "commandline": "pwsh.exe -NoLogo",
                 "colorScheme": "Solarized Dark",
+                "commandline": "pwsh.exe -NoLogo",
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{e0bfb712-edd9-5a84-af1e-e4a48619f850}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{8c1d915c-55bb-571e-9155-915b19c1280d}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "altGrAliasing": true,
+                "antialiasingMode": "grayscale",
+                "closeOnExit": "graceful",
+                "colorScheme": "Solarized Dark",
+                "commandline": "ssh -t 172.24.110.58 -p 8022 tmux",
+                "cursorShape": "bar",
+                "font": 
+                {
+                    "face": "FiraCode NF"
+                },
+                "guid": "{0bd8c992-b852-44a5-a085-8b31db76360c}",
+                "hidden": false,
+                "historySize": 32000,
+                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
+                "name": "Android",
+                "opacity": 100,
+                "padding": "8, 8, 8, 8",
+                "snapOnInput": true,
+                "startingDirectory": "D:\\",
+                "tabTitle": "Termux",
+                "useAcrylic": false
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
             }
         ]
     },
@@ -370,5 +412,6 @@
             "yellow": "#808000"
         }
     ],
+    "tabSwitcherMode": "disabled",
     "windowingBehavior": "useExisting"
 }
