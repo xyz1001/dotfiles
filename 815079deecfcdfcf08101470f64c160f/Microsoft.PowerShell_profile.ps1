@@ -26,3 +26,9 @@ if (!(Test-Path($zlua_path)))
 }
 
 Invoke-Expression (& { (lua $HOME/Documents/Powershell/Modules/z.lua --init powershell) -join "`n" })
+
+function Get-EnvironmentVariablesDialog {
+  sudo rundll32 sysdm.cpl,EditEnvironmentVariables
+}
+
+Set-Alias envgui Get-EnvironmentVariablesDialog
