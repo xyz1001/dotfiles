@@ -91,7 +91,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
 Plug 'liuchengxu/vista.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyru/caw.vim'
