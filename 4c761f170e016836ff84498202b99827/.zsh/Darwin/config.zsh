@@ -5,9 +5,8 @@
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_NDK_HOME=$HOME/Library/Android/sdk/ndk/16.1.4479499
 
-export PATH="/opt/homebrew/bin:/usr/local/opt/llvm/bin":$PATH
+export PATH="/usr/local/opt/llvm/bin":$PATH
 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 #######################################################################
 #                                alias                                #
@@ -29,3 +28,4 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 #######################################################################
 
 eval `gdircolors ~/.dir_colors`
+eval "$(/opt/homebrew/bin/brew shellenv)"
