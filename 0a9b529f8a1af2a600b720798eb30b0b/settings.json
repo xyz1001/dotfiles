@@ -12,10 +12,6 @@
             "keys": "ctrl+k"
         },
         {
-            "command": "find",
-            "keys": "ctrl+f"
-        },
-        {
             "command": 
             {
                 "action": "moveFocus",
@@ -24,19 +20,8 @@
             "keys": "ctrl+l"
         },
         {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+j"
+            "command": "find",
+            "keys": "ctrl+f"
         },
         {
             "command": 
@@ -49,9 +34,17 @@
         {
             "command": 
             {
-                "action": "scrollDown"
+                "action": "scrollUp"
             },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -60,6 +53,13 @@
                 "split": "down"
             },
             "keys": "ctrl+alt+s"
+        },
+        {
+            "command": 
+            {
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -79,18 +79,18 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+j"
-        },
-        {
-            "command": 
-            {
                 "action": "resizePane",
                 "direction": "left"
             },
             "keys": "ctrl+alt+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+j"
         },
         {
             "command": 
@@ -145,10 +145,10 @@
             },
             {
                 "colorScheme": "Solarized Dark",
-                "commandline": "wsl.exe -d Manjaro  --cd ~ -e genie -c tmux",
+                "commandline": "wsl.exe -d arch  --cd ~ -e genie -c tmux",
                 "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-                "name": "Manjaro",
+                "name": "Linux",
                 "startingDirectory": null
             },
             {
@@ -158,18 +158,6 @@
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
                 "startingDirectory": "%USERPROFILE%"
-            },
-            {
-                "guid": "{e0bfb712-edd9-5a84-af1e-e4a48619f850}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{8c1d915c-55bb-571e-9155-915b19c1280d}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
             },
             {
                 "altGrAliasing": true,
