@@ -117,6 +117,9 @@ dotfiles:
       path: ~/.vimrc
     windows:
       path: ~\.vimrc
+  4c761f170e016836ff84498202b99827/.wslconfig:
+    windows:
+      path: ~\.wslconfig
   4c761f170e016836ff84498202b99827/.xprofile:
     linux:
       path: ~/.xprofile
