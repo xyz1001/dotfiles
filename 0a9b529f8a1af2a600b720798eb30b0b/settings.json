@@ -20,8 +20,23 @@
             "keys": "ctrl+l"
         },
         {
+            "command": 
+            {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
             "command": "find",
             "keys": "ctrl+f"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+j"
         },
         {
             "command": 
@@ -34,13 +49,6 @@
         {
             "command": 
             {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": 
-            {
                 "action": "resizePane",
                 "direction": "down"
             },
@@ -49,17 +57,17 @@
         {
             "command": 
             {
-                "action": "splitPane",
-                "split": "down"
+                "action": "scrollDown"
             },
-            "keys": "ctrl+alt+s"
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
             {
-                "action": "scrollDown"
+                "action": "splitPane",
+                "split": "down"
             },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -83,14 +91,6 @@
                 "direction": "left"
             },
             "keys": "ctrl+alt+h"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "ctrl+j"
         },
         {
             "command": 
@@ -164,7 +164,7 @@
                 "antialiasingMode": "grayscale",
                 "closeOnExit": "graceful",
                 "colorScheme": "Solarized Dark",
-                "commandline": "ssh -t 172.24.110.58 -p 8022 tmux",
+                "commandline": "ssh -t localhost -p 8022 tmux",
                 "cursorShape": "bar",
                 "font": 
                 {
