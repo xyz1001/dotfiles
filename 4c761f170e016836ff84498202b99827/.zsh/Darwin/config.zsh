@@ -27,5 +27,5 @@ export PATH="/usr/local/opt/llvm/bin":$PATH
 #                                misc                                 #
 #######################################################################
 
-eval `gdircolors ~/.dir_colors`
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval `gdircolors ~/.dir_colors`
