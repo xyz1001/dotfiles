@@ -2,10 +2,10 @@
 #assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["shell", "vim"]
+disable = ["shell", "wsl", "vim", "powershell"]
 
 # Ignore failures for these steps
-#ignore_failures = ["powershell"]
+ignore_failures = ["system"]
 
 # Run specific steps - same options as the command line flag
 #only = ["system", "emacs"]
@@ -40,16 +40,15 @@ disable = ["shell", "vim"]
 [git]
 #max_concurrency = 5
 # Additional git repositories to pull
-#repos = [
-#    "~/src/*/",
-#    "~/.config/something"
-#]
+repos = [
+    "~/dotfiles/",
+]
 
 # Don't pull the predefined git repos
 #pull_predefined = false
 
 # Arguments to pass Git when pulling Repositories
-#arguments = "--rebase --autostash"
+arguments = "--rebase --autostash"
 
 [composer]
 #self_update = true
@@ -88,6 +87,7 @@ disable = ["shell", "vim"]
 # to upgrade it. Use this only if you installed Topgrade by using a package
 # manager such as Scoop to Cargo
 #self_rename = true
+enable_winget=true
 
 [npm]
 # Use sudo if the NPM directory isn't owned by the current user
