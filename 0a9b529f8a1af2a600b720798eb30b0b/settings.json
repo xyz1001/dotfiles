@@ -8,16 +8,14 @@
             {
                 "action": "moveFocus",
                 "direction": "up"
-            },
-            "keys": "ctrl+k"
+            }
         },
         {
             "command": 
             {
                 "action": "moveFocus",
                 "direction": "right"
-            },
-            "keys": "ctrl+l"
+            }
         },
         {
             "command": 
@@ -35,16 +33,14 @@
             {
                 "action": "moveFocus",
                 "direction": "down"
-            },
-            "keys": "ctrl+j"
+            }
         },
         {
             "command": 
             {
                 "action": "moveFocus",
                 "direction": "left"
-            },
-            "keys": "ctrl+h"
+            }
         },
         {
             "command": 
@@ -107,6 +103,26 @@
                 "direction": "right"
             },
             "keys": "ctrl+alt+l"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+k"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+h"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+l"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+j"
         }
     ],
     "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
@@ -145,7 +161,7 @@
             },
             {
                 "colorScheme": "Solarized Dark",
-                "commandline": "wsl.exe -d arch  --cd ~ -e genie -c tmux",
+                "commandline": "wsl.exe -d arch  --cd ~ tmux",
                 "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
                 "name": "Linux",
@@ -181,6 +197,12 @@
                 "startingDirectory": "D:\\",
                 "tabTitle": "Termux",
                 "useAcrylic": false
+            },
+            {
+                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
+                "hidden": false,
+                "name": "Arch",
+                "source": "Windows.Terminal.Wsl"
             },
             {
                 "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
