@@ -40,7 +40,13 @@ if has('win32')
   set shell=pwsh\ -NoLogo shellpipe=\| shellxquote=
   set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
   set shellredir=\|\ Out-File\ -Encoding\ UTF8
+
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
 endif
+
 
 " 清空背景色，支持透明背景
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
