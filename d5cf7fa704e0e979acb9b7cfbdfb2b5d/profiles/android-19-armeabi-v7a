@@ -1,0 +1,11 @@
+[settings]
+compiler=clang
+compiler.version=5.0
+compiler.libcxx=c++_shared
+os=Android
+os.api_level=19
+arch=armv7
+build_type=Release
+
+[build_requires]
+ndk/r16b@screenshare/stable
