@@ -29,6 +29,9 @@ set undodir=~/.vim/undo/
 " 使用 %% 扩展当前文件的路径
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" 禁止*搜索自动跳至下一个
+nnoremap * *``
+
 " 将光标设为上次退出时的位置
 autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
