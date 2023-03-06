@@ -60,3 +60,10 @@ autocmd BufNewFile,BufFilePre,BufRead *.ui set filetype=xml
 autocmd BufNewFile,BufFilePre,BufRead *.qrc set filetype=xml
 autocmd BufNewFile,BufFilePre,BufRead *.mm set filetype=objc
 autocmd BufNewFile,BufFilePre,BufRead *.m set filetype=objcpp
+
+if has('win32')
+     autocmd VimEnter * !im-select.exe 1033
+     autocmd InsertEnter * :silent :!im-select.exe 2052
+     autocmd InsertLeave * :silent :!im-select.exe 1033
+     autocmd VimLeave * !im-select.exe 2052
+endif
