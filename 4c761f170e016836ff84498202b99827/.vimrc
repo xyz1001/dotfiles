@@ -59,6 +59,8 @@ endif
 Plug 'bronson/vim-trailing-whitespace'
 if has("x11")
     Plug 'lilydjwg/fcitx.vim'
+elseif has('win32')
+    Plug 'zhaosheng-pan/vim-im-select'
 endif
 Plug 'google/vim-searchindex'
 Plug 'kana/vim-textobj-user'
