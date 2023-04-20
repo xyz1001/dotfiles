@@ -43,7 +43,9 @@ if has('win32')
   set shell=pwsh\ -NoLogo shellpipe=\| shellxquote=
   set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
   set shellredir=\|\ Out-File\ -Encoding\ UTF8
+endif
 
+if !exists('$TMUX')
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-h> <C-w>h
