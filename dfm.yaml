@@ -5,6 +5,9 @@ dotfiles:
   109dd9c58466739d9d846be552d645fc\Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+  27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
+    windows:
+      path: ~\AppData\Roaming\topgrade.toml
   41d62a13ee890cadca00a018476d3d6f/pip.conf:
     darwin:
       path: ~/.config/pip/pip.conf
@@ -155,8 +158,6 @@ dotfiles:
   7db20105ed83a56e1a86dcc64c27f646/topgrade.toml:
     linux:
       path: ~/.config/topgrade.toml
-    windows:
-      path: ~\AppData\Roaming\topgrade.toml
   7db20105ed83a56e1a86dcc64c27f646/user-dirs.dirs:
     linux:
       path: ~/.config/user-dirs.dirs
