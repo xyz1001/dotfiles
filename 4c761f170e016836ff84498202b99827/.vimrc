@@ -92,7 +92,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'editorconfig/editorconfig-vim'
 
 " 开发
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
@@ -146,7 +146,6 @@ source ~/.vim/config/plugin/ack.vim
 source ~/.vim/config/plugin/vim-mundo.vim
 
 " 开发
-source ~/.vim/config/plugin/ultisnips.vim
 source ~/.vim/config/plugin/neoformat.vim
 source ~/.vim/config/plugin/doxygentoolkit.vim
 source ~/.vim/config/plugin/vim-polyglot.vim

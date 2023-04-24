@@ -1,4 +1,4 @@
-let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-html', 'coc-lists', 'coc-floaterm', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-cmake', 'coc-clangd', 'coc-explorer']
+let g:coc_global_extensions=['coc-yank', 'coc-tasks', 'coc-html', 'coc-lists', 'coc-floaterm', 'coc-diagnostic', 'coc-clang-format-style-options', 'coc-vimlsp', 'coc-sh', 'coc-pyright', 'coc-json', 'coc-cmake', 'coc-clangd', 'coc-explorer', 'coc-snippets']
 
 
 " Don't pass messages to |ins-completion-menu|.
@@ -143,3 +143,9 @@ autocmd BufWritePre * call FormatOnSave()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 :nnoremap <Leader>n :CocCommand explorer<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  snippets                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+imap <C-e> <Plug>(coc-snippets-expand)
+vmap <C-e> <Plug>(coc-snippets-select)
