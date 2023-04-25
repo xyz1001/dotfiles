@@ -17,6 +17,7 @@ antigen bundle vi-mode
 antigen bundle docker
 antigen bundle docker-compose
 antigen bundle skywind3000/z.lua
+antigen bundle paulirish/git-open
 
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
