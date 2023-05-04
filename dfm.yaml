@@ -5,6 +5,9 @@ dotfiles:
   109dd9c58466739d9d846be552d645fc\Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+  1a01c474be4111dbd18a475dc83b3642/config:
+    darwin:
+      path: ~/.config/bat/config
   27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
     windows:
       path: ~\AppData\Roaming\topgrade.toml
