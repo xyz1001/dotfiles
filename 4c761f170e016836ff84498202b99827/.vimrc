@@ -99,6 +99,7 @@ Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
 Plug 'liuchengxu/vista.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyru/caw.vim'
+Plug 'puremourning/vimspector'
 
 " 外部
 Plug 'xyz1001/WebSearch.vim'
@@ -156,3 +157,4 @@ source ~/.vim/config/plugin/caw.vim
 " 运行
 source ~/.vim/config/plugin/asyncrun.vim
 source ~/.vim/config/plugin/asynctasks.vim
+source ~/.vim/config/plugin/vimspector.vim
