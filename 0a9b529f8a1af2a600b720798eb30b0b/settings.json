@@ -13,16 +13,23 @@
         {
             "command": 
             {
+                "action": "scrollUp"
+            },
+            "keys": "ctrl+shift+j"
+        },
+        {
+            "command": 
+            {
                 "action": "moveFocus",
-                "direction": "right"
+                "direction": "left"
             }
         },
         {
             "command": 
             {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+shift+j"
+                "action": "moveFocus",
+                "direction": "right"
+            }
         },
         {
             "command": "find",
@@ -31,16 +38,17 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "down"
-            }
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "ctrl+alt+h"
         },
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "left"
-            }
+                "action": "scrollDown"
+            },
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -53,17 +61,9 @@
         {
             "command": 
             {
-                "action": "scrollDown"
-            },
-            "keys": "ctrl+shift+k"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "down"
-            },
-            "keys": "ctrl+alt+s"
+                "action": "moveFocus",
+                "direction": "down"
+            }
         },
         {
             "command": 
@@ -83,10 +83,10 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "left"
+                "action": "splitPane",
+                "split": "down"
             },
-            "keys": "ctrl+alt+h"
+            "keys": "ctrl+alt+s"
         },
         {
             "command": 
@@ -123,6 +123,10 @@
         {
             "command": "unbound",
             "keys": "ctrl+j"
+        },
+        {
+            "command": "unbound",
+            "keys": "f11"
         }
     ],
     "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
@@ -138,7 +142,7 @@
             "font": 
             {
                 "face": "FiraCode NF",
-                "size": 11
+                "size": 11.0
             },
             "historySize": 50001
         },
@@ -423,5 +427,6 @@
         }
     ],
     "tabSwitcherMode": "disabled",
+    "themes": [],
     "windowingBehavior": "useExisting"
 }
