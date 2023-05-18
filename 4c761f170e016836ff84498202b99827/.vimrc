@@ -100,6 +100,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyru/caw.vim'
 Plug 'puremourning/vimspector'
+Plug 'github/copilot.vim'
 
 " 外部
 Plug 'xyz1001/WebSearch.vim'
