@@ -13,6 +13,13 @@
         {
             "command": 
             {
+                "action": "moveFocus",
+                "direction": "right"
+            }
+        },
+        {
+            "command": 
+            {
                 "action": "scrollUp"
             },
             "keys": "ctrl+shift+j"
@@ -27,13 +34,10 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "right"
-            }
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+f"
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -44,19 +48,15 @@
             "keys": "ctrl+alt+h"
         },
         {
+            "command": "find",
+            "keys": "ctrl+f"
+        },
+        {
             "command": 
             {
                 "action": "scrollDown"
             },
             "keys": "ctrl+shift+k"
-        },
-        {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -76,17 +76,17 @@
         {
             "command": 
             {
-                "action": "newTab"
-            },
-            "keys": "ctrl+shift+c"
-        },
-        {
-            "command": 
-            {
                 "action": "splitPane",
                 "split": "down"
             },
             "keys": "ctrl+alt+s"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "keys": "ctrl+shift+c"
         },
         {
             "command": 
@@ -177,7 +177,9 @@
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
-                "startingDirectory": "%USERPROFILE%"
+                "opacity": 100,
+                "startingDirectory": "%USERPROFILE%",
+                "useAcrylic": false
             },
             {
                 "altGrAliasing": true,
