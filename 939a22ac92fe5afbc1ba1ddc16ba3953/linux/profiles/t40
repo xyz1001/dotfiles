@@ -1,10 +1,10 @@
 [settings]
 os=Linux
-arch=armv7
+arch=mips
 compiler=gcc
-compiler.version=4.8
+compiler.version=7.2
 compiler.libcxx=libstdc++11
 build_type=Release
 
 [build_requires]
-rk1108/cci.20220304@screenshare/stable
+t40/7.2.0@screenshare/stable
