@@ -130,7 +130,7 @@ function! ToggleFormatOnSave()
 endfunction
 
 function! FormatOnSave()
-    let g:save_on_format_filetypes= ['cpp', 'python', 'go', 'c', 'objc', 'glsl', 'html', 'css', 'javascript']
+    let g:save_on_format_filetypes= ['cpp', 'python', 'go', 'c', 'objc', 'objcpp', 'glsl', 'html', 'css', 'javascript']
     if index(g:save_on_format_filetypes, &ft) >= 0 && g:format_on_save
         Format
     endif
