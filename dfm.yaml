@@ -217,6 +217,8 @@ dotfiles:
     windows:
       path: ~\Documents\PowerToys\Backup\settings_133128841309404354.ptb
   f575f66ef83134c794367c172716a54f/config.yaml:
+    darwin:
+      path: ~/.config/clash-verge/config.yaml
     linux:
       path: ~/.config/clash/config.yaml
     windows:
