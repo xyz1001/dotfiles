@@ -223,4 +223,4 @@ dotfiles:
     linux:
       path: ~/.config/clash/config.yaml
     windows:
-      path: ~\.config\clash\config.yaml
+      path: ~\.config\clash-verge\config.yaml
