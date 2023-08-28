@@ -146,9 +146,15 @@ dotfiles:
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme
-  6ee1504095caefc322f5ca38b8074fd4/linux/config:
+  6ee1504095caefc322f5ca38b8074fd4/config:
+    android:
+      path: ~/.ssh
+    darwin:
+      path: ~/.ssh
     linux:
-      path: ~/.ssh/config
+      path: ~/.ssh
+    windows:
+      path: ~\.ssh
   7c04b629a71eadcb7909a7f8bc4b67f1/termshark.toml:
     linux:
       path: ~/.config/termshark/termshark.toml

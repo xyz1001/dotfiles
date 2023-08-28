@@ -1,0 +1,4 @@
+6ee1504095caefc322f5ca38b8074fd4/config filter=git-crypt diff=git-crypt
+
+# Making sure that .gitattributes is never encrypted. DON'T TOUCH THAT LINE AND ONE BELOW
+.gitattributes !filter !diff
