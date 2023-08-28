@@ -1,8 +1,0 @@
-{
-  "lastUpdate": "2022-10-13T10:54:53.7460451+08:00",
-  "SCOOP_REPO": "https://github.com/ScoopInstaller/Scoop",
-  "SCOOP_BRANCH": "master",
-  "aria2-warning-enabled": false,
-  "aria2-enabled": true,
-  "proxy": "127.0.0.1:10800"
-}

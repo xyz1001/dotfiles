@@ -213,9 +213,6 @@ dotfiles:
   98aa85ae713c3a0099436947c94b7e2b/com.googlecode.iterm2.plist:
     darwin:
       path: ~/Library/Preferences/com.googlecode.iterm2.plist
-  babf633669b76270bc3e32a7dbe49fc8/config.json:
-    windows:
-      path: ~\.config\scoop\config.json
   d5cf7fa704e0e979acb9b7cfbdfb2b5d/profiles:
     windows:
       path: ~\.conan\profiles
