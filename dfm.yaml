@@ -210,9 +210,6 @@ dotfiles:
       path: ~/.config/nvim/init.vim
     windows:
       path: ~\AppData\Local\nvim\init.vim
-  98aa85ae713c3a0099436947c94b7e2b/com.googlecode.iterm2.plist:
-    darwin:
-      path: ~/Library/Preferences/com.googlecode.iterm2.plist
   d5cf7fa704e0e979acb9b7cfbdfb2b5d/profiles:
     windows:
       path: ~\.conan\profiles
