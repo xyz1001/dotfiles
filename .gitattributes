@@ -1,7 +1,7 @@
 6ee1504095caefc322f5ca38b8074fd4/config filter=git-crypt diff=git-crypt
 4c761f170e016836ff84498202b99827/.gitconfig.work filter=git-crypt diff=git-crypt
 4c761f170e016836ff84498202b99827/.gitconfig.cvte filter=git-crypt diff=git-crypt
-f575f66ef83134c794367c172716a54f/config.yaml filter=git-crypt diff=git-crypt
+f575f66ef83134c794367c172716a54f/clash-verge.yaml filter=git-crypt diff=git-crypt
 
 # Making sure that .gitattributes is never encrypted. DON'T TOUCH THAT LINE AND ONE BELOW
 .gitattributes !filter !diff
