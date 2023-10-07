@@ -219,3 +219,5 @@ dotfiles:
   f575f66ef83134c794367c172716a54f/config.yaml:
     linux:
       path: ~/.config/clash/config.yaml
+    windows:
+      path: ~\.config\clash\config.yaml
