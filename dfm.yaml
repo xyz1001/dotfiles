@@ -104,6 +104,9 @@ dotfiles:
   4c761f170e016836ff84498202b99827/.pam_environment:
     linux:
       path: ~/.pam_environment
+  4c761f170e016836ff84498202b99827/.pypirc:
+    linux:
+      path: ~/.pypirc
   4c761f170e016836ff84498202b99827/.tmux.conf:
     android:
       path: ~/.tmux.conf
