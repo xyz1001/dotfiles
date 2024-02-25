@@ -32,46 +32,16 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " 外观
-Plug 'flazz/vim-colorschemes'
-Plug 'itchyny/lightline.vim'
 if exists('$TMUX')
     " 修改statusline配色后启用该插件生成tmuxline配色文件
     " Plug 'edkolev/tmuxline.vim'
 endif
-Plug 'overcache/NeoSolarized'
-Plug 'Yggdroot/indentLine'
 
-" 窗口
-if exists('$TMUX')
-    Plug 'christoomey/vim-tmux-navigator'
-endif
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-fugitive'
-Plug 'rhysd/committia.vim'
-Plug 'Valloric/ListToggle'
-Plug 'voldikss/vim-floaterm'
-Plug 'chrisbra/Recover.vim'
-if has("nvim")
-    Plug 'nvim-lua/plenary.nvim'| Plug 'kyazdani42/nvim-web-devicons' | Plug 'nvim-telescope/telescope.nvim'
-endif
 
 " 编辑
-Plug 'bronson/vim-trailing-whitespace'
-if has("x11")
-    Plug 'lilydjwg/fcitx.vim'
-elseif has('win32')
+if has('win32')
     Plug 'zhaosheng-pan/vim-im-select'
 endif
-Plug 'google/vim-searchindex'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-operator-user'
-Plug 'lucapette/vim-textobj-underscore'
-Plug 'sgur/vim-textobj-parameter'
-Plug 'terryma/vim-expand-region'
-Plug 'junegunn/vim-easy-align'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/VisIncr'
 Plug 'ianva/vim-youdao-translater'
@@ -95,7 +65,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81'}
+Plug 'neoclide/coc.nvim'
 Plug 'liuchengxu/vista.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tyru/caw.vim'
