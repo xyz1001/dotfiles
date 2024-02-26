@@ -155,6 +155,15 @@ dotfiles:
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme
+  62b5a4f5584787034192bed3d4bb011d/nvim:
+    android:
+      path: ~/.config/nvim
+    darwin:
+      path: ~/.config/nvim
+    linux:
+      path: ~/.config/nvim
+    windows:
+      path: ~\AppData\Local\nvim
   6ee1504095caefc322f5ca38b8074fd4/config:
     android:
       path: ~/.ssh
@@ -186,33 +195,22 @@ dotfiles:
       path: ~/.tmux/tmuxcolor-solarized-dark.conf
     linux:
       path: ~/.tmux/tmuxcolor-solarized-dark.conf
+  8147832b2738c189d63005d4cf8199f8/tmuxcolor-tokyonight-night.conf:
+    android:
+      path: ~/.tmux/tmuxcolor-tokyonight-night.conf
+    darwin:
+      path: ~/.tmux/tmuxcolor-tokyonight-night.conf
+    linux:
+      path: ~/.tmux/tmuxcolor-tokyonight-night.conf
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
-  873186f38d763b57c31564d92ddfd667/coc-settings.json:
-    android:
-      path: ~/.config/nvim/coc-settings.json
-    darwin:
-      path: ~/.config/nvim/coc-settings.json
-    linux:
-      path: ~/.config/nvim/coc-settings.json
-    windows:
-      path: ~\AppData\Local\nvim\coc-settings.json
   939a22ac92fe5afbc1ba1ddc16ba3953/darwin/profiles:
     darwin:
       path: ~/.conan/profiles
   939a22ac92fe5afbc1ba1ddc16ba3953/linux/profiles:
     linux:
       path: ~/.conan/profiles
-  941b30d1b9151621491c82b8f0950a97/init.vim:
-    android:
-      path: ~/.config/nvim/init.vim
-    darwin:
-      path: ~/.config/nvim/init.vim
-    linux:
-      path: ~/.config/nvim/init.vim
-    windows:
-      path: ~\AppData\Local\nvim\init.vim
   d5cf7fa704e0e979acb9b7cfbdfb2b5d/profiles:
     windows:
       path: ~\.conan\profiles

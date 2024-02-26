@@ -14,7 +14,7 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "right"
+                "direction": "left"
             }
         },
         {
@@ -28,16 +28,15 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "left"
+                "direction": "right"
             }
         },
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "down"
+                "action": "scrollDown"
             },
-            "keys": "ctrl+alt+j"
+            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -54,9 +53,10 @@
         {
             "command": 
             {
-                "action": "scrollDown"
+                "action": "resizePane",
+                "direction": "down"
             },
-            "keys": "ctrl+shift+k"
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -72,6 +72,30 @@
                 "split": "right"
             },
             "keys": "ctrl+alt+v"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+k"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+h"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+l"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+j"
+        },
+        {
+            "command": "unbound",
+            "keys": "f11"
         },
         {
             "command": 
@@ -103,45 +127,27 @@
                 "direction": "right"
             },
             "keys": "ctrl+alt+l"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+k"
-        },
-        {
-            "command": "unbound",
-            "keys": "alt+up"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+h"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+l"
-        },
-        {
-            "command": "unbound",
-            "keys": "ctrl+j"
-        },
-        {
-            "command": "unbound",
-            "keys": "f11"
         }
     ],
     "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
     "initialRows": 80,
     "language": "zh-Hans-CN",
     "launchMode": "maximized",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
         {
             "bellStyle": "none",
-            "colorScheme": "Solarized Dark",
+            "colorScheme": "Tokyo Night",
             "font": 
             {
-                "face": "FiraCode NF",
+                "face": "FiraCode Nerd Font Mono",
                 "size": 11.0
             },
             "historySize": 50001
@@ -149,22 +155,7 @@
         "list": 
         [
             {
-                "colorScheme": "Solarized Dark",
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo",
-                "font": 
-                {
-                    "face": "FiraCode NF"
-                },
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": true,
-                "historySize": 32000,
-                "name": "Windows PowerShell",
-                "opacity": 70,
-                "startingDirectory": "D:\\",
-                "useAcrylic": false
-            },
-            {
-                "colorScheme": "Solarized Dark",
+                "colorScheme": "Tokyo Night",
                 "commandline": "wsl.exe -d arch  --cd ~ tmux",
                 "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
@@ -172,8 +163,12 @@
                 "startingDirectory": null
             },
             {
-                "colorScheme": "Solarized Dark",
+                "colorScheme": "Tokyo Night",
                 "commandline": "pwsh.exe -NoLogo",
+                "font": 
+                {
+                    "face": "FiraCode Nerd Font Mono"
+                },
                 "guid": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
@@ -182,39 +177,9 @@
                 "useAcrylic": false
             },
             {
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "closeOnExit": "graceful",
-                "colorScheme": "Solarized Dark",
-                "commandline": "ssh -t localhost -p 8022 tmux",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "face": "FiraCode NF"
-                },
-                "guid": "{0bd8c992-b852-44a5-a085-8b31db76360c}",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "historySize": 32000,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Android",
-                "opacity": 100,
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": "D:\\",
-                "tabTitle": "Termux",
-                "useAcrylic": false
-            },
-            {
-                "guid": "{a5a97cb8-8961-5535-816d-772efe0c6a3f}",
-                "hidden": false,
-                "name": "Arch",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
-                "hidden": true,
-                "name": "Visual Studio Debug Console",
-                "source": "VSDebugConsole"
+                "name": "Windows PowerShell"
             }
         ]
     },
@@ -405,6 +370,29 @@
             "yellow": "#C4A000"
         },
         {
+            "background": "#1A1B26",
+            "black": "#15161E",
+            "blue": "#7AA2F7",
+            "brightBlack": "#414868",
+            "brightBlue": "#7AA2F7",
+            "brightCyan": "#7DCFFF",
+            "brightGreen": "#9ECE6A",
+            "brightPurple": "#9D7CD8",
+            "brightRed": "#F7768E",
+            "brightWhite": "#C0CAF5",
+            "brightYellow": "#E0AF68",
+            "cursorColor": "#C0CAF5",
+            "cyan": "#7DCFFF",
+            "foreground": "#C0CAF5",
+            "green": "#9ECE6A",
+            "name": "Tokyo Night",
+            "purple": "#BB9AF7",
+            "red": "#F7768E",
+            "selectionBackground": "#283457",
+            "white": "#A9B1D6",
+            "yellow": "#E0AF68"
+        },
+        {
             "background": "#000000",
             "black": "#000000",
             "blue": "#000080",
@@ -426,29 +414,6 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
-        },
-        {
-            "background": "#1a1b26",
-            "black": "#15161e",
-            "blue": "#7aa2f7",
-            "brightBlack": "#414868",
-            "brightBlue": "#7aa2f7",
-            "brightCyan": "#7dcfff",
-            "brightGreen": "#9ece6a",
-            "brightPurple": "#9d7cd8",
-            "brightRed": "#f7768e",
-            "brightWhite": "#c0caf5",
-            "brightYellow": "#e0af68",
-            "cursorColor": "#c0caf5",
-            "cyan": "#7dcfff",
-            "foreground": "#c0caf5",
-            "green": "#9ece6a",
-            "name": "Tokyo Night",
-            "purple": "#bb9af7",
-            "red": "#f7768e",
-            "selectionBackground": "#283457",
-            "white": "#a9b1d6",
-            "yellow": "#e0af68"
         }
     ],
     "tabSwitcherMode": "disabled",

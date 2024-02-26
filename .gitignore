@@ -1,7 +1,3 @@
-**/.vim/*
-!**/.vim/config
-!**/.vim/UltiSnips
-!**/.vim/coc-settings.json
 *.swp
 *.swo
 *.pyc
