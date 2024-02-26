@@ -73,6 +73,7 @@
       }
     }
   },
+  "clangd.compilationDatabaseCandidates": ["build", "build/Debug", "build/Release"],
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 30,
   "snippets.ultisnips.pythonPrompt": false
