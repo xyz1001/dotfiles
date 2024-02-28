@@ -384,6 +384,11 @@ require("lazy").setup({
             "hrsh7th/cmp-path",
             'hrsh7th/cmp-cmdline',
             {
+                'quangnguyen30192/cmp-nvim-ultisnips',
+                config = true,
+                dependencies = { 'SirVer/ultisnips' }
+            },
+            {
                 'saadparwaiz1/cmp_luasnip',
                 dependencies = { 'L3MON4D3/LuaSnip' }
             },
@@ -402,6 +407,7 @@ require("lazy").setup({
             return {
                 snippet = {
                     expand = function(args)
+                        vim.fn["UltiSnips#Anon"](args.body)
                         require('luasnip').lsp_expand(args.body)
                     end,
                 },
@@ -425,14 +431,15 @@ require("lazy").setup({
                     { name = 'copilot' },
                     { name = 'nvim_lsp' },
                     { name = 'path' },
-                    { name = 'luasnip' },
                     { name = 'cmp_yanky' },
                     { name = 'doxygen' },
+                    { name = 'ultisnips' },
+                    { name = 'luasnip' },
                 }, {
                     { name = 'buffer' },
                 }),
                 formatting = {
-                    format = function(entry, vim_item)
+                    format = function(_, vim_item)
                         vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
                         return vim_item
                     end
@@ -455,7 +462,6 @@ require("lazy").setup({
             delete_check_events = "TextChanged",
         },
         keys = {
-            { "<C-e>", function() require("luasnip").expand() end, mode = "i" },
             {
                 "<C-j>",
                 function()
@@ -469,4 +475,12 @@ require("lazy").setup({
             { "<C-k>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
         },
     },
+    {
+        'SirVer/ultisnips',
+        init = function()
+            vim.g.UltiSnipsExpandTrigger = "<C-e>"
+            vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
+            vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+        end,
+    }
 })
