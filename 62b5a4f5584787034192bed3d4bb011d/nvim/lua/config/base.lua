@@ -56,7 +56,7 @@ if not vim.env.TMUX then
     vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 end
-if vim.fn.has('win32') then
+if vim.fn.has('win32') ~= 0 then
     vim.opt.shell = 'pwsh'
     vim.opt.shellpipe = '|'
     vim.opt.shellxquote = ''
