@@ -227,7 +227,6 @@ require("lazy").setup({
 	{
 		"voldikss/vim-translator",
 		keys = {
-			{ "<C-t>", "<Plug>TranslateW" },
 			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" } },
 		},
 	},
@@ -474,7 +473,7 @@ require("lazy").setup({
 					{ name = "nvim_lsp", trigger_characters = { ".", ">", ":", "/" } },
 					{ name = "path" },
 					{ name = "cmp_yanky" },
-					{ name = "doxygen" },
+					{ name = "doxygen", keyword_length = 1 },
 					{ name = "ultisnips" },
 					{ name = "luasnip" },
 				}, {
