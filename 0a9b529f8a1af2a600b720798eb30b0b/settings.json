@@ -14,6 +14,13 @@
             "command": 
             {
                 "action": "moveFocus",
+                "direction": "right"
+            }
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
                 "direction": "left"
             }
         },
@@ -27,9 +34,10 @@
         {
             "command": 
             {
-                "action": "moveFocus",
-                "direction": "right"
-            }
+                "action": "resizePane",
+                "direction": "down"
+            },
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -37,6 +45,10 @@
                 "action": "scrollDown"
             },
             "keys": "ctrl+shift+k"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+f"
         },
         {
             "command": 
@@ -47,16 +59,12 @@
             "keys": "ctrl+alt+h"
         },
         {
-            "command": "find",
-            "keys": "ctrl+f"
-        },
-        {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "down"
+                "action": "splitPane",
+                "split": "right"
             },
-            "keys": "ctrl+alt+j"
+            "keys": "ctrl+alt+v"
         },
         {
             "command": 
@@ -64,14 +72,6 @@
                 "action": "moveFocus",
                 "direction": "down"
             }
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "right"
-            },
-            "keys": "ctrl+alt+v"
         },
         {
             "command": "unbound",
@@ -144,7 +144,7 @@
         "defaults": 
         {
             "bellStyle": "none",
-            "colorScheme": "Tokyo Night",
+            "colorScheme": "Tokyo Night Storm",
             "font": 
             {
                 "face": "FiraCode Nerd Font Mono",
@@ -155,7 +155,6 @@
         "list": 
         [
             {
-                "colorScheme": "Tokyo Night",
                 "commandline": "wsl.exe -d arch  --cd ~ tmux",
                 "guid": "{ab5a49cf-a98f-43be-9888-9c373ab0fe86}",
                 "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
@@ -163,7 +162,7 @@
                 "startingDirectory": null
             },
             {
-                "colorScheme": "Tokyo Night",
+                "colorScheme": "Tokyo Night Storm",
                 "commandline": "pwsh.exe -NoLogo",
                 "font": 
                 {
@@ -370,8 +369,8 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#1A1B26",
-            "black": "#15161E",
+            "background": "#24283B",
+            "black": "#1D202F",
             "blue": "#7AA2F7",
             "brightBlack": "#414868",
             "brightBlue": "#7AA2F7",
@@ -385,10 +384,10 @@
             "cyan": "#7DCFFF",
             "foreground": "#C0CAF5",
             "green": "#9ECE6A",
-            "name": "Tokyo Night",
+            "name": "Tokyo Night Storm",
             "purple": "#BB9AF7",
             "red": "#F7768E",
-            "selectionBackground": "#283457",
+            "selectionBackground": "#2E3C64",
             "white": "#A9B1D6",
             "yellow": "#E0AF68"
         },
