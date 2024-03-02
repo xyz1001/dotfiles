@@ -10,7 +10,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldenable = false
 vim.opt.suffixes = ".bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class"
 vim.opt.wildignore =
-	"*.o, *.obj, *~, *.exe, *.a, *.pdb, *.lib, *.so, *.dll, *.swp, *.egg, *.jar, *.class, *.pyc, *.pyo, *.bin, *.dex, *.zip, *.7z, *.rar, *.gz, *.tar, *.gzip, *.bz2, *.tgz, *.xz, *DS_Store*, *.ipch, *.gem, *.png, *.jpg, *.gif, *.bmp, *.tga, *.pcx, *.ppm, *.img, *.iso, *.so, *.swp, *.zip, */.Trash/**, *.pdf, *.dmg, */.rbenv/**, */.nx/**, *.app, *.git, .git, *.wav, *.mp3, *.ogg, *.pcm, *.mht, *.suo, *.sdf, *.jnlp, *.chm, *.epub, *.pdf, *.mobi, *.ttf, *.mp4, *.avi, *.flv, *.mov, *.mkv, *.swf, *.swc, *.ppt, *.pptx, *.docx, *.xlt, *.xls, *.xlsx, *.odt, *.wps, *.msi, *.crx, *.deb, *.vfd, *.apk, *.ipa, *.bin, *.msu, *.gba, *.sfc, *.078, *.nds, *.smd, *.smc, *.linux2, *.win32, *.darwin, *.freebsd, *.linux, *.android"
+"*.o, *.obj, *~, *.exe, *.a, *.pdb, *.lib, *.so, *.dll, *.swp, *.egg, *.jar, *.class, *.pyc, *.pyo, *.bin, *.dex, *.zip, *.7z, *.rar, *.gz, *.tar, *.gzip, *.bz2, *.tgz, *.xz, *DS_Store*, *.ipch, *.gem, *.png, *.jpg, *.gif, *.bmp, *.tga, *.pcx, *.ppm, *.img, *.iso, *.so, *.swp, *.zip, */.Trash/**, *.pdf, *.dmg, */.rbenv/**, */.nx/**, *.app, *.git, .git, *.wav, *.mp3, *.ogg, *.pcm, *.mht, *.suo, *.sdf, *.jnlp, *.chm, *.epub, *.pdf, *.mobi, *.ttf, *.mp4, *.avi, *.flv, *.mov, *.mkv, *.swf, *.swc, *.ppt, *.pptx, *.docx, *.xlt, *.xls, *.xlsx, *.odt, *.wps, *.msi, *.crx, *.deb, *.vfd, *.apk, *.ipa, *.bin, *.msu, *.gba, *.sfc, *.078, *.nds, *.smd, *.smc, *.linux2, *.win32, *.darwin, *.freebsd, *.linux, *.android"
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -30,6 +30,8 @@ vim.opt.backup = true
 vim.opt.backupext = "bak"
 vim.opt.backupdir = vim.fn.stdpath("data") .. "/backup"
 vim.opt.undofile = true
+vim.opt.updatetime = 300
+vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "
 vim.api.nvim_set_keymap("", "H", "^", { noremap = true, silent = true })
@@ -51,31 +53,31 @@ vim.api.nvim_set_keymap("t", "<c-a>", "<c-\\><c-n>", { noremap = true, silent = 
 -- ' 禁止*搜索自动跳至下一个
 vim.api.nvim_set_keymap("n", "*", "*``", { noremap = true, silent = true })
 if not vim.env.TMUX then
-	vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 end
 if vim.fn.has("win32") ~= 0 then
-	vim.opt.shell = "pwsh"
-	vim.opt.shellpipe = "|"
-	vim.opt.shellxquote = ""
-	vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-	vim.opt.shellredir = "| Out-File -Encoding UTF8"
+    vim.opt.shell = "pwsh"
+    vim.opt.shellpipe = "|"
+    vim.opt.shellxquote = ""
+    vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
+    vim.opt.shellredir = "| Out-File -Encoding UTF8"
 end
 -- ' 清空背景色，支持透明背景
 -- autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 vim.filetype.add({
-	extension = {
-		qss = "css",
-		ts = "xml",
-		ui = "xml",
-		qrc = "xml",
-	},
+    extension = {
+        qss = "css",
+        ts = "xml",
+        ui = "xml",
+        qrc = "xml",
+    },
 })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	desc = "return cursor to where it was last time closing the file",
-	pattern = "*",
-	command = 'silent! normal! g`"zv',
+    desc = "return cursor to where it was last time closing the file",
+    pattern = "*",
+    command = 'silent! normal! g`"zv',
 })
