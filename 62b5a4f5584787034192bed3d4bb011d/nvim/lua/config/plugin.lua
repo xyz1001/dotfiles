@@ -367,13 +367,22 @@ require("lazy").setup({
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				cpp = { "clang-format" },
+				cpp = { "clang_format" },
 			},
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
+			format_on_save = function(bufnr)
+				if vim.g.disable_autoformat then
+					return
+				end
+				return { timeout_ms = 500, lsp_fallback = true }
+			end,
 		},
+		init = function()
+			vim.api.nvim_create_user_command("ToggleFormat", function(args)
+				vim.g.disable_autoformat = not vim.g.disable_autoformat
+			end, {
+				desc = "toggle autoformat-on-save",
+			})
+		end,
 	},
 	{
 		"neoclide/coc.nvim",
