@@ -316,8 +316,7 @@ require("lazy").setup({
 		"AndrewRadev/splitjoin.vim",
 	},
 	{
-		"numToStr/Comment.nvim",
-		config = true,
+		"tyru/caw.vim",
 		lazy = false,
 	},
 	{
