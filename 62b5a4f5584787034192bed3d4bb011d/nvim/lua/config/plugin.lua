@@ -319,6 +319,9 @@ require("lazy").setup({
 		"numToStr/Comment.nvim",
 		config = true,
 		lazy = false,
+		opts = {
+			padding = false,
+		},
 	},
 	{
 		"vim-scripts/DoxygenToolkit.vim",
