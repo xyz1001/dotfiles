@@ -49,7 +49,7 @@ repos = [
 #pull_predefined = false
 
 # Arguments to pass Git when pulling Repositories
-pull_arguments = "--rebase --autostash"
+arguments = "--rebase --autostash"
 
 [composer]
 #self_update = true
