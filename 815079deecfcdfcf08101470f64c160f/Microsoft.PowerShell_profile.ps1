@@ -15,6 +15,8 @@ Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
 Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
 Set-Theme Agnoster
 
+Set-PSReadLineOption -Colors @{ "Parameter" = "`e[97;2;3m"; "Operator" = "`e[97;2;3m" }
+
 $Env:LESSCHARSET="utf-8"
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
