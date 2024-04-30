@@ -230,6 +230,8 @@ require("lazy").setup({
 					mappings = {
 						["E"] = "system_open",
 						["I"] = "run_command",
+                        ["/"] = "",
+                        ["z"] = "",
 					},
 				},
 				commands = {
