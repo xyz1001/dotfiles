@@ -14,13 +14,6 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "right"
-            }
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
                 "direction": "left"
             }
         },
@@ -34,10 +27,9 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "down"
-            },
-            "keys": "ctrl+alt+j"
+                "action": "moveFocus",
+                "direction": "right"
+            }
         },
         {
             "command": 
@@ -45,10 +37,6 @@
                 "action": "scrollDown"
             },
             "keys": "ctrl+shift+k"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+f"
         },
         {
             "command": 
@@ -59,12 +47,16 @@
             "keys": "ctrl+alt+h"
         },
         {
+            "command": "find",
+            "keys": "ctrl+f"
+        },
+        {
             "command": 
             {
-                "action": "splitPane",
-                "split": "right"
+                "action": "resizePane",
+                "direction": "down"
             },
-            "keys": "ctrl+alt+v"
+            "keys": "ctrl+alt+j"
         },
         {
             "command": 
@@ -72,6 +64,14 @@
                 "action": "moveFocus",
                 "direction": "down"
             }
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+alt+v"
         },
         {
             "command": "unbound",
@@ -416,6 +416,8 @@
         }
     ],
     "tabSwitcherMode": "disabled",
+    "theme": "system",
     "themes": [],
+    "useAcrylicInTabRow": true,
     "windowingBehavior": "useExisting"
 }
