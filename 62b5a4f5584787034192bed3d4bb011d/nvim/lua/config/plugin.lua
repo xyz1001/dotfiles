@@ -230,8 +230,8 @@ require("lazy").setup({
 					mappings = {
 						["E"] = "system_open",
 						["I"] = "run_command",
-                        ["/"] = "",
-                        ["z"] = "",
+						["/"] = "",
+						["z"] = "",
 					},
 				},
 				commands = {
@@ -373,7 +373,10 @@ require("lazy").setup({
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
+				c = { "clang_format" },
 				cpp = { "clang_format" },
+				objc = { "clang_format" },
+				objcpp = { "clang_format" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
