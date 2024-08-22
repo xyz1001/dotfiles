@@ -15,4 +15,5 @@
   "explorer.width": 30,
   "snippets.ultisnips.pythonPrompt": false,
   "suggest.noselect": true,
+  "inlayHint.enable": false,
 }
