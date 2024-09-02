@@ -1,10 +1,12 @@
 [wsl2]
 guiapplications=true
+kernelCommandLine = vsyscall=emulate
 
 [experimental]
-autoMemoryReclaim=gradual
+autoMemoryReclaim=disabled
 networkingMode=mirrored
 dnsTunneling=true
 firewall=true
 autoProxy=true
 sparseVhd=true
+hostAddressLoopback=true
