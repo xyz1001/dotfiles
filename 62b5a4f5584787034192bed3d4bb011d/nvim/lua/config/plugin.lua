@@ -377,6 +377,8 @@ require("lazy").setup({
 				cpp = { "clang_format" },
 				objc = { "clang_format" },
 				objcpp = { "clang_format" },
+				dart = { "dart_format" },
+				python = { "autopep8" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
@@ -474,6 +476,75 @@ require("lazy").setup({
 	},
 	{
 		"github/copilot.vim",
+	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		opts = {
+			show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
+			debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
+			disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
+			language = "Chinese", -- Copilot answer language settings when using default prompts. Default language is English.
+			prompts = {
+				Explain = "请解释选中的代码",
+				Review = "审查选中的代码",
+				Fix = "这代代码中存在一个问题，请重写这段代码以修复bug",
+				Optimize = "请优化选中的代码",
+				Docs = "请为我的代码生成文档",
+				Tests = "请为我的代码生成测试",
+				FixDiagnostic = "请帮助解决以下文件中的诊断问题：",
+				Commit = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
+				CommitStaged = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
+			},
+		},
+		build = function()
+			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+		end,
+		event = "VeryLazy",
+		keys = {
+			{ "<leader>ccb", ":CopilotChatBuffer ", desc = "CopilotChat - Chat with current buffer" },
+			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+			{ "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+			{
+				"<leader>ccT",
+				"<cmd>CopilotChatVsplitToggle<cr>",
+				desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
+			},
+			{
+				"<leader>ccv",
+				":CopilotChatVisual ",
+				mode = "x",
+				desc = "CopilotChat - Open in vertical split",
+			},
+			{
+				"<leader>ccx",
+				":CopilotChatInPlace<cr>",
+				mode = "x",
+				desc = "CopilotChat - Run in-place code",
+			},
+			{
+				"<leader>ccf",
+				"<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
+				desc = "CopilotChat - Fix diagnostic",
+			},
+			{
+				"<leader>ccr",
+				"<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
+				desc = "CopilotChat - Reset chat history and clear buffer",
+			},
+		},
+	},
+	{
+		"folke/edgy.nvim",
+		event = "VeryLazy",
+		opts = {
+			right = {
+				{
+					title = "CopilotChat.nvim", -- Title of the window
+					ft = "copilot-chat", -- This is custom file type from CopilotChat.nvim
+					size = { width = 0.4 }, -- Width of the window
+				},
+			},
+		},
 	},
 	-- {
 	-- 	"williamboman/mason.nvim",
