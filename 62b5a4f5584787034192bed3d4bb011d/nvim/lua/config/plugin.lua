@@ -274,6 +274,7 @@ require("lazy").setup({
 		"hedyhli/markdown-toc.nvim",
 		ft = "markdown",
 		cmd = { "Mtoc" },
+		config = true,
 	},
 	{
 		"easymotion/vim-easymotion",
