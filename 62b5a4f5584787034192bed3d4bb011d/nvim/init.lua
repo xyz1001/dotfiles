@@ -1,2 +1,2 @@
-require('config.base')
-require('config.plugin')
+require("config.base")
+require("config.plugin")
