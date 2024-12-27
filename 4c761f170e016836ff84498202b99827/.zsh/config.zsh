@@ -24,6 +24,8 @@ export MAKEFLAGS=-j$(nproc)
 
 export NVM_DIR="$HOME/.nvm"
 
+export PIP_BREAK_SYSTEM_PACKAGES=1
+
 export PATH=$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.local/bin:$PATH
 
 #######################################################################
