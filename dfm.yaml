@@ -175,13 +175,13 @@ dotfiles:
       path: ~\AppData\Local\nvim
   6ee1504095caefc322f5ca38b8074fd4/config:
     android:
-      path: ~/.ssh
+      path: ~/.ssh/config
     darwin:
-      path: ~/.ssh
+      path: ~/.ssh/config
     linux:
-      path: ~/.ssh
+      path: ~/.ssh/config
     windows:
-      path: ~\.ssh
+      path: ~\.ssh\config
   7c04b629a71eadcb7909a7f8bc4b67f1/termshark.toml:
     linux:
       path: ~/.config/termshark/termshark.toml
