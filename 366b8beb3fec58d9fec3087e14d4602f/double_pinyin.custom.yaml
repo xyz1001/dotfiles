@@ -1,0 +1,12 @@
+patch:
+  speller/algebra/+:
+    - derive/^([v])/z/             # zh, ch, sh => z, c, s
+    - derive/^([i])/c/             # zh, ch, sh => z, c, s
+    - derive/^([u])/s/             # zh, ch, sh => z, c, s
+    - derive/^([z])/v/             # zh, ch, sh => z, c, s
+    - derive/^([c])/i/             # zh, ch, sh => z, c, s
+    - derive/^([s])/u/             # zh, ch, sh => z, c, s
+    - derive/([f])$/g/             # zh, ch, sh => z, c, s
+    - derive/([g])$/f/             # zh, ch, sh => z, c, s
+    - derive/([n])$/y/             # zh, ch, sh => z, c, s
+    - derive/([y])$/n/             # zh, ch, sh => z, c, s
