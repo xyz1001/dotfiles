@@ -25,3 +25,26 @@
 	selected = manager-core
 [push]
 	autoSetupRemote = true
+	default = simple
+	followTags = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[diff]
+	algorithm = histogram
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true
+	autoupdate = true
