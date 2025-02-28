@@ -11,6 +11,9 @@ dotfiles:
   27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
     windows:
       path: ~\AppData\Roaming\topgrade.toml
+  33b493d56cd7e8107b52f599e9851c79/fonts.conf:
+    linux:
+      path: ~/.config/fontconfig/fonts.conf
   366b8beb3fec58d9fec3087e14d4602f/default.custom.yaml:
     linux:
       path: ~/.local/share/fcitx5/rime/default.custom.yaml
