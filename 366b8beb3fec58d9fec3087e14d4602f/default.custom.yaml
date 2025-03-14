@@ -4,3 +4,5 @@ patch:
     - schema: rime_ice               # 雾凇拼音（全拼）
 
   menu/page_size: 9
+  ascii_composer/switch_key/Shift_L: commit_code
+
