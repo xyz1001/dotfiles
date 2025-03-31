@@ -676,6 +676,14 @@ require("lazy").setup({
 				end,
 				desc = "查看断点",
 			},
+			{
+				-- 写在dapui中就会导致dap listener无法正常工作
+				"<Leader>du",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "打开/关闭调试窗口",
+			},
 		},
 		config = function()
 			vim.api.nvim_set_hl(0, "DapStopped", {
@@ -802,8 +810,47 @@ require("lazy").setup({
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
 		},
-		opts = function()
-			local dap, dapui = require("dap"), require("dapui")
+		opts = {
+			layouts = {
+				{
+					elements = {
+						{
+							id = "repl",
+							size = 0.25,
+						},
+						{
+							id = "stacks",
+							size = 0.25,
+						},
+						{
+							id = "watches",
+							size = 0.25,
+						},
+						{
+							id = "scopes",
+							size = 0.25,
+						},
+					},
+					position = "right",
+					size = 80,
+				},
+				{
+					elements = {
+						{
+							id = "console",
+							size = 1,
+						},
+					},
+					position = "bottom",
+					size = 40,
+				},
+			},
+		},
+		config = function(_, opts)
+			local dapui = require("dapui")
+			dapui.setup(opts)
+
+			local dap = require("dap")
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
 			end
@@ -816,42 +863,6 @@ require("lazy").setup({
 			dap.listeners.before.event_exited.dapui_config = function()
 				dapui.close()
 			end
-			return {
-				layouts = {
-					{
-						elements = {
-							{
-								id = "repl",
-								size = 0.25,
-							},
-							{
-								id = "stacks",
-								size = 0.25,
-							},
-							{
-								id = "watches",
-								size = 0.25,
-							},
-							{
-								id = "scopes",
-								size = 0.25,
-							},
-						},
-						position = "right",
-						size = 80,
-					},
-					{
-						elements = {
-							{
-								id = "console",
-								size = 1,
-							},
-						},
-						position = "bottom",
-						size = 40,
-					},
-				},
-			}
 		end,
 	},
 	{
