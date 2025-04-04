@@ -232,6 +232,7 @@ require("lazy").setup({
 						["I"] = "run_command",
 						["/"] = "",
 						["z"] = "",
+						["oa"] = "avante_add_files",
 					},
 				},
 				commands = {
@@ -250,6 +251,27 @@ require("lazy").setup({
 						local node = state.tree:get_node()
 						local path = node:get_id()
 						vim.api.nvim_input(": " .. path .. "<Home>")
+					end,
+					avante_add_files = function(state)
+						local node = state.tree:get_node()
+						local filepath = node:get_id()
+						local relative_path = require("avante.utils").relative_path(filepath)
+
+						local sidebar = require("avante").get()
+
+						local open = sidebar:is_open()
+						-- 确保 avante 侧边栏已打开
+						if not open then
+							require("avante.api").ask()
+							sidebar = require("avante").get()
+						end
+
+						sidebar.file_selector:add_selected_file(relative_path)
+
+						-- 删除 neo tree 缓冲区
+						if not open then
+							sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
+						end
 					end,
 				},
 			},
@@ -549,6 +571,52 @@ require("lazy").setup({
 			},
 		},
 	},
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		opts = {
+			provider = "copilot",
+		},
+		build = "make",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- 以下依赖项是可选的，
+			"echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
+			"nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
+			"hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
+			"nvim-tree/nvim-web-devicons", -- 或 echasnovski/mini.icons
+			"zbirenbaum/copilot.lua", -- 用于 providers='copilot'
+			{
+				-- 支持图像粘贴
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- 推荐设置
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- Windows 用户必需
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				-- 如果您有 lazy=true，请确保正确设置
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
+
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
