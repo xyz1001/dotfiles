@@ -200,7 +200,9 @@ return {
 		enabled = vim.fn.has("unix") ~= 0,
 	},
 	{
-		"lilydjwg/fcitx.vim",
-		enabled = vim.fn.executable("fcitx5") ~= 0,
+		"keaising/im-select.nvim",
+		config = function()
+			require("im_select").setup({})
+		end,
 	},
 }
