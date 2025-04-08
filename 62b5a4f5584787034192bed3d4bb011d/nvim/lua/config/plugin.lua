@@ -500,7 +500,24 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"github/copilot.vim",
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		opts = {
+			copilot_model = "gpt-4o-copilot",
+			suggestion = {
+				auto_trigger = true,
+			},
+		},
+		config = true,
+	},
+	{
+		"AndreM222/copilot-lualine",
+		config = function()
+			current = require("lualine").get_config()
+			table.insert(current.sections.lualine_x, 1, "copilot")
+			require("lualine").setup(current)
+		end,
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
@@ -509,6 +526,7 @@ require("lazy").setup({
 			debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
 			disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
 			language = "Chinese", -- Copilot answer language settings when using default prompts. Default language is English.
+			model = "gemini-2.0-flash-001",
 			prompts = {
 				Explain = "请解释选中的代码",
 				Review = "审查选中的代码",
@@ -525,38 +543,6 @@ require("lazy").setup({
 			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
 		end,
 		event = "VeryLazy",
-		keys = {
-			{ "<leader>ccb", ":CopilotChatBuffer ", desc = "CopilotChat - Chat with current buffer" },
-			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-			{ "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-			{
-				"<leader>ccT",
-				"<cmd>CopilotChatVsplitToggle<cr>",
-				desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
-			},
-			{
-				"<leader>ccv",
-				":CopilotChatVisual ",
-				mode = "x",
-				desc = "CopilotChat - Open in vertical split",
-			},
-			{
-				"<leader>ccx",
-				":CopilotChatInPlace<cr>",
-				mode = "x",
-				desc = "CopilotChat - Run in-place code",
-			},
-			{
-				"<leader>ccf",
-				"<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
-				desc = "CopilotChat - Fix diagnostic",
-			},
-			{
-				"<leader>ccr",
-				"<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
-				desc = "CopilotChat - Reset chat history and clear buffer",
-			},
-		},
 	},
 	{
 		"folke/edgy.nvim",
@@ -576,6 +562,15 @@ require("lazy").setup({
 		event = "VeryLazy",
 		opts = {
 			provider = "copilot",
+			copilot = {
+				endpoint = "https://api.githubcopilot.com",
+				model = "claude-3.5-sonnet",
+				proxy = nil, -- [protocol://]host[:port] Use this proxy
+				allow_insecure = false, -- Allow insecure server connections
+				timeout = 30000, -- Timeout in milliseconds
+				temperature = 0,
+				max_tokens = 20480,
+			},
 		},
 		build = "make",
 		dependencies = {
@@ -583,37 +578,10 @@ require("lazy").setup({
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
-			--- 以下依赖项是可选的，
-			"echasnovski/mini.pick", -- 用于文件选择器提供者 mini.pick
+			"echasnovski/mini.pick",
 			"nvim-telescope/telescope.nvim", -- 用于文件选择器提供者 telescope
-			"hrsh7th/nvim-cmp", -- avante 命令和提及的自动完成
 			"nvim-tree/nvim-web-devicons", -- 或 echasnovski/mini.icons
-			"zbirenbaum/copilot.lua", -- 用于 providers='copilot'
-			{
-				-- 支持图像粘贴
-				"HakonHarnes/img-clip.nvim",
-				event = "VeryLazy",
-				opts = {
-					-- 推荐设置
-					default = {
-						embed_image_as_base64 = false,
-						prompt_for_file_name = false,
-						drag_and_drop = {
-							insert_mode = true,
-						},
-						-- Windows 用户必需
-						use_absolute_path = true,
-					},
-				},
-			},
-			{
-				-- 如果您有 lazy=true，请确保正确设置
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					file_types = { "markdown", "Avante" },
-				},
-				ft = { "markdown", "Avante" },
-			},
+			"zbirenbaum/copilot.lua",
 		},
 	},
 
