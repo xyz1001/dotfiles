@@ -74,121 +74,57 @@ return {
 		end,
 	},
 	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			{
-				"quangnguyen30192/cmp-nvim-ultisnips",
-				config = true,
-				dependencies = { "SirVer/ultisnips" },
-			},
-			{
-				"saadparwaiz1/cmp_luasnip",
-				dependencies = { "L3MON4D3/LuaSnip" },
-			},
-			{
-				"chrisgrieser/cmp_yanky",
-				dependencies = { "gbprod/yanky.nvim", opts = {} },
-			},
-			"paopaol/cmp-doxygen",
-			{
-				"hrsh7th/cmp-copilot",
-				dependencies = { "github/copilot.vim" },
-			},
-		},
-		opts = function()
-			local cmp = require("cmp")
-			return {
-				completion = {
-					keyword_length = 2,
-				},
-				snippet = {
-					expand = function(args)
-						vim.fn["UltiSnips#Anon"](args.body)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-					["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "copilot", keyword_length = 0 },
-					{ name = "nvim_lsp", trigger_characters = { ".", ">", ":", "/" } },
-					{ name = "path" },
-					{ name = "cmp_yanky" },
-					{ name = "doxygen", keyword_length = 1 },
-					{ name = "ultisnips" },
-					{ name = "luasnip" },
-				}, {
-					{ name = "buffer" },
-				}),
-				formatting = {
-					format = function(_, vim_item)
-						vim_item.abbr = string.sub(vim_item.abbr, 1, 40)
-						return vim_item
-					end,
-				},
-			}
-		end,
-	},
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
-			{
-				"rafamadriz/friendly-snippets",
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
-				end,
-			},
-		},
+		"saghen/blink.cmp",
+		dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+
+		version = "1.*",
 		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
+			-- All presets have the following mappings:
+			-- C-space: Open menu or open docs if already open
+			-- C-n/C-p or Up/Down: Select next/previous item
+			-- C-e: Hide menu
+			-- C-k: Toggle signature help (if signature.enabled = true)
+			--
+			-- See :h blink-cmp-config-keymap for defining your own keymap
+			keymap = {
+				preset = "super-tab",
+				["<C-p>"] = {
+					function(cmp)
+						if cmp.is_visible() then
+							return cmp.select_prev()
+						elseif cmp.snippet_active() then
+							return cmp.snippet_backward()
+						else
+							return cmp.show()
+						end
+					end,
+				},
+			},
+
+			appearance = {
+				nerd_font_variant = "mono",
+			},
+
+			completion = {
+				documentation = { auto_show = true },
+			},
+
+			sources = {
+				default = { "copilot", "lsp", "snippets", "path", "buffer" },
+				providers = {
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+					},
+				},
+			},
+
+			fuzzy = { implementation = "prefer_rust_with_warning" },
+			signature = { enabled = true },
 		},
-		keys = {
-			{
-				"<C-j>",
-				function()
-					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-				end,
-				expr = true,
-				silent = true,
-				mode = "i",
-			},
-			{
-				"<C-j>",
-				function()
-					require("luasnip").jump(1)
-				end,
-				mode = "s",
-			},
-			{
-				"<C-k>",
-				function()
-					require("luasnip").jump(-1)
-				end,
-				mode = { "i", "s" },
-			},
-		},
+		opts_extend = { "sources.default" },
 	},
 	{
 		"SirVer/ultisnips",

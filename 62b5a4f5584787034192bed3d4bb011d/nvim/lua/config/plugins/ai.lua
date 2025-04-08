@@ -5,9 +5,8 @@ return {
 		event = "InsertEnter",
 		opts = {
 			copilot_model = "gpt-4o-copilot",
-			suggestion = {
-				auto_trigger = true,
-			},
+			suggestion = { enabled = false, auto_trigger = true },
+			panel = { enabled = false },
 		},
 		config = true,
 	},
