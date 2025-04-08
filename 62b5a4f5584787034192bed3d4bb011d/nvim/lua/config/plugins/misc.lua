@@ -33,10 +33,6 @@ return {
 		"chrisbra/Recover.vim",
 	},
 	{
-		"lilydjwg/fcitx.vim",
-		enabled = vim.fn.has("x11") ~= 0,
-	},
-	{
 		"voldikss/vim-translator",
 		keys = {
 			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" } },

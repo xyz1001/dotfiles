@@ -199,4 +199,8 @@ return {
 		"lambdalisue/suda.vim",
 		enabled = vim.fn.has("unix") ~= 0,
 	},
+	{
+		"lilydjwg/fcitx.vim",
+		enabled = vim.fn.executable("fcitx5") ~= 0,
+	},
 }
