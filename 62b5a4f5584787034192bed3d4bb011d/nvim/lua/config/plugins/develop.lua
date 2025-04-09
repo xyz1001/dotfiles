@@ -4,7 +4,7 @@ return {
 		config = true,
 	},
 
-    -- hightlight
+	-- hightlight
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -97,8 +97,8 @@ return {
 		end,
 	},
 
-    -- LSP
-    {
+	-- LSP
+	{
 		"neovim/nvim-lspconfig",
 		keys = {
 			{ "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<cr>" },
@@ -199,7 +199,7 @@ return {
 		},
 	},
 
-    -- complement
+	-- complement
 	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
@@ -262,7 +262,7 @@ return {
 		end,
 	},
 
-    -- format
+	-- format
 	{
 		"stevearc/conform.nvim",
 		opts = {
@@ -299,7 +299,7 @@ return {
 		},
 	},
 
-    -- lint
+	-- lint
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
@@ -320,7 +320,7 @@ return {
 		},
 	},
 
-    -- comment
+	-- comment
 	{
 		"numToStr/Comment.nvim",
 		config = true,

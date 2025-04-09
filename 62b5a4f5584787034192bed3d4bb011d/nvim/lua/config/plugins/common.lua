@@ -128,7 +128,13 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-		opts = {},
+		opts = {
+			mappings = {
+				"<C-u>",
+				"<C-d>",
+				"zz",
+			},
+		},
 	},
 	{
 		"stevearc/aerial.nvim",
