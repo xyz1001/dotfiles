@@ -173,6 +173,28 @@ return {
 					require("lspconfig")[server_name].setup({})
 				end,
 				["clangd"] = function()
+					local function get_clangd_cmd()
+						local cmd = { "clangd" }
+						local compile_commands = vim.fn.getcwd() .. "/compile_commands.json"
+
+						if vim.fn.filereadable(compile_commands) == 1 then
+							local content = vim.fn.readfile(compile_commands)
+							local ok, json = pcall(vim.json.decode, table.concat(content))
+
+							if ok and json and #json > 0 and json[1].command then
+								local compiler = vim.split(json[1].command, " ")[1]
+								-- 检查编译器路径是否包含交叉编译相关关键词
+								if compiler:match("arm") then
+									-- 替换编译器路径中的 gcc/g++ 为 *
+									local query_driver = compiler:gsub("[gc]%+%+$", "*"):gsub("gcc$", "*")
+									table.insert(cmd, "--query-driver=" .. query_driver)
+								end
+							end
+						end
+
+						return cmd
+					end
+
 					require("lspconfig").clangd.setup({
 						on_attach = function(_, bufnr)
 							vim.keymap.set(
@@ -182,6 +204,7 @@ return {
 								{ buffer = bufnr, noremap = true, silent = true }
 							)
 						end,
+						cmd = get_clangd_cmd(),
 					})
 				end,
 				["lua_ls"] = function()
