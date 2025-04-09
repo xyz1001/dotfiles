@@ -101,7 +101,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		keys = {
-			{ "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<cr>" },
+			{ "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "显示诊断列表" },
 		},
 		init = function()
 			-- 配置诊断显示

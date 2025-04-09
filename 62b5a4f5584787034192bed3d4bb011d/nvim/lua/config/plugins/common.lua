@@ -44,12 +44,12 @@ return {
 		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
-			{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-			{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
-			{ "<leader>fs", "<cmd>Telescope grep_string<cr>" },
-			{ "<leader>fy", "<cmd>Telescope registers<cr>" },
-			{ "<leader>fr", "<cmd>Telescope resume<cr>" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "查找文件" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "全局搜索" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "查找缓冲区" },
+			{ "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "搜索当前单词" },
+			{ "<leader>fy", "<cmd>Telescope registers<cr>", desc = "查看寄存器" },
+			{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "恢复上次搜索" },
 		},
 	},
 	{
@@ -119,7 +119,7 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>n", "<cmd>Neotree toggle<cr>" },
+			{ "<leader>n", "<cmd>Neotree toggle<cr>", desc = "切换文件树" },
 		},
 	},
 	{
@@ -144,7 +144,7 @@ return {
 		},
 		config = true,
 		keys = {
-			{ "<leader>a", "<cmd>AerialToggle!<CR>" },
+			{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "切换代码大纲" },
 		},
 	},
 	{
@@ -175,11 +175,11 @@ return {
 			"TmuxNavigatePrevious",
 		},
 		keys = {
-			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>", desc = "tmux 左窗口" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>", desc = "tmux 下窗口" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>", desc = "tmux 上窗口" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>", desc = "tmux 右窗口" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>", desc = "tmux 上个窗口" },
 		},
 	},
 	{
@@ -199,14 +199,14 @@ return {
 	{
 		"voldikss/vim-translator",
 		keys = {
-			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" } },
+			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" }, desc = "翻译选中文本" },
 		},
 	},
 	{
 		"voldikss/vim-browser-search",
 		keys = {
-			{ "<leader>gg", "<Plug>SearchNormal" },
-			{ "<leader>gg", "<Plug>SearchVisual", mode = { "v" } },
+			{ "<leader>gg", "<Plug>SearchNormal", desc = "在浏览器中搜索" },
+			{ "<leader>gg", "<Plug>SearchVisual", mode = { "v" }, desc = "在浏览器中搜索选中文本" },
 		},
 	},
 	{
@@ -259,7 +259,7 @@ return {
 	{
 		"junegunn/vim-easy-align",
 		keys = {
-			{ "ga", "<Plug>(EasyAlign)", mode = { "n", "x" } },
+			{ "ga", "<Plug>(EasyAlign)", mode = { "n", "x" }, desc = "快速对齐" },
 		},
 	},
 	{
