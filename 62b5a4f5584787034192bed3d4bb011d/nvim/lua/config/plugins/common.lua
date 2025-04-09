@@ -127,7 +127,8 @@ return {
 		config = true,
 	},
 	{
-		"psliwka/vim-smoothie",
+		"karb94/neoscroll.nvim",
+		opts = {},
 	},
 	{
 		"stevearc/aerial.nvim",
