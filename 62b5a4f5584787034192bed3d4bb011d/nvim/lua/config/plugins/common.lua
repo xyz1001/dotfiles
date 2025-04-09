@@ -213,9 +213,7 @@ return {
 		"bronson/vim-trailing-whitespace",
 		cmd = { "FixWhitespace" },
 	},
-	{
-		"vim-scripts/ReplaceWithRegister",
-	},
+	{ "echasnovski/mini.operators", version = "*", config = true },
 	{
 		"vim-scripts/VisIncr",
 	},
