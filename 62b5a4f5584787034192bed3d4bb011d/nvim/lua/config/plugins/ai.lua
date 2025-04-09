@@ -24,10 +24,10 @@ return {
 			show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
 			debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
 			disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-			language = "Chinese", -- Copilot answer language settings when using default prompts. Default language is English.
 			model = "gemini-2.0-flash-001",
+			sticky = { "Answer in Chinese" },
 			prompts = {
-				Explain = "请解释选中的代码",
+				Explain = "解释选中的代码",
 				Review = "审查选中的代码",
 				Fix = "这代代码中存在一个问题，请重写这段代码以修复bug",
 				Optimize = "请优化选中的代码",
