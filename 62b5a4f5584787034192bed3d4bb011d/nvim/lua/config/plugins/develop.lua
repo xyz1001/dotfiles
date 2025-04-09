@@ -319,4 +319,23 @@ return {
 			ensure_installed = { "cmakelint", "shellcheck", "jsonlint", "luacheck" },
 		},
 	},
+
+    -- comment
+	{
+		"numToStr/Comment.nvim",
+		config = true,
+		lazy = false,
+		opts = {
+			padding = false,
+		},
+	},
+	{
+		"vim-scripts/DoxygenToolkit.vim",
+		init = function()
+			vim.g.DoxygenToolkit_briefTag_pre = "@brief "
+			vim.g.DoxygenToolkit_paramTag_pre = "@param "
+			vim.g.DoxygenToolkit_returnTag = "@returns "
+		end,
+		cmd = { "Dox" },
+	},
 }
