@@ -213,6 +213,8 @@ return {
 			-- C-k: Toggle signature help (if signature.enabled = true)
 			--
 			-- See :h blink-cmp-config-keymap for defining your own keymap
+			--cmdline.keymap.preset = 'cmdline',
+
 			keymap = {
 				preset = "super-tab",
 				["<C-p>"] = {
@@ -250,6 +252,13 @@ return {
 
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 			signature = { enabled = true },
+
+			cmdline = {
+				keymap = {
+					["<Tab>"] = { "show", "accept" },
+				},
+				completion = { menu = { auto_show = true } },
+			},
 		},
 		opts_extend = { "sources.default" },
 	},
