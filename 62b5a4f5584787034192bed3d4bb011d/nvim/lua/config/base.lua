@@ -81,3 +81,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	pattern = "*",
 	command = 'silent! normal! g`"zv',
 })
+
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
