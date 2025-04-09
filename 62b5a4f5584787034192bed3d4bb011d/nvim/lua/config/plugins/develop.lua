@@ -206,6 +206,9 @@ return {
 
 		version = "1.*",
 		opts = {
+			enabled = function()
+				return not vim.tbl_contains({ "json", "markdown" }, vim.bo.filetype)
+			end,
 			-- All presets have the following mappings:
 			-- C-space: Open menu or open docs if already open
 			-- C-n/C-p or Up/Down: Select next/previous item
