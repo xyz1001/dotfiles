@@ -156,4 +156,138 @@ return {
 		},
 		cmd = { "PlantumlOpen", "PlantumlToggle" },
 	},
+	{
+		"christoomey/vim-tmux-navigator",
+		enabled = vim.fn.has("unix") ~= 0,
+		cond = vim.env.TMUX,
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
+	},
+	{
+		"rhysd/committia.vim",
+		ft = "gitcommit",
+		init = function()
+			vim.g.committia_open_only_vim_starting = 1
+		end,
+	},
+	{
+		"Valloric/ListToggle",
+		event = { "VeryLazy" },
+	},
+	{
+		"chrisbra/Recover.vim",
+	},
+	{
+		"voldikss/vim-translator",
+		keys = {
+			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" } },
+		},
+	},
+	{
+		"voldikss/vim-browser-search",
+		keys = {
+			{ "<leader>gg", "<Plug>SearchNormal" },
+			{ "<leader>gg", "<Plug>SearchVisual", mode = { "v" } },
+		},
+	},
+	{
+		"bronson/vim-trailing-whitespace",
+		cmd = { "FixWhitespace" },
+	},
+	{
+		"vim-scripts/ReplaceWithRegister",
+	},
+	{
+		"vim-scripts/VisIncr",
+	},
+	{
+		"easymotion/vim-easymotion",
+		init = function()
+			vim.g.EasyMotion_do_mapping = 0
+			vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-j)", { silent = true })
+			vim.keymap.set("n", "<leader>k", "<Plug>(easymotion-k)", { silent = true })
+		end,
+	},
+	{
+		"tpope/vim-repeat",
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = true,
+	},
+	{
+		"dyng/ctrlsf.vim",
+	},
+	{
+		"mg979/vim-visual-multi",
+		init = function()
+			vim.g.VM_theme = "olive"
+			vim.g.VM_leader = "\\"
+			vim.g.VM_maps = { ["Select All"] = "\\a" }
+		end,
+	},
+	{
+		"simnalamburt/vim-mundo",
+	},
+	{
+		"AndrewRadev/splitjoin.vim",
+	},
+	{
+		"numToStr/Comment.nvim",
+		config = true,
+		lazy = false,
+		opts = {
+			padding = false,
+		},
+	},
+	{
+		"vim-scripts/DoxygenToolkit.vim",
+		init = function()
+			vim.g.DoxygenToolkit_briefTag_pre = "@brief "
+			vim.g.DoxygenToolkit_paramTag_pre = "@param "
+			vim.g.DoxygenToolkit_returnTag = "@returns "
+		end,
+		cmd = { "Dox" },
+	},
+	{
+		"kana/vim-textobj-indent",
+		dependencies = {
+			"kana/vim-textobj-user",
+		},
+	},
+	{
+		"junegunn/vim-easy-align",
+		keys = {
+			{ "ga", "<Plug>(EasyAlign)", mode = { "n", "x" } },
+		},
+	},
+	{
+		"hedyhli/markdown-toc.nvim",
+		ft = "markdown",
+		cmd = { "Mtoc" },
+		config = true,
+	},
+	{
+		"lambdalisue/suda.vim",
+		enabled = vim.fn.has("unix") ~= 0,
+	},
+	{
+		"keaising/im-select.nvim",
+		config = function()
+			require("im_select").setup({})
+		end,
+	},
 }
