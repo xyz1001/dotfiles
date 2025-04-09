@@ -20,24 +20,35 @@ return {
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		opts = {
-			show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
-			debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
-			disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-			model = "gemini-2.0-flash-001",
-			sticky = { "Answer in Chinese" },
-			prompts = {
-				Explain = "解释选中的代码",
-				Review = "审查选中的代码",
-				Fix = "这代代码中存在一个问题，请重写这段代码以修复bug",
-				Optimize = "请优化选中的代码",
-				Docs = "请为我的代码生成文档",
-				Tests = "请为我的代码生成测试",
-				FixDiagnostic = "请帮助解决以下文件中的诊断问题：",
-				Commit = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
-				CommitStaged = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
-			},
-		},
+		config = function()
+			local copilot_chat = require("CopilotChat")
+			anwser_in_chinese = "Please anwser all questions in Chinese"
+			local copilot_instructions = require("CopilotChat.config.prompts").COPILOT_INSTRUCTIONS.system_prompt
+				.. anwser_in_chinese
+			local copilot_explain = require("CopilotChat.config.prompts").COPILOT_EXPLAIN.system_prompt
+				.. anwser_in_chinese
+			local copilot_review = require("CopilotChat.config.prompts").COPILOT_REVIEW.system_prompt
+				.. anwser_in_chinese
+			copilot_chat.setup({
+				show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
+				debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
+				disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
+				model = "gemini-2.0-flash-001",
+				vim.print(),
+				system_prompt = copilot_instructions,
+				prompts = {
+					Explain = { prompt = "解释选中的代码", system_prompt = copilot_explain },
+					Review = { prompt = "审查选中的代码", system_prompt = copilot_review },
+					Fix = "这代代码中存在一个问题，请重写这段代码以修复bug",
+					Optimize = "请优化选中的代码",
+					Docs = "请以Doxygen格式为我的代码生成面向开发者的文档，注释以中文编写",
+					Tests = "请为我的代码生成测试",
+					FixDiagnostic = "请帮助解决以下文件中的诊断问题：",
+					Commit = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
+					CommitStaged = "请写一个符合 commitizen 约定的提交信息。确保标题最多 50 个字符，消息在 72 个字符处换行。将整个消息用 gitcommit 语言包装在代码块中。",
+				},
+			})
+		end,
 		build = function()
 			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
 		end,
