@@ -34,29 +34,29 @@ vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
 vim.g.mapleader = " "
-vim.api.nvim_set_keymap("", "H", "^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("", "L", "$", { noremap = true, silent = true })
+vim.keymap.set({ "", "v" }, "H", "^", { desc = "跳转至行首(不包含空格)" })
+vim.keymap.set({ "", "v" }, "L", "$", { desc = "跳转至行尾" })
 -- Alt+j/k 逻辑跳转下一行/上一行
-vim.api.nvim_set_keymap("", "<m-j>", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("", "<m-k>", "gk", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-j>", "<Down>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-k>", "<Up>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-h>", "<Left>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-l>", "<Right>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Backspace>", ":nohl<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-p>", '"+gp', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-p>", '"+gp', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-y>", '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<c-a>", "<c-\\><c-n>", { noremap = true, silent = true })
--- ' 禁止*搜索自动跳至下一个
-vim.api.nvim_set_keymap("n", "*", "*``", { noremap = true, silent = true })
+vim.keymap.set({ "", "v" }, "<m-j>", "gj", { desc = "向下移动(支持自动换行)" })
+vim.keymap.set({ "", "v" }, "<m-k>", "gk", { desc = "向上移动(支持自动换行)" })
+vim.keymap.set("c", "<C-j>", "<Down>", { desc = "命令模式向下" })
+vim.keymap.set("c", "<C-k>", "<Up>", { desc = "命令模式向上" })
+vim.keymap.set("c", "<C-h>", "<Left>", { desc = "命令模式向左" })
+vim.keymap.set("c", "<C-l>", "<Right>", { desc = "命令模式向右" })
+vim.keymap.set("c", "<C-a>", "<Home>", { desc = "命令模式跳转行首" })
+vim.keymap.set("c", "<C-e>", "<End>", { desc = "命令模式跳转行尾" })
+vim.keymap.set("n", "<Backspace>", ":nohl<CR>", { desc = "清除搜索高亮" })
+vim.keymap.set("n", "<C-p>", '"+gp', { desc = "从系统剪贴板粘贴" })
+vim.keymap.set("v", "<C-p>", '"+gp', { desc = "从系统剪贴板粘贴" })
+vim.keymap.set("v", "<C-y>", '"+y', { desc = "复制到系统剪贴板" })
+vim.keymap.set("t", "<c-a>", "<c-\\><c-n>", { desc = "终端模式退出" })
+-- 禁止*搜索自动跳至下一个
+vim.keymap.set("n", "*", "*``", { desc = "搜索当前单词(不移动光标)" })
 if not vim.env.TMUX then
-	vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-	vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+	vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "跳转到下方窗口" })
+	vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "跳转到上方窗口" })
+	vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "跳转到左侧窗口" })
+	vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "跳转到右侧窗口" })
 end
 if vim.fn.has("win32") ~= 0 then
 	vim.opt.shell = "pwsh"
