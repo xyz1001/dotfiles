@@ -204,7 +204,7 @@ return {
 			require("Trans").install()
 		end,
 		keys = {
-			{ "<C-t>", "<Cmd>Translate<CR>", mode = { "v", "n" }, desc = "翻译选中文本或光标下单词" },
+			{ "<C-t>", "<Cmd>Translate<CR>", mode = { "v" }, desc = "翻译选中文本" },
 		},
 		dependencies = { "kkharji/sqlite.lua" },
 		opts = {
