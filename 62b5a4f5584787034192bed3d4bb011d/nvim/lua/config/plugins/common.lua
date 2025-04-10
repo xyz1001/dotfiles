@@ -197,9 +197,25 @@ return {
 		"chrisbra/Recover.vim",
 	},
 	{
-		"voldikss/vim-translator",
+		"JuanZoran/Trans.nvim",
+		build = function()
+			require("Trans").install()
+		end,
 		keys = {
-			{ "<C-t>", "<Plug>TranslateWV", mode = { "v" }, desc = "翻译选中文本" },
+			{ "<C-t>", "<Cmd>Translate<CR>", mode = { "v", "n" }, desc = "翻译选中文本或光标下单词" },
+		},
+		dependencies = { "kkharji/sqlite.lua" },
+		opts = {
+			frontend = {
+				default = {
+					auto_play = false,
+					animation = {
+						open = false, -- 'fold', 'slid'
+						close = false,
+						interval = 0,
+					},
+				},
+			},
 		},
 	},
 	{
