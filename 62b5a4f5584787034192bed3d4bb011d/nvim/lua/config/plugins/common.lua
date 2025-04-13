@@ -85,6 +85,8 @@ return {
 							vim.fn.jobstart({ "open", path }, { detach = true })
 						elseif vim.fn.has("win32") ~= 0 then
 							vim.fn.jobstart({ "cmd", "/c", "explorer", path }, { detach = true })
+						elseif vim.fn.has("wsl") ~= 0 then
+							vim.fn.jobstart({ "wsl-open", path }, { detach = true })
 						elseif vim.fn.has("unix") ~= 0 then
 							vim.fn.jobstart({ "xdg-open", path }, { detach = true })
 						end
