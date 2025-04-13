@@ -82,7 +82,9 @@ return {
 				max_tokens = 20480,
 			},
 		},
-		build = "make",
+		build = vim.fn.has("win32") == 1
+				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+			or "make",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"stevearc/dressing.nvim",

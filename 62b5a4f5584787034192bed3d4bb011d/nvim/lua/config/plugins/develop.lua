@@ -350,8 +350,21 @@ return {
 	{
 		"rshkarin/mason-nvim-lint",
 		dependencies = { "mason.nvim", "mfussenegger/nvim-lint" },
+		build = function()
+			if vim.fn.has("win32") == 1 then
+				vim.fn.system("scoop install luacheck")
+			end
+		end,
 		opts = {
-			ensure_installed = { "cmakelint", "shellcheck", "jsonlint", "luacheck" },
+			ensure_installed = {
+				"cmakelint",
+				"shellcheck",
+				"jsonlint",
+				vim.fn.has("win32") == 0 and "luacheck" or nil,
+			},
+			ignore_install = {
+				vim.fn.has("win32") == 1 and "luacheck" or nil,
+			},
 		},
 	},
 
