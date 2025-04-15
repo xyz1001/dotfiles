@@ -550,6 +550,10 @@ return {
 					name = "Launch (vscode-cpptools)",
 					type = "cppdbg",
 					request = "launch",
+					args = function()
+						local args_string = vim.fn.input("Arguments: ")
+						return vim.split(args_string, " ", { trimempty = true })
+					end,
 					program = function()
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 					end,
@@ -606,6 +610,10 @@ return {
 					name = "Launch (gdb)",
 					type = "gdb",
 					request = "launch",
+					args = function()
+						local args_string = vim.fn.input("Arguments: ")
+						return vim.split(args_string, " ", { trimempty = true })
+					end,
 					program = function()
 						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 					end,
