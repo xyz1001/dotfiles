@@ -81,6 +81,24 @@ return {
 				temperature = 0,
 				max_tokens = 20480,
 			},
+			behaviour = {
+				auto_suggestions = false,
+				auto_focus_sidebar = false,
+				use_cwd_as_project_root = true,
+			},
+			history = {
+				max_tokens = 8192,
+			},
+			mappings = {
+				sidebar = {
+					remove_file = "-",
+				},
+			},
+			windows = {
+				ask = {
+					start_insert = false, -- Start insert mode when opening the ask window
+				},
+			},
 		},
 		build = vim.fn.has("win32") == 1
 				and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"

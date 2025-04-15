@@ -108,8 +108,8 @@ return {
 						local open = sidebar:is_open()
 						-- 确保 avante 侧边栏已打开
 						if not open then
-							require("avante.api").ask()
-							sidebar = require("avante").get()
+							-- 自动打开存在bug，如果neo-tree边栏关闭会导致avante也一起关闭，然后报错
+							return
 						end
 
 						sidebar.file_selector:add_selected_file(relative_path)
