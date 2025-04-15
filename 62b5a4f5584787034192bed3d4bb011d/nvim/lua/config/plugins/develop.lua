@@ -280,10 +280,7 @@ return {
 			signature = { enabled = true },
 
 			cmdline = {
-				keymap = {
-					["<Tab>"] = { "show", "accept" },
-				},
-				completion = { menu = { auto_show = true } },
+				enabled = false,
 			},
 		},
 		opts_extend = { "sources.default" },
