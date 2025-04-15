@@ -62,6 +62,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
+			"stevearc/dressing.nvim",
 		},
 		opts = {
 			filesystem = {
@@ -75,6 +76,7 @@ return {
 						["/"] = "",
 						["z"] = "",
 						["oa"] = "avante_add_files",
+						["Y"] = "copy_filename",
 					},
 				},
 				commands = {
@@ -116,6 +118,29 @@ return {
 						if not open then
 							sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
 						end
+					end,
+					copy_filename = function(state)
+						local node = state.tree:get_node()
+						local filepath = node:get_id()
+						local filename = node.name
+						local modify = vim.fn.fnamemodify
+
+						local results = {
+							filename,
+							modify(filepath, ":."),
+							filepath,
+						}
+
+						vim.ui.select({
+							"1. Filename: " .. results[4],
+							"2. Path relative to CWD: " .. results[2],
+							"3. Absolute path: " .. results[1],
+						}, { prompt = "Choose to copy to clipboard:" }, function(choice)
+							local i = tonumber(choice:sub(1, 1))
+							local result = results[i]
+							vim.fn.setreg('"', result)
+							vim.notify("Copied: " .. result)
+						end)
 					end,
 				},
 			},
