@@ -545,6 +545,55 @@ return {
 				type = "executable",
 				command = "/usr/share/cpptools-debug/bin/OpenDebugAD7",
 			}
+			-- 提取获取可执行程序的公共函数
+			local function get_program_path()
+				local function is_executable(path)
+					return vim.fn.executable(path) == 1
+				end
+
+				local function find_executables(dir)
+					local handle = vim.loop.fs_scandir(dir)
+					if not handle then
+						return {}
+					end
+
+					local executables = {}
+					while true do
+						local name, type = vim.loop.fs_scandir_next(handle)
+						if not name then
+							break
+						end
+
+						local path = dir .. "/" .. name
+						if type == "file" and is_executable(path) then
+							table.insert(executables, path)
+						end
+					end
+					return executables
+				end
+
+				local debug_dir = vim.fn.getcwd() .. "/build/Debug/install/bin"
+				local release_dir = vim.fn.getcwd() .. "/build/Release/install/bin"
+
+				-- 合并 Debug 和 Release 目录下的可执行文件
+				local executables = {}
+				vim.list_extend(executables, find_executables(debug_dir))
+				vim.list_extend(executables, find_executables(release_dir))
+
+				if #executables == 0 then
+					vim.notify("No executable files found in build directory", vim.log.levels.WARN)
+					return nil
+				end
+
+				return coroutine.create(function(dap_run_co)
+					vim.ui.select(executables, {
+						prompt = "选择要调试的程序: ",
+					}, function(choice)
+						coroutine.resume(dap_run_co, choice)
+					end)
+				end)
+			end
+
 			dap.configurations.cpp = {
 				{
 					name = "Launch (vscode-cpptools)",
@@ -555,7 +604,7 @@ return {
 						return vim.split(args_string, " ", { trimempty = true })
 					end,
 					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+						return get_program_path()
 					end,
 					cwd = "${workspaceFolder}",
 					stopAtEntry = true,
@@ -572,7 +621,7 @@ return {
 					type = "cppdbg",
 					request = "attach",
 					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+						return get_program_path()
 					end,
 					pid = function()
 						local name = vim.fn.input("Executable name (filter): ")
@@ -595,9 +644,6 @@ return {
 					miDebuggerServerAddress = "localhost:1234",
 					miDebuggerPath = "/usr/bin/gdb",
 					cwd = "${workspaceFolder}",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
 					setupCommands = {
 						{
 							text = "-enable-pretty-printing",
@@ -615,7 +661,7 @@ return {
 						return vim.split(args_string, " ", { trimempty = true })
 					end,
 					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+						return get_program_path()
 					end,
 					cwd = "${workspaceFolder}",
 					stopAtBeginningOfMainSubprogram = false,
@@ -624,9 +670,6 @@ return {
 					name = "Select and attach to process (gdb)",
 					type = "gdb",
 					request = "attach",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
 					pid = function()
 						local name = vim.fn.input("Executable name (filter): ")
 						return require("dap.utils").pick_process({ filter = name })
@@ -638,9 +681,6 @@ return {
 					type = "gdb",
 					request = "attach",
 					target = "localhost:1234",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
 					cwd = "${workspaceFolder}",
 				},
 			}
