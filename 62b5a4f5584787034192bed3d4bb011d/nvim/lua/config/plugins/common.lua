@@ -171,7 +171,7 @@ return {
 		},
 		config = true,
 		keys = {
-			{ "<leader>a", "<cmd>AerialToggle!<CR>", desc = "切换代码大纲" },
+			{ "<leader>ae", "<cmd>AerialToggle!<CR>", desc = "切换代码大纲" },
 		},
 	},
 	{
