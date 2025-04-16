@@ -90,8 +90,14 @@ return {
 				max_tokens = 8192,
 			},
 			mappings = {
+				cancel = {
+					normal = nil,
+					insert = nil,
+				},
 				sidebar = {
 					remove_file = "-",
+					add_file = "+",
+					close = nil,
 				},
 			},
 			windows = {
