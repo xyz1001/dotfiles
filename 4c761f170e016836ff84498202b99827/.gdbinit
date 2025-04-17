@@ -45,6 +45,12 @@ set print demangle on
 set print sevenbit-strings off
 set print asm-demangle on
 set can-use-hw-watchpoints 1
+# 单步调试时只恢复当前线程执行
+python
+# 只在非 core 文件调试时设置 scheduler-locking
+if gdb.selected_inferior() and not gdb.selected_inferior().progspace.filename:
+    gdb.execute('set scheduler-locking on')
+end
 
 handle SIGPIPE nostop noprint
 
