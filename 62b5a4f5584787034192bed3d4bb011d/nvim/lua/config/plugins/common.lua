@@ -291,9 +291,6 @@ return {
 		"simnalamburt/vim-mundo",
 	},
 	{
-		"AndrewRadev/splitjoin.vim",
-	},
-	{
 		"kana/vim-textobj-indent",
 		dependencies = {
 			"kana/vim-textobj-user",
