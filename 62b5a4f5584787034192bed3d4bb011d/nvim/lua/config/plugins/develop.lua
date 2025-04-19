@@ -281,7 +281,11 @@ return {
 			signature = { enabled = true },
 
 			cmdline = {
-				enabled = false,
+				enabled = true,
+				keymap = {
+					["<Tab>"] = { "show", "accept" },
+				},
+				completion = { menu = { auto_show = true } },
 			},
 		},
 		opts_extend = { "sources.default" },
