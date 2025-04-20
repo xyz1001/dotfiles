@@ -264,8 +264,9 @@ return {
 		"easymotion/vim-easymotion",
 		init = function()
 			vim.g.EasyMotion_do_mapping = 0
-			vim.keymap.set("n", "<leader>j", "<Plug>(easymotion-j)", { silent = true })
-			vim.keymap.set("n", "<leader>k", "<Plug>(easymotion-k)", { silent = true })
+			vim.keymap.set({ "n", "v" }, "f", "<Plug>(easymotion-bd-f)", { silent = true })
+			vim.keymap.set({ "n", "v" }, "<leader>j", "<Plug>(easymotion-j)", { silent = true })
+			vim.keymap.set({ "n", "v" }, "<leader>k", "<Plug>(easymotion-k)", { silent = true })
 		end,
 	},
 	{
