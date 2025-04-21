@@ -9,6 +9,7 @@ source $HOME/.zsh/$(uname -s)/config.zsh
 #######################################################################
 
 export EDITOR="nvim"
+export MANPAGER='nvim +Man!'
 
 export CHEATCOLORS=true
 export COLORTERM=truecolor
