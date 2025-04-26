@@ -317,6 +317,10 @@ return {
 				if vim.g.disable_autoformat then
 					return
 				end
+				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+				if filename == "conanfile.py" then
+					return
+				end
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
 		},
