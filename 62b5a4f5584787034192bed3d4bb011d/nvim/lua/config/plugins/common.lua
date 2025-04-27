@@ -132,7 +132,7 @@ return {
 						}
 
 						vim.ui.select({
-							"1. Filename: " .. results[4],
+							"1. Filename: " .. results[3],
 							"2. Path relative to CWD: " .. results[2],
 							"3. Absolute path: " .. results[1],
 						}, { prompt = "Choose to copy to clipboard:" }, function(choice)
