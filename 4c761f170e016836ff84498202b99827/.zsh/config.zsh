@@ -68,6 +68,9 @@ function gi() { curl -sLw n https://www.gitignore.io/api/$@ | tee -a .gitignore;
 
 function cdbuild() { if [ -d "./build" ]; then cd build; else mkdir build && cd build; fi }
 
+function reboot() { echo 'Reboot? (y/N)' && read x && [[ "$x" == "y" ]] && /sbin/reboot; }
+
+
 #######################################################################
 #                                misc                                 #
 #######################################################################
