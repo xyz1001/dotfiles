@@ -33,7 +33,8 @@ set history remove-duplicates unlimited
 set python print-stack full
 set auto-load safe-path /
 # 跟踪 fork 后的子进程
-set follow-fork-mode child
+#set follow-fork-mode child
+#set detach-on-fork off
 # 减少线程相关的干扰信息
 set print thread-events off
 # 自动显示下一条要执行的汇编指令
@@ -47,9 +48,13 @@ set print asm-demangle on
 set can-use-hw-watchpoints 1
 # 单步调试时只恢复当前线程执行
 python
-# 只在非 core 文件调试时设置 scheduler-locking
-if gdb.selected_inferior() and not gdb.selected_inferior().progspace.filename:
-    gdb.execute('set scheduler-locking on')
+try:
+    # 只在非 core 文件调试时设置 scheduler-locking
+    if gdb.selected_inferior() and not gdb.selected_inferior().progspace.filename:
+        print(gdb.selected_inferior().progspace.filename)
+        gdb.execute('set scheduler-locking on')
+except:
+    pass
 end
 
 handle SIGPIPE nostop noprint
@@ -59,3 +64,8 @@ if $is_arm
     set sysroot /mnt/sshfs/
 end
 
+#set debug frame 1
+
+# 尝试即使在没有调试信息的情况下也打印堆栈
+set backtrace past-main on
+set backtrace past-entry on
