@@ -369,4 +369,10 @@ return {
 		-- available after the first executing of it or after a keymap of text-case.nvim has been used.
 		lazy = false,
 	},
+	{
+		"rcarriga/nvim-notify",
+		config = function()
+			vim.notify = require("notify")
+		end,
+	},
 }
