@@ -75,6 +75,7 @@ return {
 						["I"] = "run_command",
 						["/"] = "",
 						["z"] = "",
+						["od"] = "vidir",
 						["oa"] = "avante_add_files",
 						["Y"] = "copy_filename",
 					},
@@ -118,6 +119,15 @@ return {
 						if not open then
 							sidebar.file_selector:remove_selected_file("neo-tree filesystem [1]")
 						end
+					end,
+					vidir = function(state)
+						local node = state.tree:get_node()
+						local path = node:get_id()
+						-- 如果是文件，则获取其所在目录
+						if node.type == "file" then
+							path = vim.fn.fnamemodify(path, ":h")
+						end
+						vim.cmd("Oil " .. path)
 					end,
 					copy_filename = function(state)
 						local node = state.tree:get_node()
@@ -374,5 +384,13 @@ return {
 		config = function()
 			vim.notify = require("notify")
 		end,
+	},
+	{
+		"stevearc/oil.nvim",
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = { "Oil" },
 	},
 }
