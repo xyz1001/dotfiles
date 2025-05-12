@@ -174,7 +174,7 @@ return {
 				end,
 				["clangd"] = function()
 					local function get_clangd_cmd()
-						local cmd = { "clangd" }
+						local cmd = { "clangd", "--header-insertion=never" }
 						local compile_commands = vim.fn.getcwd() .. "/compile_commands.json"
 
 						if vim.fn.filereadable(compile_commands) == 1 then
