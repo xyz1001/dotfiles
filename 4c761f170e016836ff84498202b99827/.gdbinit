@@ -69,3 +69,15 @@ end
 # 尝试即使在没有调试信息的情况下也打印堆栈
 set backtrace past-main on
 set backtrace past-entry on
+
+python
+import sys, os
+sys.path.append(os.path.expanduser('~/.gdb/'))
+
+from qt import register_qt_printers
+register_qt_printers (None)
+
+from nlohmann_json import register_json_printer
+register_json_printer()
+
+end
