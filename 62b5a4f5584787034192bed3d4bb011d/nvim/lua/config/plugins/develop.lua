@@ -266,15 +266,7 @@ return {
 			},
 
 			sources = {
-				default = { "copilot", "lsp", "snippets", "path", "buffer" },
-				providers = {
-					copilot = {
-						name = "copilot",
-						module = "blink-copilot",
-						score_offset = 100,
-						async = true,
-					},
-				},
+				default = { "lsp", "snippets", "path", "buffer" },
 			},
 
 			fuzzy = { implementation = "prefer_rust_with_warning" },
