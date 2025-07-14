@@ -4,7 +4,7 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
-			copilot_model = "gpt-4o-copilot",
+			copilot_model = "claude-sonnet-4",
 			suggestion = { enabled = true, auto_trigger = true },
 			panel = { enabled = false },
 		},
@@ -33,7 +33,7 @@ return {
 				show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
 				debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
 				disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-				model = "gemini-2.0-flash-001",
+				model = "claude-sonnet-4",
 				vim.print(),
 				system_prompt = copilot_instructions,
 				prompts = {
@@ -75,13 +75,13 @@ return {
 			providers = {
 				copilot = {
 					endpoint = "https://api.githubcopilot.com",
-					model = "claude-3.5-sonnet",
+					model = "claude-sonnet-4",
 					proxy = nil, -- [protocol://]host[:port] Use this proxy
 					allow_insecure = false, -- Allow insecure server connections
 					timeout = 30000, -- Timeout in milliseconds
 					extra_request_body = {
 						temperature = 0,
-						max_tokens = 20480,
+						max_tokens = 204800,
 					},
 				},
 			},
@@ -91,7 +91,7 @@ return {
 				use_cwd_as_project_root = true,
 			},
 			history = {
-				max_tokens = 8192,
+				max_tokens = 81920,
 			},
 			mappings = {
 				sidebar = {
