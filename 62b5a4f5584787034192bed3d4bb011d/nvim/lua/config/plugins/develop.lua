@@ -185,14 +185,6 @@ return {
 			end
 
 			vim.lsp.config("clangd", {
-				on_attach = function(_, bufnr)
-					vim.keymap.set(
-						"n",
-						"<leader>s",
-						"<cmd>ClangdSwitchSourceHeader<cr>",
-						{ buffer = bufnr, noremap = true, silent = true }
-					)
-				end,
 				cmd = get_clangd_cmd(),
 			})
 			vim.lsp.config("lua_ls", {
@@ -203,6 +195,24 @@ return {
 						},
 					},
 				},
+			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if not client then
+						return
+					end
+
+					if client.name == "clangd" then
+						vim.notify("clangd is attached", vim.log.levels.INFO, { title = "LSP" })
+						vim.keymap.set(
+							"n",
+							"<leader>s",
+							"<cmd>LspClangdSwitchSourceHeader<cr>",
+							{ buffer = args.buf, noremap = true, silent = true, desc = "切换源文件/头文件" }
+						)
+					end
+				end,
 			})
 		end,
 	},
