@@ -127,7 +127,8 @@ return {
 						if node.type == "file" then
 							path = vim.fn.fnamemodify(path, ":h")
 						end
-						vim.cmd("Oil " .. path)
+						-- 使用 Oil Lua API 避免命令行解析问题
+						require("oil").open(path)
 					end,
 					copy_filename = function(state)
 						local node = state.tree:get_node()
