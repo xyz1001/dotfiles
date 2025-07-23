@@ -26,3 +26,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 source $HOME/.zsh/config.zsh
+if [[ -f $HOME/.zsh/api_key.zsh && -s $HOME/.zsh/api_key.zsh ]]; then
+    source $HOME/.zsh/api_key.zsh
+fi
