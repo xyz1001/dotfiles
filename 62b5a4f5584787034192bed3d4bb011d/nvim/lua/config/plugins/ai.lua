@@ -4,7 +4,7 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
-			copilot_model = "claude-sonnet-4",
+			copilot_model = "gpt-4.1",
 			suggestion = { enabled = true, auto_trigger = true },
 			panel = { enabled = false },
 		},
@@ -33,7 +33,7 @@ return {
 				show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
 				debug = false, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
 				disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
-				model = "claude-sonnet-4",
+				model = "gemini-2.5-pro",
 				vim.print(),
 				system_prompt = copilot_instructions,
 				prompts = {
