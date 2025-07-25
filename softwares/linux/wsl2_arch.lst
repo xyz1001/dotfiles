@@ -112,3 +112,9 @@ yarn
 yasm
 zip
 zsh
+pre-commit
+conan
+python-pynvim
+luarocks
+tldr
+sshfs
