@@ -1,5 +1,5 @@
 [wsl2]
-guiapplications=true
+guiapplications=false
 kernelCommandLine = vsyscall=emulate
 
 [experimental]
