@@ -93,5 +93,7 @@ zle -N zle-keymap-select
 stty -ixon
 
 if [[ -n "$CONTAINER_ID" ]]; then
+    unset TMUX
     PROMPT="${CONTAINER_ID}:$PROMPT"
 fi
+
