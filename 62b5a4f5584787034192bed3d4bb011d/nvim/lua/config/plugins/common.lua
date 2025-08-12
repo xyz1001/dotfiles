@@ -206,7 +206,7 @@ return {
 	{
 		"christoomey/vim-tmux-navigator",
 		enabled = vim.fn.has("unix") ~= 0,
-		cond = vim.env.TMUX,
+		cond = vim.env.TMUX ~= nil,
 		cmd = {
 			"TmuxNavigateLeft",
 			"TmuxNavigateDown",
