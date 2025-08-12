@@ -91,3 +91,7 @@ zle -N zle-keymap-select
 
 # 禁用Ctrl-s锁住终端
 stty -ixon
+
+if [[ -n "$CONTAINER_ID" ]]; then
+    PROMPT="${CONTAINER_ID}:$PROMPT"
+fi
