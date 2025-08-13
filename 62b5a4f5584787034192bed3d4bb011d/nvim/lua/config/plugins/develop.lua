@@ -320,6 +320,11 @@ return {
 				if filename == "conanfile.py" then
 					return
 				end
+
+				local filetype = vim.bo[bufnr].filetype
+				if (filetype == "c" or filetype == "cpp") and vim.fn.filereadable(".clang-format") == 0 then
+					return
+				end
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
 		},
