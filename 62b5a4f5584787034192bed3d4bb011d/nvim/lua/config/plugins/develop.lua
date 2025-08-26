@@ -126,14 +126,6 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 			end
 
-			-- 自动显示诊断浮动窗口
-			vim.api.nvim_create_autocmd("CursorHold", {
-				group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-				callback = function()
-					vim.diagnostic.open_float(nil, { focus = false })
-				end,
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
