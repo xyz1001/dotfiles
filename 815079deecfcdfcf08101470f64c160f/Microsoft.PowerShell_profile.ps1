@@ -34,3 +34,7 @@ function Get-EnvironmentVariablesDialog {
 }
 
 Set-Alias envgui Get-EnvironmentVariablesDialog
+
+if (Get-Command scoop -ErrorAction SilentlyContinue) {
+    . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
+}
