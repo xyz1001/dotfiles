@@ -2,4 +2,6 @@
 *.swo
 *.pyc
 */.vim/sessions/
+*/.vim/backup/
+*/.vim/undo/
 lazy-lock.json
