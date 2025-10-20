@@ -29,6 +29,9 @@ dotfiles:
   41d62a13ee890cadca00a018476d3d6f/pip.conf:
     darwin:
       path: ~/.config/pip/pip.conf
+  4abe243aeeac35e1b358163ac05fa621/config.json:
+    linux:
+      path: ~/.docker/config.json
   4c761f170e016836ff84498202b99827/.agignore:
     darwin:
       path: ~/.agignore
