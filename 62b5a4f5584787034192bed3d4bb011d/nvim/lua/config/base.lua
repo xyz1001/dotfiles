@@ -6,6 +6,7 @@ if not vim.g.vscode then
 	vim.opt.listchars = vim.opt.listchars + "eol:¬"
 	vim.opt.cursorline = true
 end
+vim.opt.fixendofline = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.foldlevel = 99
