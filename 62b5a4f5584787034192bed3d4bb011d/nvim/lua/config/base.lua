@@ -1,9 +1,11 @@
 vim.opt.wrap = true
-vim.opt.number = true
-vim.opt.colorcolumn = "81"
-vim.opt.errorformat = vim.opt.errorformat + "[%f:%l] -> %m,[%f:%l]:%m"
-vim.opt.listchars = vim.opt.listchars + "eol:¬"
-vim.opt.cursorline = true
+if not vim.g.vscode then
+	vim.opt.number = true
+	vim.opt.colorcolumn = "81"
+	vim.opt.errorformat = vim.opt.errorformat + "[%f:%l] -> %m,[%f:%l]:%m"
+	vim.opt.listchars = vim.opt.listchars + "eol:¬"
+	vim.opt.cursorline = true
+end
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.foldlevel = 99

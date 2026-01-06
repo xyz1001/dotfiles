@@ -1,6 +1,7 @@
 return {
 	{
 		"folke/tokyonight.nvim",
+		cond = not vim.g.vscode,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -9,6 +10,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		cond = not vim.g.vscode,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
@@ -164,6 +166,7 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
+		cond = not vim.g.vscode,
 		config = true,
 	},
 	{
@@ -180,6 +183,7 @@ return {
 		"stevearc/aerial.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
+			cond = not vim.g.vscode,
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = true,
@@ -189,6 +193,7 @@ return {
 	},
 	{
 		"iamcco/markdown-preview.nvim",
+		cond = not vim.g.vscode,
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",
 		init = function()
@@ -198,6 +203,7 @@ return {
 	},
 	{
 		"weirongxu/plantuml-previewer.vim",
+		cond = not vim.g.vscode,
 		dependencies = {
 			"tyru/open-browser.vim",
 		},
@@ -295,6 +301,7 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
+		cond = not vim.g.vscode,
 		init = function()
 			vim.g.VM_theme = "olive"
 			vim.g.VM_leader = "\\"
@@ -328,6 +335,7 @@ return {
 	},
 	{
 		"keaising/im-select.nvim",
+		cond = not vim.g.vscode,
 		build = function()
 			if vim.fn.has("win32") == 1 then
 				vim.fn.system("scoop install im-select")
@@ -343,6 +351,7 @@ return {
 	},
 	{
 		"romgrk/barbar.nvim",
+		cond = not vim.g.vscode,
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
 			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
@@ -384,12 +393,14 @@ return {
 	},
 	{
 		"rcarriga/nvim-notify",
+		cond = not vim.g.vscode,
 		config = function()
 			vim.notify = require("notify")
 		end,
 	},
 	{
 		"stevearc/oil.nvim",
+		cond = not vim.g.vscode,
 		---@module 'oil'
 		---@type oil.SetupOpts
 		opts = {},
