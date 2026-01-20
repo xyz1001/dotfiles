@@ -16,8 +16,8 @@ set print pretty on
 set print array on
 # 打印数组时显示索引
 set print array-indexes on
-# 打印字符串时不限制长度
-set print elements 0
+# 打印字符串时限制长度为32
+set print elements 32
 # 遇到空字符时停止打印字符串
 set print null-stop on
 
@@ -38,7 +38,7 @@ set auto-load safe-path /
 # 减少线程相关的干扰信息
 set print thread-events off
 # 自动显示下一条要执行的汇编指令
-set disassemble-next-line on
+#set disassemble-next-line on
 if !$is_arm
     set disassembly-flavor intel
 end
