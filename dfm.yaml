@@ -96,8 +96,14 @@ dotfiles:
     windows:
       path: ~\.gitconfig.proxy
   4c761f170e016836ff84498202b99827/.gitconfig.work:
+    android:
+      path: ~/.gitconfig.work
+    darwin:
+      path: ~/.gitconfig.work
     linux:
       path: ~/.gitconfig.work
+    windows:
+      path: ~\.gitconfig.work
   4c761f170e016836ff84498202b99827/.gitignore_global:
     android:
       path: ~/.gitignore_global
