@@ -12,6 +12,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		event = { "VeryLazy" },
+		branch = "master",
 		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 		opts = {
 			ensure_installed = {
@@ -783,4 +784,3 @@ return {
 		},
 	},
 }
-
