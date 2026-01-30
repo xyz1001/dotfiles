@@ -77,8 +77,14 @@ dotfiles:
     windows:
       path: ~\.gitconfig
   4c761f170e016836ff84498202b99827/.gitconfig.cvte:
+    android:
+      path: ~/.gitconfig.cvte
+    darwin:
+      path: ~/.gitconfig.cvte
     linux:
       path: ~/.gitconfig.cvte
+    windows:
+      path: ~\.gitconfig.cvte
   4c761f170e016836ff84498202b99827/.gitconfig.diff:
     android:
       path: ~/.gitconfig.diff
