@@ -78,7 +78,7 @@ return {
 			providers = {
 				copilot = {
 					endpoint = "https://api.githubcopilot.com",
-					model = "gpt-4.1",
+					model = "claude-opus-4.5",
 					proxy = nil, -- [protocol://]host[:port] Use this proxy
 					allow_insecure = false, -- Allow insecure server connections
 					timeout = 30000, -- Timeout in milliseconds
