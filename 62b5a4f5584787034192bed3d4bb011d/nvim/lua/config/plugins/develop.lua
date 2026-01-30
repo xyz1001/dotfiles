@@ -229,8 +229,6 @@ return {
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
-		-- 如果需要转换某些复杂的正则片段，建议安装 jsregexp（可选）
-		build = "make install_jsregexp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
