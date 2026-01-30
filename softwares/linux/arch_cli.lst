@@ -118,3 +118,6 @@ python-pynvim
 luarocks
 tldr
 sshfs
+git-crypt
+isd
+distrobox
