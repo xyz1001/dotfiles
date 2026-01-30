@@ -334,22 +334,6 @@ return {
 		enabled = vim.fn.has("unix") ~= 0,
 	},
 	{
-		"keaising/im-select.nvim",
-		cond = not vim.g.vscode,
-		build = function()
-			if vim.fn.has("win32") == 1 then
-				vim.fn.system("scoop install im-select")
-			elseif vim.fn.has("wsl") == 1 then
-				vim.fn.system(
-					"curl -o ~/.local/bin/im-select.exe https://github.com/daipeihust/im-select/raw/1.0.1/im-select-win/out/x64/im-select.exe && chmod +x ~/.local/bin/im-select.exe"
-				)
-			end
-		end,
-		config = function()
-			require("im_select").setup({})
-		end,
-	},
-	{
 		"romgrk/barbar.nvim",
 		cond = not vim.g.vscode,
 		dependencies = {
