@@ -227,14 +227,61 @@ return {
 
 	-- complement
 	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		-- 如果需要转换某些复杂的正则片段，建议安装 jsregexp（可选）
+		build = "make install_jsregexp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		config = function()
+			local ls = require("luasnip")
+
+			ls.filetype_extend("cpp", { "c" })
+
+			-- 加载 friendly-snippets (vscode 格式)
+			require("luasnip.loaders.from_vscode").lazy_load()
+
+			require("luasnip.loaders.from_lua").lazy_load({
+				paths = { vim.fn.stdpath("config") .. "/lua/snippets/languages" },
+			})
+
+			vim.keymap.set({ "i", "s" }, "<C-e>", function()
+				if ls.expandable() then
+					ls.expand()
+				end
+			end, { silent = true })
+
+			vim.keymap.set({ "i", "s" }, "<C-j>", function()
+				if ls.jumpable(1) then
+					ls.jump(1)
+				end
+			end, { silent = true })
+
+			vim.keymap.set({ "i", "s" }, "<C-k>", function()
+				if ls.jumpable(-1) then
+					ls.jump(-1)
+				end
+			end, { silent = true })
+
+			ls.config.set_config({
+				history = true,
+				updateevents = "TextChanged,TextChangedI",
+			})
+		end,
+	},
+	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+		dependencies = { "fang2hou/blink-copilot" },
 
 		version = "1.*",
 		opts = {
 			enabled = function()
 				return not vim.tbl_contains({ "json", "markdown" }, vim.bo.filetype)
 			end,
+
+			snippets = { preset = "luasnip" },
+
 			-- All presets have the following mappings:
 			-- C-space: Open menu or open docs if already open
 			-- C-n/C-p or Up/Down: Select next/previous item
@@ -257,6 +304,9 @@ return {
 						end
 					end,
 				},
+				["<C-e>"] = { "fallback" },
+				["<C-j>"] = { "fallback" },
+				["<C-k>"] = { "fallback" },
 			},
 
 			appearance = {
@@ -284,14 +334,6 @@ return {
 			},
 		},
 		opts_extend = { "sources.default" },
-	},
-	{
-		"SirVer/ultisnips",
-		init = function()
-			vim.g.UltiSnipsExpandTrigger = "<C-e>"
-			vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
-			vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
-		end,
 	},
 
 	-- format
