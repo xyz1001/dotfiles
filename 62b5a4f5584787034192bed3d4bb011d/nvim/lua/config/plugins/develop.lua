@@ -595,6 +595,14 @@ return {
 			vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
 			vim.fn.sign_define("DapLogPoint", { text = "", texthl = "", linehl = "", numhl = "" })
 
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "dap-float",
+				callback = function()
+					vim.keymap.set("n", "q", "<cmd>close<cr>", { silent = true, buffer = true })
+					vim.keymap.set("n", "<Esc>", "<cmd>close<cr>", { silent = true, buffer = true })
+				end,
+			})
+
 			local dap = require("dap")
 			dap.adapters.gdb = {
 				type = "executable",
