@@ -812,14 +812,6 @@ return {
 		end,
 	},
 	{
-		"theHamsta/nvim-dap-virtual-text",
-		cond = vim.fn.has("win32") == 0,
-		opts = {},
-		config = function()
-			require("nvim-dap-virtual-text").setup()
-		end,
-	},
-	{
 		"jay-babu/mason-nvim-dap.nvim",
 		cond = vim.fn.has("win32") == 0,
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
