@@ -145,9 +145,9 @@ return {
 						}
 
 						vim.ui.select({
-							"1. Filename: " .. results[3],
+							"1. Filename: " .. results[1],
 							"2. Path relative to CWD: " .. results[2],
-							"3. Absolute path: " .. results[1],
+							"3. Absolute path: " .. results[3],
 						}, { prompt = "Choose to copy to clipboard:" }, function(choice)
 							if choice then
 								local i = tonumber(choice:sub(1, 1))
