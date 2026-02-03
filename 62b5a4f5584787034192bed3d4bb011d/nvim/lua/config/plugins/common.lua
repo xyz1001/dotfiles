@@ -153,6 +153,7 @@ return {
 								local i = tonumber(choice:sub(1, 1))
 								local result = results[i]
 								vim.fn.setreg('"', result)
+								vim.fn.setreg("+", result)
 								vim.notify("Copied: " .. result)
 							end
 						end)
