@@ -604,7 +604,7 @@ return {
 			dap.adapters.cppdbg = {
 				id = "cppdbg",
 				type = "executable",
-				command = "/usr/share/cpptools-debug/bin/OpenDebugAD7",
+				command = "OpenDebugAD7",
 			}
 			-- 提取获取可执行程序的公共函数
 			local function get_program_path()
