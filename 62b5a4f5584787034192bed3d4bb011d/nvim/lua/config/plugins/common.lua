@@ -130,7 +130,7 @@ return {
 							path = vim.fn.fnamemodify(path, ":h")
 						end
 						-- 使用 Oil Lua API 避免命令行解析问题
-						require("oil").open(path)
+						require("oil").open_float(path)
 					end,
 					copy_filename = function(state)
 						local node = state.tree:get_node()
