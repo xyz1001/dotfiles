@@ -613,13 +613,39 @@ return {
 					return vim.fn.executable(path) == 1
 				end
 
-				local function find_executables(dir)
+				-- 广度优先搜索查找 install 目录
+				local function find_install_dir_bfs(root_dir)
+					local queue = { root_dir }
+					while #queue > 0 do
+						local current_dir = table.remove(queue, 1)
+						local handle = vim.loop.fs_scandir(current_dir)
+						if handle then
+							while true do
+								local name, type = vim.loop.fs_scandir_next(handle)
+								if not name then
+									break
+								end
+								if type == "directory" then
+									local path = current_dir .. "/" .. name
+									if name == "install" then
+										return path
+									end
+									table.insert(queue, path)
+								end
+							end
+						end
+					end
+					return nil
+				end
+
+				-- 递归搜索目录下所有可执行文件
+				local function find_executables_recursive(dir, executables)
+					executables = executables or {}
 					local handle = vim.loop.fs_scandir(dir)
 					if not handle then
-						return {}
+						return executables
 					end
 
-					local executables = {}
 					while true do
 						local name, type = vim.loop.fs_scandir_next(handle)
 						if not name then
@@ -627,23 +653,29 @@ return {
 						end
 
 						local path = dir .. "/" .. name
-						if type == "file" and is_executable(path) then
+						if type == "directory" then
+							find_executables_recursive(path, executables)
+						elseif type == "file" and is_executable(path) then
 							table.insert(executables, path)
 						end
 					end
 					return executables
 				end
 
-				local debug_dir = vim.fn.getcwd() .. "/build/Debug/install/bin"
-				local release_dir = vim.fn.getcwd() .. "/build/Release/install/bin"
+				local build_dir = vim.fn.getcwd() .. "/build"
 
-				-- 合并 Debug 和 Release 目录下的可执行文件
-				local executables = {}
-				vim.list_extend(executables, find_executables(debug_dir))
-				vim.list_extend(executables, find_executables(release_dir))
+				-- 使用 BFS 在 build 目录下查找 install 目录
+				local install_dir = find_install_dir_bfs(build_dir)
+				if not install_dir then
+					vim.notify("No install directory found in build directory", vim.log.levels.WARN)
+					return nil
+				end
+
+				-- 在 install 目录下递归搜索可执行文件
+				local executables = find_executables_recursive(install_dir)
 
 				if #executables == 0 then
-					vim.notify("No executable files found in build directory", vim.log.levels.WARN)
+					vim.notify("No executable files found in install directory", vim.log.levels.WARN)
 					return nil
 				end
 
