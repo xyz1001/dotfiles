@@ -531,7 +531,7 @@ return {
 			{
 				"<Leader>dh",
 				function()
-					require("dap.ui.widgets").hover()
+					require("dapui").eval(nil, { enter = false })
 				end,
 				desc = "显示悬停信息",
 			},
