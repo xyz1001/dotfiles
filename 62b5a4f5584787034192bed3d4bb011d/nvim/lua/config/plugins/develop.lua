@@ -448,6 +448,7 @@ return {
 	-- debug
 	{
 		"mfussenegger/nvim-dap",
+		cond = vim.fn.has("win32") == 0,
 		dependencies = {
 			{
 				"nvim-telescope/telescope-dap.nvim",
@@ -750,6 +751,7 @@ return {
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		cond = vim.fn.has("win32") == 0,
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio",
@@ -811,6 +813,7 @@ return {
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",
+		cond = vim.fn.has("win32") == 0,
 		opts = {},
 		config = function()
 			require("nvim-dap-virtual-text").setup()
@@ -818,6 +821,7 @@ return {
 	},
 	{
 		"jay-babu/mason-nvim-dap.nvim",
+		cond = vim.fn.has("win32") == 0,
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
 		opts = {
 			ensure_installed = { "cpptools" },
