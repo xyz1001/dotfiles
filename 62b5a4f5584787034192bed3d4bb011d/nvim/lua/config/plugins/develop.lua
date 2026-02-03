@@ -216,7 +216,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "mason.nvim", "neovim/nvim-lspconfig" },
 		opts = {
-			ensure_installed = { "lua_ls", "clangd", "jsonls", "cmake", "pyright" },
+			ensure_installed = { "lua_ls", "clangd", "jsonls", "pyright" },
 			handlers = {
 				function(server_name)
 					require("lspconfig")[server_name].setup({})
