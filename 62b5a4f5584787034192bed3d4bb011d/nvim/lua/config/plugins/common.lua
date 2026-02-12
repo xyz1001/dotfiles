@@ -392,4 +392,8 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		cmd = { "Oil" },
 	},
+	{
+		"notaduck/auto-create-dirs.nvim",
+		config = {},
+	},
 }
