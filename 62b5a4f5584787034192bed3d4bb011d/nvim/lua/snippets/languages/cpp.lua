@@ -29,7 +29,7 @@ return {
 	-- 3. 标准类定义 (cl)
 	s("cl", {
 		t("class "),
-		i(1, utils.to_pascal_case(utils.get_basename())),
+		d(1, utils.get_basename(utils.to_pascal_case)),
 		t({ " {", "public:", "\t" }),
 		sync_class_name(1),
 		t("("),
@@ -58,7 +58,7 @@ return {
 	-- 4. 虚类/接口定义 (vcl)
 	s("vcl", {
 		t("class I"),
-		i(1, utils.to_pascal_case(utils.get_basename())),
+		d(1, utils.get_basename(utils.to_pascal_case)),
 		t({ " {", "public:", "\tvirtual ~" }),
 		sync_class_name(1),
 		t({ "() = default;", "", "public:", "", "};" }),
@@ -71,7 +71,7 @@ return {
 		t({ ">", "", "namespace Ui {", "class " }),
 		sync_class_name(2),
 		t({ ";", "} // namespace Ui", "", "class " }),
-		i(2, utils.to_pascal_case(utils.get_basename())),
+		d(2, utils.get_basename(utils.to_pascal_case)),
 		t(" : public "),
 		rep(1),
 		t({ " {", "\tQ_OBJECT", "", "public:", "\texplicit " }),
@@ -90,9 +90,9 @@ return {
 	-- 6. Qt: QWidget 实现
 	s("qwidgeti", {
 		t('#include "ui_'),
-		i(1, utils.get_basename()),
+		d(1, utils.get_basename()),
 		t({ '.h"', "", "" }),
-		i(2, utils.to_pascal_case(utils.get_basename())),
+		d(2, utils.get_basename(utils.to_pascal_case)),
 		t("::"),
 		rep(2),
 		t({ "(QWidget *parent)", "\t\t: Super(parent), ui_(std::make_unique<Ui::" }),

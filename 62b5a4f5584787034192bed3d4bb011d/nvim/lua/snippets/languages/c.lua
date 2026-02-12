@@ -5,6 +5,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
 local pkg = require("snippets.utils") -- 引用公共模块
+local utils = require("snippets.utils")
 
 return {
 	-- 基础头部
@@ -23,7 +24,7 @@ return {
 		"sh",
 		vim.list_extend(pkg.header_comment(), {
 			t({ "", '#include "' }),
-			i(1, vim.fn.expand("%:t:r")),
+			d(1, utils.get_basename()),
 			t({ '.h"', "", "" }),
 		})
 	),

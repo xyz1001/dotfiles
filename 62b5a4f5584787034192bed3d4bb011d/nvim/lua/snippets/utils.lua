@@ -45,8 +45,18 @@ M.to_pascal_case = function(s)
 end
 
 -- 获取文件名
-M.get_basename = function()
-	return vim.fn.expand("%:t:r")
+M.get_basename = function(transform_fn)
+	return function(_, snip)
+		local name = snip.env.TM_FILENAME_BASE or ""
+
+		if transform_fn then
+			name = transform_fn(name)
+		end
+
+		return sn(nil, {
+			i(1, name),
+		})
+	end
 end
 
 -- 处理 Visual 选中逻辑
