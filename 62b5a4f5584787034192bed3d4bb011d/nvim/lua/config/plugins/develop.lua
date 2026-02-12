@@ -262,8 +262,9 @@ return {
 			end, { silent = true })
 
 			ls.config.set_config({
-				history = true,
 				updateevents = "TextChanged,TextChangedI",
+				region_check_events = "CursorHold,InsertLeave",
+				delete_check_events = "TextChanged,InsertEnter",
 			})
 		end,
 	},
@@ -289,7 +290,18 @@ return {
 			--cmdline.keymap.preset = 'cmdline',
 
 			keymap = {
-				preset = "super-tab",
+				preset = "default",
+				["<Tab>"] = {
+					function(cmp)
+						if cmp.is_visible() then
+							return cmp.accept()
+						elseif cmp.snippet_active() then
+							return cmp.snippet_forward()
+						end
+					end,
+					"fallback",
+				},
+
 				["<C-p>"] = {
 					function(cmp)
 						if cmp.is_visible() then
