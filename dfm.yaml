@@ -235,15 +235,6 @@ dotfiles:
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
-  939a22ac92fe5afbc1ba1ddc16ba3953/darwin/profiles:
-    darwin:
-      path: ~/.conan/profiles
-  939a22ac92fe5afbc1ba1ddc16ba3953/linux/profiles:
-    linux:
-      path: ~/.conan/profiles
-  d5cf7fa704e0e979acb9b7cfbdfb2b5d/profiles:
-    windows:
-      path: ~\.conan\profiles
   e4a140e6cc142debe50dd8d647233b0b/settings_133128841309404354.ptb:
     windows:
       path: ~\Documents\PowerToys\Backup\settings_133128841309404354.ptb
