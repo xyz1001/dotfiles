@@ -225,6 +225,7 @@ return {
 	},
 	{
 		"christoomey/vim-tmux-navigator",
+		lazy = false,
 		enabled = vim.fn.has("unix") ~= 0,
 		cond = vim.env.TMUX ~= nil,
 		cmd = {
