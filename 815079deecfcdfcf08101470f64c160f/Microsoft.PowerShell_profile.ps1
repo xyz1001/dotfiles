@@ -38,3 +38,9 @@ Set-Alias envgui Get-EnvironmentVariablesDialog
 if (Get-Command scoop -ErrorAction SilentlyContinue) {
     . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 }
+
+if (Get-Process -Name "Clash-Verge" -ErrorAction SilentlyContinue) {
+    $env:HTTP_PROXY = "http://127.0.0.1:7890"
+    $env:HTTPS_PROXY = "http://127.0.0.1:7890"
+    $env:NO_PROXY = "localhost,127.0.0.1"
+}
