@@ -39,6 +39,19 @@ return {
 			vim.g.floaterm_autoclose = 1
 			vim.g.floaterm_autoinsert = 1
 			vim.g.floaterm_keymap_toggle = "<c-t>"
+
+			-- Disable Tmux Navigator bindings in floaterm to allow native key usage
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "floaterm",
+				callback = function(event)
+					local opts = { buffer = event.buf, silent = true }
+					local keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>", "<C-\\>" }
+					for _, key in ipairs(keys) do
+						vim.keymap.set("t", key, key, opts)
+						vim.keymap.set("n", key, "<Nop>", opts)
+					end
+				end,
+			})
 		end,
 	},
 	{
