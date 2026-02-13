@@ -51,10 +51,6 @@ return {
 					local is_opencode = vim.bo[event.buf].filetype == "opencode_terminal"
 
 					if is_opencode then
-						local opts = { buffer = event.buf, silent = true }
-						-- Also allow escaping terminal mode easily
-						vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
-
 						-- Function to dynamically read normal mode mapping and apply it to terminal mode
 						-- This respects whatever is configured in normal mode (Tmux or native).
 						local function map_nav(lhs, direction)
