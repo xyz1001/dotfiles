@@ -73,6 +73,9 @@ return {
 						map_nav("<C-k>", "k")
 						map_nav("<C-l>", "l")
 						map_nav("<C-\\>", "p")
+
+						-- Block Ctrl-D to prevent accidental terminal exit
+						vim.keymap.set("t", "<C-d>", "<Nop>", { buffer = event.buf, silent = true })
 					end
 				end,
 			})
