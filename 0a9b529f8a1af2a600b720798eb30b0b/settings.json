@@ -6,17 +6,17 @@
         {
             "command": 
             {
-                "action": "resizePane",
-                "direction": "right"
+                "action": "scrollUp"
             },
-            "id": "User.resizePane.87C324ED"
+            "id": "User.scrollUp.0"
         },
         {
             "command": 
             {
-                "action": "scrollUp"
+                "action": "resizePane",
+                "direction": "right"
             },
-            "id": "User.scrollUp.0"
+            "id": "User.resizePane.87C324ED"
         },
         {
             "command": 
@@ -27,16 +27,16 @@
             "id": "User.resizePane.F747588A"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command": 
             {
                 "action": "resizePane",
                 "direction": "left"
             },
             "id": "User.resizePane.2A0DA8E0"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         },
         {
             "command": 
@@ -82,28 +82,28 @@
     "keybindings": 
     [
         {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+j"
-        },
-        {
             "id": "User.splitPane.864CD510",
             "keys": "ctrl+alt+v"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+f"
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+j"
         },
         {
             "id": "User.resizePane.F747588A",
             "keys": "ctrl+alt+j"
         },
         {
-            "id": "User.resizePane.2A0DA8E0",
-            "keys": "ctrl+alt+h"
+            "id": "User.find",
+            "keys": "ctrl+f"
         },
         {
             "id": "User.newTab.5DEADB41",
             "keys": "ctrl+shift+c"
+        },
+        {
+            "id": "User.resizePane.2A0DA8E0",
+            "keys": "ctrl+alt+h"
         },
         {
             "id": "User.scrollDown.0",
@@ -138,12 +138,12 @@
             "keys": "ctrl+alt+s"
         },
         {
-            "id": "User.resizePane.6CD791B",
-            "keys": "ctrl+alt+k"
-        },
-        {
             "id": "User.resizePane.87C324ED",
             "keys": "ctrl+alt+l"
+        },
+        {
+            "id": "User.resizePane.6CD791B",
+            "keys": "ctrl+alt+k"
         }
     ],
     "launchMode": "maximized",
@@ -192,6 +192,12 @@
                 "showMarksOnScrollbar": true,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
+            },
+            {
+                "guid": "{16208362-94fc-5b1f-a491-5b2624d5ab56}",
+                "hidden": true,
+                "name": "Visual Studio Debug Console",
+                "source": "VSDebugConsole"
             }
         ]
     },
