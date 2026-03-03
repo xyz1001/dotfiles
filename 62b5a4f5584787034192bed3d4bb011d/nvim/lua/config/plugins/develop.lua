@@ -629,6 +629,9 @@ return {
 			-- 提取获取可执行程序的公共函数
 			local function get_program_path()
 				local function is_executable(path)
+					if path:match("%.so$") or path:match("%.so%.") or path:match("%.a$") then
+						return false
+					end
 					return vim.fn.executable(path) == 1
 				end
 
@@ -658,7 +661,7 @@ return {
 				end
 
 				-- 递归搜索目录下所有可执行文件
-				local function find_executables_recursive(dir, executables)
+				local function find_executables_recursive(dir, executables, base_dir)
 					executables = executables or {}
 					local handle = vim.loop.fs_scandir(dir)
 					if not handle then
@@ -671,11 +674,13 @@ return {
 							break
 						end
 
-						local path = dir .. "/" .. name
+						local abs_path = dir .. "/" .. name
 						if type == "directory" then
-							find_executables_recursive(path, executables)
-						elseif type == "file" and is_executable(path) then
-							table.insert(executables, path)
+							find_executables_recursive(abs_path, executables, base_dir)
+						elseif type == "file" and is_executable(abs_path) then
+							-- Convert to relative path from base_dir
+							local rel_path = abs_path:sub(#base_dir + 2)
+							table.insert(executables, rel_path)
 						end
 					end
 					return executables
@@ -691,7 +696,8 @@ return {
 				end
 
 				-- 在 install 目录下递归搜索可执行文件
-				local executables = find_executables_recursive(install_dir)
+				local cwd = vim.fn.getcwd()
+				local executables = find_executables_recursive(install_dir, nil, cwd)
 
 				if #executables == 0 then
 					vim.notify("No executable files found in install directory", vim.log.levels.WARN)
