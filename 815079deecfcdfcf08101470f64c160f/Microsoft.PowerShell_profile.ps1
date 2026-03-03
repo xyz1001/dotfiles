@@ -39,6 +39,19 @@ if (Get-Command scoop -ErrorAction SilentlyContinue) {
     . ([ScriptBlock]::Create((& scoop-search --hook | Out-String)))
 }
 
+$apiKeyFile = Join-Path $HOME ".config\secret.env"
+if (Test-Path $apiKeyFile) {
+    try {
+        Get-Content $apiKeyFile | ForEach-Object {
+            if ($_ -notmatch '^\s*#' -and $_ -match '=') {
+                $name, $value = $_.Split('=', 2)
+                Set-Content "env:\$name" $value
+            }
+        }
+    } catch {
+    }
+}
+
 if (Get-Process -Name "Clash-Verge" -ErrorAction SilentlyContinue) {
     $env:HTTP_PROXY = "http://127.0.0.1:7890"
     $env:HTTPS_PROXY = "http://127.0.0.1:7890"

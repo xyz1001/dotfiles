@@ -26,6 +26,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
 
 source $HOME/.zsh/config.zsh
-if [[ -f $HOME/.zsh/api_key.zsh && -s $HOME/.zsh/api_key.zsh ]]; then
-    source $HOME/.zsh/api_key.zsh
+
+if [[ -f $HOME/.config/secret.env ]]; then
+    if file -L -b $HOME/.config/secret.env | grep -q "ASCII\|text"; then
+        set -a
+        source $HOME/.config/secret.env
+        set +a
+    fi
 fi
