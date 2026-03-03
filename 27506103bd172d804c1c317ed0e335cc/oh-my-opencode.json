@@ -1,0 +1,77 @@
+{
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+    "agents": {
+        "sisyphus": {
+            "model": "147ai/claude-opus-4-6",
+            "variant": "max"
+        },
+        "hephaestus": {
+            "model": "nexus-codex/gpt-5.3-codex",
+            "variant": "medium"
+        },
+        "oracle": {
+            "model": "nexus-codex/gpt-5.2",
+            "variant": "high"
+        },
+        "librarian": {
+            "model": "opencode/big-pickle"
+        },
+        "explore": {
+            "model": "147ai/claude-haiku-4-5"
+        },
+        "multimodal-looker": {
+            "model": "google/gemini-3-flash-preview"
+        },
+        "metis": {
+            "model": "147ai/claude-opus-4-6",
+            "variant": "max"
+        },
+        "momus": {
+            "model": "nexus-codex/gpt-5.2",
+            "variant": "medium"
+        },
+        "atlas": {
+            "model": "147ai/claude-opus-4-6"
+        },
+        "prometheus": {
+            "model": "147ai/claude-opus-4-6",
+            "variant": "max"
+        }
+    },
+    "categories": {
+        "visual-engineering": {
+            "model": "google/gemini-3.1-pro-preview",
+            "variant": "high"
+        },
+        "ultrabrain": {
+            "model": "nexus-codex/gpt-5.3-codex",
+            "variant": "xhigh"
+        },
+        "deep": {
+            "model": "147ai/claude-opus-4-6",
+            "variant": "medium"
+        },
+        "artistry": {
+            "model": "google/gemini-3.1-pro-preview",
+            "variant": "high"
+        },
+        "quick": {
+            "model": "google/gemini-3-flash-preview"
+        },
+        "unspecified-low": {
+            "model": "147ai/claude-haiku-4-5",
+            "fallback_models": [
+                "google/gemini-2.0-flash"
+            ]
+        },
+        "unspecified-high": {
+            "model": "147ai/claude-opus-4-6",
+            "fallback_models": [
+                "moonshotai-cn/kimi-k2.5"
+            ]
+        },
+        "writing": {
+            "model": "google/gemini-3-flash-preview"
+        }
+    }
+}

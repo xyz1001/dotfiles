@@ -11,6 +11,12 @@ dotfiles:
   1c047b64f01406fa23792385e03956ee/config.json:
     linux:
       path: ~/.config/yay/config.json
+  27506103bd172d804c1c317ed0e335cc/oh-my-opencode.json:
+    linux:
+      path: ~/.config/opencode/oh-my-opencode.json
+  27506103bd172d804c1c317ed0e335cc/opencode.json:
+    linux:
+      path: ~/.config/opencode/opencode.json
   27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
     windows:
       path: ~\AppData\Roaming\topgrade.toml
