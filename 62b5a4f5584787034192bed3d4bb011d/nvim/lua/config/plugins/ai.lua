@@ -51,18 +51,17 @@ return {
 					local is_opencode = vim.bo[event.buf].filetype == "opencode_terminal"
 
 					if is_opencode then
-						-- Function to dynamically read normal mode mapping and apply it to terminal mode
-						-- This respects whatever is configured in normal mode (Tmux or native).
 						local function map_nav(lhs, direction)
 							local map_info = vim.fn.maparg(lhs, "n", false, true)
 							local rhs = map_info.rhs
 
 							if rhs and rhs ~= "" then
-								-- Adapt command-line mappings (e.g. ":<C-U>Command<CR>") for Terminal mode ("<Cmd>Command<CR>")
 								if rhs:lower():match("^:<c%-u>") then
 									rhs = rhs:gsub("^:<[cC]%-[uU]>", "<Cmd>"):gsub("<[cC][rR]>$", "<CR>")
 								elseif rhs:match("^:") then
 									rhs = "<Cmd>" .. rhs:sub(2) .. "<CR>"
+								else
+									rhs = "<C-\\><C-n>" .. rhs
 								end
 								vim.keymap.set("t", lhs, rhs, { buffer = event.buf, silent = true })
 							end
