@@ -146,6 +146,15 @@
         "gh_grep": {
             "type": "remote",
             "url": "https://mcp.grep.app"
+        },
+        "mcp-atlassian": {
+            "type": "local",
+            "command": ["uvx", "mcp-atlassian"],
+            "environment": {
+                "JIRA_URL": "{env:JIRA_URL}",
+                "JIRA_USERNAME": "{env:JIRA_USERNAME}",
+                "JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}"
+            }
         }
     },
     "plugin": [
