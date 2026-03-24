@@ -67,14 +67,15 @@ return {
 							end
 						end
 
-						map_nav("<C-h>", "h")
-						map_nav("<C-j>", "j")
-						map_nav("<C-k>", "k")
-						map_nav("<C-l>", "l")
-						map_nav("<C-\\>", "p")
+					map_nav("<C-h>", "h")
+					map_nav("<C-j>", "j")
+					map_nav("<C-k>", "k")
+					map_nav("<C-l>", "l")
+					map_nav("<C-\\>", "p")
 
-						-- Block Ctrl-D to prevent accidental terminal exit
-						vim.keymap.set("t", "<C-d>", "<Nop>", { buffer = event.buf, silent = true })
+					-- Map C-u/C-d to PageUp/PageDown for scrolling output
+					vim.keymap.set("t", "<C-u>", "<PageUp>", { buffer = event.buf, silent = true })
+					vim.keymap.set("t", "<C-d>", "<PageDown>", { buffer = event.buf, silent = true })
 					end
 				end,
 			})

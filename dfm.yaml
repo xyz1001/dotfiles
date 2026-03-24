@@ -195,6 +195,13 @@ dotfiles:
       path: ~/.zshrc
     linux:
       path: ~/.zshrc
+  4d2e5a0220e12f571caf6be67ec64ec3/tui.json:
+    windows:
+      path: ~\.config\opencode\tui.json
+    linux:
+      path: ~/.config/opencode/tui.json
+    darwin:
+      path: ~/.config/opencode/tui.json
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme

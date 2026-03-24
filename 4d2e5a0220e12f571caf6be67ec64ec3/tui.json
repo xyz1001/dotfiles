@@ -1,0 +1,17 @@
+{
+    "$schema": "https://opencode.ai/tui.json",
+    "keybinds": {
+        "messages_half_page_up": "ctrl+u,pageup",
+        "messages_half_page_down": "ctrl+d,pagedown",
+        "messages_page_up": "ctrl+b",
+        "messages_page_down": "ctrl+f",
+        "messages_first": "",
+        "messages_last": "",
+        "messages_copy": "ctrl+y,<leader>y",
+        "messages_undo": "<leader>u",
+        "messages_redo": "<leader>r",
+        "input_delete": "delete,shift+delete",
+        "input_paste": "ctrl+p,ctrl+v",
+        "terminal_suspend": "none"
+    }
+}
