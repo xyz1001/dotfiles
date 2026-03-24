@@ -18,6 +18,8 @@ Set-Theme Agnoster
 
 Set-PSReadLineOption -Colors @{ "Parameter" = "`e[97;2;3m"; "Operator" = "`e[97;2;3m" }
 
+Remove-Item Alias:rm -Force -ErrorAction SilentlyContinue
+
 $Env:LESSCHARSET="utf-8"
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
