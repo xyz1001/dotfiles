@@ -1,23 +1,6 @@
 {
     "$schema": "https://opencode.ai/config.json",
     "provider": {
-        "nexus-mixedcc": {
-            "npm": "@ai-sdk/anthropic",
-            "options": {
-                "apiKey": "{env:NEXUS_API_KEY}",
-                "baseURL": "https://nexusacc.itssx.com/api/claude_code/mixedcc/v1"
-            },
-            "models": {
-                "claude-opus-4-6-20260205": {
-                    "name": "Claude Opus 4.6",
-                    "attachment": true
-                },
-                "claude-haiku-4-5-20251001": {
-                    "name": "Claude Haiku 4.5",
-                    "attachment": true
-                }
-            }
-        },
         "nexus-codex": {
             "npm": "@ai-sdk/openai",
             "options": {
@@ -35,102 +18,80 @@
                 }
             }
         },
-        "147ai": {
+        "cchClaude": {
             "npm": "@ai-sdk/anthropic",
+            "name": "Claude via cch",
             "options": {
-                "apiKey": "{env:AI147_API_KEY}",
-                "baseURL": "https://api.147ai.cn/v1"
+                "baseURL": "{env:CCH_URL}/v1",
+                "apiKey": "{env:CCH_API_KEY}"
             },
             "models": {
-                "claude-opus-4-6": {
-                    "name": "Claude Opus 4.6",
-                    "attachment": true
-                },
                 "claude-haiku-4-5-20251001": {
-                    "name": "Claude Haiku 4.5",
-                    "attachment": true
+                    "name": "Claude Haiku 4.5"
+                },
+                "claude-sonnet-4-6": {
+                    "name": "Claude Sonnet 4.6"
+                },
+                "claude-opus-4-6": {
+                    "name": "Claude Opus 4.6"
                 }
             }
         },
-        "bailian-coding-plan": {
-            "npm": "@ai-sdk/anthropic",
-            "name": "Model Studio Coding Plan",
+        "cchGPT": {
+            "npm": "@ai-sdk/openai",
+            "name": "GPT via cch",
             "options": {
-                "baseURL": "https://coding.dashscope.aliyuncs.com/apps/anthropic/v1",
-                "apiKey": "{env:BAILIAN_CODING_PLAN_API_KEY}"
+                "baseURL": "{env:CCH_URL}/v1",
+                "apiKey": "{env:CCH_API_KEY}",
+                "store": false,
+                "setCacheKey": true
             },
             "models": {
-                "qwen3.5-plus": {
-                    "name": "Qwen3.5 Plus",
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image"
-                        ],
-                        "output": [
-                            "text"
+                "gpt-5.4": {
+                    "name": "GPT-5.4",
+                    "options": {
+                        "reasoningEffort": "xhigh",
+                        "store": false,
+                        "include": [
+                            "reasoning.encrypted_content"
                         ]
-                    },
-                    "options": {
-                        "thinking": {
-                            "type": "enabled",
-                            "budgetTokens": 1024
-                        }
                     }
                 },
-                "qwen3-max-2026-01-23": {
-                    "name": "Qwen3 Max 2026-01-23"
-                },
-                "qwen3-coder-next": {
-                    "name": "Qwen3 Coder Next"
-                },
-                "qwen3-coder-plus": {
-                    "name": "Qwen3 Coder Plus"
-                },
-                "MiniMax-M2.5": {
-                    "name": "MiniMax M2.5",
+                "gpt-5.3-codex": {
+                    "name": "GPT-5.3-codex",
                     "options": {
-                        "thinking": {
-                            "type": "enabled",
-                            "budgetTokens": 1024
-                        }
-                    }
-                },
-                "glm-5": {
-                    "name": "GLM-5",
-                    "options": {
-                        "thinking": {
-                            "type": "enabled",
-                            "budgetTokens": 1024
-                        }
-                    }
-                },
-                "glm-4.7": {
-                    "name": "GLM-4.7",
-                    "options": {
-                        "thinking": {
-                            "type": "enabled",
-                            "budgetTokens": 1024
-                        }
-                    }
-                },
-                "kimi-k2.5": {
-                    "name": "Kimi K2.5",
-                    "modalities": {
-                        "input": [
-                            "text",
-                            "image"
-                        ],
-                        "output": [
-                            "text"
+                        "reasoningEffort": "xhigh",
+                        "store": false,
+                        "include": [
+                            "reasoning.encrypted_content"
                         ]
-                    },
-                    "options": {
-                        "thinking": {
-                            "type": "enabled",
-                            "budgetTokens": 1024
-                        }
                     }
+                },
+                "gpt-5.2": {
+                    "name": "GPT-5.2",
+                    "options": {
+                        "reasoningEffort": "xhigh",
+                        "store": false,
+                        "include": [
+                            "reasoning.encrypted_content"
+                        ]
+                    }
+                },
+            }
+        },
+        "cchGemini": {
+            "npm": "@ai-sdk/google",
+            "name": "Gemini via cch",
+            "options": {
+                "baseURL": "{env:CCH_URL}/v1beta",
+                "apiKey": "{env:CCH_API_KEY}"
+            },
+            "models": {
+                "gemini-3.1-pro-preview": {
+                    "name": "Gemini 3.1 Pro Preview"
+                },
+                "gemini-3-flash-preview": {
+                    "name": "Gemini 3 Flash Preview"
                 }
             }
         }
@@ -149,7 +110,10 @@
         },
         "mcp-atlassian": {
             "type": "local",
-            "command": ["uvx", "mcp-atlassian"],
+            "command": [
+                "uvx",
+                "mcp-atlassian"
+            ],
             "environment": {
                 "JIRA_URL": "{env:JIRA_URL}",
                 "JIRA_USERNAME": "{env:JIRA_USERNAME}",
