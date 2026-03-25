@@ -94,6 +94,11 @@
                     "name": "Gemini 3 Flash Preview"
                 }
             }
+        },
+        "zhipuai-coding-plan": {
+            "options": {
+                "apiKey": "{env:ZHIPUAI_API_KEY}"
+            }
         }
     },
     "mcp": {
