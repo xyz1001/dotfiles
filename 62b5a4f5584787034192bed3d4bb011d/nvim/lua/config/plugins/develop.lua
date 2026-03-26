@@ -356,20 +356,19 @@ return {
 				objc = { "clang-format" },
 				objcpp = { "clang-format" },
 				dart = { "dart_format" },
-				python = { "autopep8" },
+				python = { "ruff_format" },
 				json = { "jq" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
 					return
 				end
-				local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
-				if filename == "conanfile.py" then
-					return
-				end
 
 				local filetype = vim.bo[bufnr].filetype
 				if (filetype == "c" or filetype == "cpp") and vim.fn.filereadable(".clang-format") == 0 then
+					return
+				end
+				if (filetype == "python") and vim.fn.filereadable("ruff.toml") == 0 then
 					return
 				end
 				return { timeout_ms = 500, lsp_fallback = true }
@@ -399,7 +398,7 @@ return {
 		"zapling/mason-conform.nvim",
 		dependencies = { "stevearc/conform.nvim", "williamboman/mason.nvim" },
 		opts = {
-			ensure_installed = { "clang-format", "stylua", "dart-format", "autopep8", "jq" },
+			ensure_installed = { "clang-format", "stylua", "dart-format", "ruff", "jq" },
 		},
 	},
 
