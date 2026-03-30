@@ -358,6 +358,7 @@ return {
 				dart = { "dart_format" },
 				python = { "ruff_format" },
 				json = { "jq" },
+				cmake = { "cmake_format" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat then
@@ -398,7 +399,7 @@ return {
 		"zapling/mason-conform.nvim",
 		dependencies = { "stevearc/conform.nvim", "williamboman/mason.nvim" },
 		opts = {
-			ensure_installed = { "clang-format", "stylua", "dart-format", "ruff", "jq" },
+			ensure_installed = { "clang-format", "stylua", "dart-format", "ruff", "jq", "cmakelang" },
 		},
 	},
 
