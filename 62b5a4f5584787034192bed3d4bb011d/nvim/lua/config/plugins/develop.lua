@@ -369,7 +369,14 @@ return {
 				if (filetype == "c" or filetype == "cpp") and vim.fn.filereadable(".clang-format") == 0 then
 					return
 				end
-				if (filetype == "python") and vim.fn.filereadable("ruff.toml") == 0 then
+				if
+					(filetype == "python")
+					and (
+						vim.fn.filereadable("ruff.toml") == 0
+						and vim.fn.filereadable(".ruff.toml") == 0
+						and vim.fn.filereadable("pyproject.toml") == 0
+					)
+				then
 					return
 				end
 				return { timeout_ms = 500, lsp_fallback = true }
