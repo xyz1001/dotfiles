@@ -67,15 +67,15 @@ return {
 							end
 						end
 
-					map_nav("<C-h>", "h")
-					map_nav("<C-j>", "j")
-					map_nav("<C-k>", "k")
-					map_nav("<C-l>", "l")
-					map_nav("<C-\\>", "p")
+						map_nav("<C-h>", "h")
+						map_nav("<C-j>", "j")
+						map_nav("<C-k>", "k")
+						map_nav("<C-l>", "l")
+						map_nav("<C-\\>", "p")
 
-					-- Map C-u/C-d to PageUp/PageDown for scrolling output
-					vim.keymap.set("t", "<C-u>", "<PageUp>", { buffer = event.buf, silent = true })
-					vim.keymap.set("t", "<C-d>", "<PageDown>", { buffer = event.buf, silent = true })
+						-- Map C-u/C-d to PageUp/PageDown for scrolling output
+						vim.keymap.set("t", "<C-u>", "<PageUp>", { buffer = event.buf, silent = true })
+						vim.keymap.set("t", "<C-d>", "<PageDown>", { buffer = event.buf, silent = true })
 					end
 				end,
 			})
@@ -87,7 +87,7 @@ return {
 				for _, win in ipairs(vim.api.nvim_list_wins()) do
 					local buf = vim.api.nvim_win_get_buf(win)
 					if vim.bo[buf].filetype == "opencode_terminal" then
-						opencode.ask(" @this", { submit = true })
+						opencode.ask(" @buffer", { submit = true })
 						return -- Already focused and ready
 					end
 				end
@@ -108,7 +108,7 @@ return {
 					-- If buffer existed, we just restored it. Skip session selection.
 					-- Wait a bit for window to be ready
 					vim.schedule(function()
-						opencode.ask(" @this", { submit = true })
+						opencode.ask(" @buffer", { submit = true })
 					end)
 					return
 				end
@@ -127,7 +127,7 @@ return {
 						client_mod.get_sessions(port, function(sessions)
 							if not sessions or #sessions == 0 then
 								vim.schedule(function()
-									opencode.ask(" @this ", { submit = true })
+									opencode.ask(" @buffer ", { submit = true })
 								end)
 								return
 							end
@@ -148,7 +148,7 @@ return {
 										client_mod.select_session(port, choice.id)
 									end
 									vim.schedule(function()
-										opencode.ask("@this ", { submit = true })
+										opencode.ask("@buffer ", { submit = true })
 									end)
 								end
 							end)
