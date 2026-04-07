@@ -1,71 +1,74 @@
 {
-    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
-    "agents": {
-        "sisyphus": {
-            "model": "cchClaude/claude-opus-4-6",
-            "variant": "max"
-        },
-        "hephaestus": {
-            "model": "cchGPT/gpt-5.3-codex",
-            "variant": "medium"
-        },
-        "oracle": {
-            "model": "cchGPT/gpt-5.2",
-            "variant": "high"
-        },
-        "librarian": {
-            "model": "cchClaude/claude-haiku-4-5-20251001"
-        },
-        "explore": {
-            "model": "cchClaude/claude-haiku-4-5-20251001"
-        },
-        "multimodal-looker": {
-            "model": "cchGemini/gemini-3-flash-preview"
-        },
-        "metis": {
-            "model": "cchClaude/claude-opus-4-6",
-            "variant": "max"
-        },
-        "momus": {
-            "model": "cchGPT/gpt-5.2",
-            "variant": "medium"
-        },
-        "atlas": {
-            "model": "cchClaude/claude-opus-4-6"
-        },
-        "prometheus": {
-            "model": "cchClaude/claude-opus-4-6",
-            "variant": "max"
-        }
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "hephaestus": {
+      "model": "cchGPT/gpt-5.3-codex",
+      "variant": "medium"
     },
-    "categories": {
-        "visual-engineering": {
-            "model": "cchGemini/gemini-3.1-pro-preview",
-            "variant": "high"
-        },
-        "ultrabrain": {
-            "model": "cchGPT/gpt-5.3-codex",
-            "variant": "xhigh"
-        },
-        "deep": {
-            "model": "cchClaude/claude-opus-4-6",
-            "variant": "medium"
-        },
-        "artistry": {
-            "model": "cchGemini/gemini-3.1-pro-preview",
-            "variant": "high"
-        },
-        "quick": {
-            "model": "cchGemini/gemini-3-flash-preview"
-        },
-        "unspecified-low": {
-            "model": "cchClaude/claude-haiku-4-5"
-        },
-        "unspecified-high": {
-            "model": "cchClaude/claude-opus-4-6"
-        },
-        "writing": {
-            "model": "cchGemini/gemini-3-flash-preview"
-        }
+    "oracle": {
+      "model": "cchGPT/gpt-5.2",
+      "variant": "high"
+    },
+    "librarian": {
+      "model": "cchClaude/claude-haiku-4-5-20251001"
+    },
+    "explore": {
+      "model": "cchClaude/claude-haiku-4-5-20251001"
+    },
+    "multimodal-looker": {
+      "model": "cchGemini/gemini-3-flash-preview"
+    },
+    "prometheus": {
+      "model": "cchClaude/claude-opus-4-6",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "cchClaude/claude-opus-4-6",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "cchGPT/gpt-5.2",
+      "variant": "medium"
+    },
+    "atlas": {
+      "model": "cchClaude/claude-opus-4-6"
+    },
+    "sisyphus-junior": {
+      "model": "opencode/gpt-5-nano"
+    },
+    "sisyphus": {
+      "model": "cchClaude/claude-opus-4-6",
+      "variant": "max"
     }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "cchGemini/gemini-3.1-pro-preview",
+      "variant": "high"
+    },
+    "ultrabrain": {
+      "model": "cchGPT/gpt-5.3-codex",
+      "variant": "xhigh"
+    },
+    "deep": {
+      "model": "cchClaude/claude-opus-4-6",
+      "variant": "medium"
+    },
+    "artistry": {
+      "model": "cchGemini/gemini-3.1-pro-preview",
+      "variant": "high"
+    },
+    "quick": {
+      "model": "cchGemini/gemini-3-flash-preview"
+    },
+    "unspecified-low": {
+      "model": "cchClaude/claude-haiku-4-5"
+    },
+    "unspecified-high": {
+      "model": "cchClaude/claude-opus-4-6"
+    },
+    "writing": {
+      "model": "cchGemini/gemini-3-flash-preview"
+    }
+  }
 }

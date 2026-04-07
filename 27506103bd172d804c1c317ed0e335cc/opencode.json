@@ -1,132 +1,132 @@
 {
-    "$schema": "https://opencode.ai/config.json",
-    "provider": {
-        "nexus-codex": {
-            "npm": "@ai-sdk/openai",
-            "options": {
-                "apiKey": "{env:NEXUS_API_KEY}",
-                "baseURL": "https://nexusacc.itssx.com/api/codex/codex"
-            },
-            "models": {
-                "gpt-5.3-codex": {
-                    "name": "GPT 5.3 Codex",
-                    "attachment": true
-                },
-                "gpt-5.2": {
-                    "name": "GPT 5.2",
-                    "attachment": true
-                }
-            }
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "nexus-codex": {
+      "npm": "@ai-sdk/openai",
+      "options": {
+        "apiKey": "{env:NEXUS_API_KEY}",
+        "baseURL": "https://nexusacc.itssx.com/api/codex/codex"
+      },
+      "models": {
+        "gpt-5.3-codex": {
+          "name": "GPT 5.3 Codex",
+          "attachment": true
         },
-        "cchClaude": {
-            "npm": "@ai-sdk/anthropic",
-            "name": "Claude via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1",
-                "apiKey": "{env:CCH_API_KEY}"
-            },
-            "models": {
-                "claude-haiku-4-5-20251001": {
-                    "name": "Claude Haiku 4.5"
-                },
-                "claude-sonnet-4-6": {
-                    "name": "Claude Sonnet 4.6"
-                },
-                "claude-opus-4-6": {
-                    "name": "Claude Opus 4.6"
-                }
-            }
-        },
-        "cchGPT": {
-            "npm": "@ai-sdk/openai",
-            "name": "GPT via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1",
-                "apiKey": "{env:CCH_API_KEY}",
-                "store": false,
-                "setCacheKey": true
-            },
-            "models": {
-                "gpt-5.4": {
-                    "name": "GPT-5.4",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                },
-                "gpt-5.3-codex": {
-                    "name": "GPT-5.3-codex",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                },
-                "gpt-5.2": {
-                    "name": "GPT-5.2",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                },
-            }
-        },
-        "cchGemini": {
-            "npm": "@ai-sdk/google",
-            "name": "Gemini via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1beta",
-                "apiKey": "{env:CCH_API_KEY}"
-            },
-            "models": {
-                "gemini-3.1-pro-preview": {
-                    "name": "Gemini 3.1 Pro Preview"
-                },
-                "gemini-3-flash-preview": {
-                    "name": "Gemini 3 Flash Preview"
-                }
-            }
-        },
-        "zhipuai-coding-plan": {
-            "options": {
-                "apiKey": "{env:ZHIPUAI_API_KEY}"
-            }
+        "gpt-5.2": {
+          "name": "GPT 5.2",
+          "attachment": true
         }
+      }
     },
-    "mcp": {
-        "context7": {
-            "type": "remote",
-            "url": "https://mcp.context7.com/mcp",
-            "headers": {
-                "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
-            }
+    "cchClaude": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Claude via cch",
+      "options": {
+        "baseURL": "{env:CCH_URL}/v1",
+        "apiKey": "{env:CCH_API_KEY}"
+      },
+      "models": {
+        "claude-haiku-4-5-20251001": {
+          "name": "Claude Haiku 4.5"
         },
-        "gh_grep": {
-            "type": "remote",
-            "url": "https://mcp.grep.app"
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6"
         },
-        "mcp-atlassian": {
-            "type": "local",
-            "command": [
-                "uvx",
-                "mcp-atlassian"
-            ],
-            "environment": {
-                "JIRA_URL": "{env:JIRA_URL}",
-                "JIRA_USERNAME": "{env:JIRA_USERNAME}",
-                "JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}"
-            }
+        "claude-opus-4-6": {
+          "name": "Claude Opus 4.6"
         }
+      }
     },
-    "plugin": [
-        "oh-my-opencode@latest"
-    ]
+    "cchGPT": {
+      "npm": "@ai-sdk/openai",
+      "name": "GPT via cch",
+      "options": {
+        "baseURL": "{env:CCH_URL}/v1",
+        "apiKey": "{env:CCH_API_KEY}",
+        "store": false,
+        "setCacheKey": true
+      },
+      "models": {
+        "gpt-5.4": {
+          "name": "GPT-5.4",
+          "options": {
+            "reasoningEffort": "xhigh",
+            "store": false,
+            "include": [
+              "reasoning.encrypted_content"
+            ]
+          }
+        },
+        "gpt-5.3-codex": {
+          "name": "GPT-5.3-codex",
+          "options": {
+            "reasoningEffort": "xhigh",
+            "store": false,
+            "include": [
+              "reasoning.encrypted_content"
+            ]
+          }
+        },
+        "gpt-5.2": {
+          "name": "GPT-5.2",
+          "options": {
+            "reasoningEffort": "xhigh",
+            "store": false,
+            "include": [
+              "reasoning.encrypted_content"
+            ]
+          }
+        }
+      }
+    },
+    "cchGemini": {
+      "npm": "@ai-sdk/google",
+      "name": "Gemini via cch",
+      "options": {
+        "baseURL": "{env:CCH_URL}/v1beta",
+        "apiKey": "{env:CCH_API_KEY}"
+      },
+      "models": {
+        "gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 Pro Preview"
+        },
+        "gemini-3-flash-preview": {
+          "name": "Gemini 3 Flash Preview"
+        }
+      }
+    },
+    "zhipuai-coding-plan": {
+      "options": {
+        "apiKey": "{env:ZHIPUAI_API_KEY}"
+      }
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+      }
+    },
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    },
+    "mcp-atlassian": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-atlassian"
+      ],
+      "environment": {
+        "JIRA_URL": "{env:JIRA_URL}",
+        "JIRA_USERNAME": "{env:JIRA_USERNAME}",
+        "JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}"
+      }
+    }
+  },
+  "plugin": [
+    "oh-my-openagent@latest"
+  ]
 }
