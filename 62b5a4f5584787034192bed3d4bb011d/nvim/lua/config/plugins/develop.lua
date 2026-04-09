@@ -10,12 +10,13 @@ return {
 	-- hightlight
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
 		build = ":TSUpdate",
-		event = { "VeryLazy" },
-		branch = "master",
-		cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-		opts = {
-			ensure_installed = {
+		config = function()
+			require("nvim-treesitter").setup()
+
+			local parsers = {
 				"c",
 				"cpp",
 				"lua",
@@ -45,59 +46,72 @@ return {
 				"markdown",
 				"markdown_inline",
 				"python",
-			},
-			sync_install = false,
-			auto_install = true,
-			highlight = {
-				enable = true,
-				disable = function(lang, buf)
+				"groovy",
+			}
+			require("nvim-treesitter").install(parsers)
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(ev)
 					local max_filesize = 100 * 1024
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+					local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(ev.buf))
 					if ok and stats and stats.size > max_filesize then
-						return true
+						return
 					end
+					pcall(vim.treesitter.start)
 				end,
-				additional_vim_regex_highlighting = false,
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			})
 		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup({
-				textobjects = {
-					select = {
-						enable = true,
-						lookahead = true,
-						keymaps = {
-							["a,"] = "@parameter.outer",
-							["i,"] = "@parameter.inner",
-							["af"] = "@function.outer",
-							["if"] = "@function.inner",
-							["a/"] = "@comment.outer",
-							["ac"] = "@class.outer",
-							["ic"] = { query = "@class.inner" },
-							["as"] = { query = "@scope", query_group = "locals" },
-						},
-						selection_modes = {
-							["@parameter.outer"] = "v",
-							["@function.outer"] = "V",
-							["@class.outer"] = "V",
-						},
-						include_surrounding_whitespace = false,
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
+				select = {
+					lookahead = true,
+					selection_modes = {
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
+						["@class.outer"] = "V",
 					},
-					swap = {
-						enable = true,
-						swap_previous = {
-							["<leader>S"] = "@parameter.inner",
-						},
-					},
+					include_surrounding_whitespace = false,
 				},
 			})
+
+			local select = require("nvim-treesitter-textobjects.select").select_textobject
+			local swap = require("nvim-treesitter-textobjects.swap")
+
+			for _, mode in ipairs({ "x", "o" }) do
+				vim.keymap.set(mode, "a,", function()
+					select("@parameter.outer", "textobjects")
+				end)
+				vim.keymap.set(mode, "i,", function()
+					select("@parameter.inner", "textobjects")
+				end)
+				vim.keymap.set(mode, "af", function()
+					select("@function.outer", "textobjects")
+				end)
+				vim.keymap.set(mode, "if", function()
+					select("@function.inner", "textobjects")
+				end)
+				vim.keymap.set(mode, "a/", function()
+					select("@comment.outer", "textobjects")
+				end)
+				vim.keymap.set(mode, "ac", function()
+					select("@class.outer", "textobjects")
+				end)
+				vim.keymap.set(mode, "ic", function()
+					select("@class.inner", "textobjects")
+				end)
+				vim.keymap.set(mode, "as", function()
+					select("@local.scope", "locals")
+				end)
+			end
+
+			vim.keymap.set("n", "<leader>S", function()
+				swap.swap_previous("@parameter.inner")
+			end)
 		end,
 	},
 
