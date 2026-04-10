@@ -28,27 +28,39 @@ return {
 			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 		},
 		config = function()
-			-- Function to get a free port to ensure Opencode isolation per nvim instance
 			local function get_random_port()
 				math.randomseed(vim.fn.getpid())
 				return math.random(49152, 65535)
 			end
 
-			---@type opencode.Opts
+			local port = get_random_port()
+			local cmd = "opencode --port " .. port
+			local win_opts = {
+				split = "right",
+				width = math.floor(vim.o.columns * 0.4),
+			}
+
 			vim.g.opencode_opts = {
-				port = get_random_port(),
-				auto_reload = true,
-				auto_focus = true,
-				win = {
-					position = "right",
-					width = 0.4,
+				server = {
+					port = port,
 				},
 			}
+
+			local config = require("opencode.config")
+			config.opts.server.start = function()
+				require("opencode.terminal").open(cmd, win_opts)
+			end
+			config.opts.server.stop = function()
+				require("opencode.terminal").close()
+			end
+			config.opts.server.toggle = function()
+				require("opencode.terminal").toggle(cmd, win_opts)
+			end
 
 			-- Enable window navigation and ESC for Opencode
 			vim.api.nvim_create_autocmd("TermOpen", {
 				callback = function(event)
-					local is_opencode = vim.bo[event.buf].filetype == "opencode_terminal"
+					local is_opencode = vim.api.nvim_buf_get_name(event.buf):find("opencode") ~= nil
 
 					if is_opencode then
 						local function map_nav(lhs, direction)
@@ -76,6 +88,13 @@ return {
 						-- Map C-u/C-d to PageUp/PageDown for scrolling output
 						vim.keymap.set("t", "<C-u>", "<PageUp>", { buffer = event.buf, silent = true })
 						vim.keymap.set("t", "<C-d>", "<PageDown>", { buffer = event.buf, silent = true })
+
+						vim.api.nvim_create_autocmd("BufEnter", {
+							buffer = event.buf,
+							callback = function()
+								vim.cmd.startinsert()
+							end,
+						})
 					end
 				end,
 			})
@@ -86,16 +105,16 @@ return {
 				-- 1. Check if window is already visible
 				for _, win in ipairs(vim.api.nvim_list_wins()) do
 					local buf = vim.api.nvim_win_get_buf(win)
-					if vim.bo[buf].filetype == "opencode_terminal" then
+					if vim.api.nvim_buf_get_name(buf):find("opencode") then
 						opencode.ask(" @buffer", { submit = true })
-						return -- Already focused and ready
+						return
 					end
 				end
 
 				-- 2. Check if buffer exists but is hidden (toggled off)
 				local opencode_buf_exists = false
 				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-					if vim.bo[buf].filetype == "opencode_terminal" then
+					if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf):find("opencode") then
 						opencode_buf_exists = true
 						break
 					end
@@ -115,16 +134,10 @@ return {
 
 				-- 3. If no buffer existed, this is a fresh start. Show session selector.
 				-- Custom logic to select session then ask
-				local server_mod = require("opencode.cli.server")
-				local client_mod = require("opencode.cli.client")
-
-				server_mod
+				require("opencode.server")
 					.get()
 					:next(function(server)
-						return server.port
-					end)
-					:next(function(port)
-						client_mod.get_sessions(port, function(sessions)
+						server:get_sessions(function(sessions)
 							if not sessions or #sessions == 0 then
 								vim.schedule(function()
 									opencode.ask(" @buffer ", { submit = true })
@@ -139,13 +152,12 @@ return {
 							vim.ui.select(sessions, {
 								prompt = "Select session:",
 								format_item = function(item)
-									local title = item.title or "Untitled"
-									return title
+									return item.title or "Untitled"
 								end,
 							}, function(choice)
 								if choice then
 									if choice.id ~= "new" then
-										client_mod.select_session(port, choice.id)
+										server:select_session(choice.id)
 									end
 									vim.schedule(function()
 										opencode.ask("@buffer ", { submit = true })
@@ -170,22 +182,6 @@ return {
 			vim.keymap.set({ "n", "x" }, "<leader>os", function()
 				require("opencode").select()
 			end, { desc = "Execute opencode action…" })
-
-			-- Ensure Opencode process is killed when Neovim exits
-			-- https://github.com/nickjvandyke/opencode.nvim/issues/174
-			vim.api.nvim_create_autocmd("VimLeavePre", {
-				callback = function()
-					local ok, opencode = pcall(require, "opencode")
-					if ok then
-						pcall(opencode.stop)
-					end
-
-					if vim.fn.has("unix") == 1 then
-						local pid = vim.fn.getpid()
-						vim.fn.system({ "pkill", "-P", tostring(pid), "-f", "opencode" })
-					end
-				end,
-			})
 		end,
 	},
 }
