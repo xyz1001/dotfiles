@@ -1,20 +1,72 @@
-Import-Module Oh-My-Posh -DisableNameChecking -NoClobber
-Import-Module posh-git
 Import-Module PSReadLine
+Import-Module posh-git
 Import-Module git-aliases -DisableNameChecking
-Import-Module VSSetup
-Import-Module Pscx
-Import-Module Terminal-Icons
 Import-Module gsudoModule
+
+# Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
+function Import-VisualStudioVars { Import-Module Pscx -Global; Import-VisualStudioVars @args }
+
+# Prompt state
+$global:_isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+# Custom prompt (Agnoster style)
+function prompt {
+    $lastOk = $?
+    $sep = "`u{E0B0}"  # Powerline separator 
+
+    $path = $executionContext.SessionState.Path.CurrentLocation.Path
+    $home_ = $HOME.TrimEnd('\')
+    if ($path.StartsWith($home_, [StringComparison]::OrdinalIgnoreCase)) {
+        $path = "~" + $path.Substring($home_.Length)
+    }
+
+    # path segment: blue(44) on success, red(41) on error
+    $pathBg = if ($lastOk) { 44 } else { 41 }
+    $seg = "`e[97;${pathBg}m $path `e[0m"
+
+    # git segment
+    $branch = git symbolic-ref --short HEAD 2>$null
+    if ($branch) {
+        $dirty = git status --porcelain 2>$null
+        $ahead = git rev-list --count HEAD "@{upstream}..HEAD" 2>$null
+        $behind = git rev-list --count HEAD "HEAD..@{upstream}" 2>$null
+        if ($dirty) {
+            $gitBg = 43; $gitFg = 30
+            $info = "`u{E0A0} $branch `u{00B1}"
+        } else {
+            $gitBg = 42; $gitFg = 30
+            $info = "`u{E0A0} $branch"
+        }
+        if ([int]$ahead -gt 0)  { $info += " `u{2191}$ahead" }
+        if ([int]$behind -gt 0) { $info += " `u{2193}$behind" }
+        $seg += "`e[$((${pathBg} - 10));${gitBg}m$sep`e[${gitFg};${gitBg}m $info `e[0m"
+        $seg += "`e[$((${gitBg} - 10))m$sep`e[0m"
+    } else {
+        $seg += "`e[$((${pathBg} - 10))m$sep`e[0m"
+    }
+
+    $char = if ($global:_isAdmin) { '#' } else { '$' }
+    "$seg $char "
+}
+
+Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
+function ls { lsd @args }
+function ll { lsd -la @args }
 
 Set-PSReadLineOption -EditMode vi
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
+    if ($args[0] -eq 'Command') {
+        [Console]::Write("`e[2 q")
+    } else {
+        [Console]::Write("`e[6 q")
+    }
+}
 Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
 Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
 Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
-Set-Theme Agnoster
 
 Set-PSReadLineOption -Colors @{ "Parameter" = "`e[97;2;3m"; "Operator" = "`e[97;2;3m" }
 
