@@ -91,6 +91,13 @@ return {
 						vim.api.nvim_create_autocmd("BufEnter", {
 							buffer = event.buf,
 							callback = function()
+								-- Guard: skip startinsert when a floating window (picker/input) is focused,
+								-- or when the current buffer isn't the opencode terminal (e.g. during TermRequest redraw hack)
+								local cur_win = vim.api.nvim_get_current_win()
+								local win_config = vim.api.nvim_win_get_config(cur_win)
+								if win_config.relative and win_config.relative ~= "" then
+									return
+								end
 								vim.cmd.startinsert()
 							end,
 						})
