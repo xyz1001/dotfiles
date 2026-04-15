@@ -1,6 +1,6 @@
 Import-Module PSReadLine
-Import-Module posh-git
 Import-Module git-aliases -DisableNameChecking
+Import-Module posh-git -ArgumentList $false,$false,$true  # EnableProxyFunctionExpansion
 Import-Module gsudoModule
 
 # Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
