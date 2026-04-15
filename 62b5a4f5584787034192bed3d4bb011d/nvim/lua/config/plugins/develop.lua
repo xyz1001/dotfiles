@@ -12,7 +12,24 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
 		branch = "main",
-		build = ":TSUpdate",
+		build = function()
+			if vim.fn.executable("tree-sitter") == 0 then
+				local cmd
+				if vim.fn.has("win32") == 1 then
+					cmd = "scoop install tree-sitter"
+				elseif vim.fn.has("mac") == 1 then
+					cmd = "brew install tree-sitter"
+				else
+					cmd = "sudo pacman -S --noconfirm tree-sitter-cli"
+				end
+				vim.notify("Installing tree-sitter CLI: " .. cmd, vim.log.levels.INFO)
+				local ret = os.execute(cmd)
+				if ret ~= 0 then
+					vim.notify("Failed to install tree-sitter CLI, please install manually", vim.log.levels.ERROR)
+				end
+			end
+			vim.cmd("TSUpdate")
+		end,
 		config = function()
 			require("nvim-treesitter").setup()
 
