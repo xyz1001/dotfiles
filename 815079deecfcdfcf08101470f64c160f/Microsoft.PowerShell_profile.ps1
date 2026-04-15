@@ -24,12 +24,13 @@ function prompt {
     $pathBg = if ($lastOk) { 44 } else { 41 }
     $seg = "`e[97;${pathBg}m $path `e[0m"
 
-    # git segment
-    $branch = git symbolic-ref --short HEAD 2>$null
+    # git segment (uses posh-git Get-GitStatus for tab completion compatibility)
+    $global:GitStatus = Get-GitStatus
+    $branch = $global:GitStatus.Branch
     if ($branch) {
-        $dirty = git status --porcelain 2>$null
-        $ahead = git rev-list --count HEAD "@{upstream}..HEAD" 2>$null
-        $behind = git rev-list --count HEAD "HEAD..@{upstream}" 2>$null
+        $dirty = $global:GitStatus.HasWorking -or $global:GitStatus.HasIndex
+        $ahead = $global:GitStatus.AheadBy
+        $behind = $global:GitStatus.BehindBy
         if ($dirty) {
             $gitBg = 43; $gitFg = 30
             $info = "`u{E0A0} $branch `u{00B1}"
