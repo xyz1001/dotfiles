@@ -39,11 +39,11 @@ return {
 				width = math.floor(vim.o.columns * 0.4),
 			}
 
-			vim.g.opencode_opts = {
+			vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
 				server = {
 					port = port,
 				},
-			}
+			})
 
 			local config = require("opencode.config")
 			config.opts.server.start = function()
@@ -126,10 +126,10 @@ return {
 					end
 				end
 
-				-- Toggle window visible
-				opencode.toggle()
-
 				if opencode_buf_exists then
+					-- Toggle window visible
+					opencode.toggle()
+
 					-- If buffer existed, we just restored it. Skip session selection.
 					-- Wait a bit for window to be ready
 					vim.schedule(function()
