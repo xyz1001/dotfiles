@@ -81,11 +81,15 @@ function reboot() { echo 'Reboot? (y/N)' && read x && [[ "$x" == "y" ]] && /sbin
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 
-#Use vi style
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    RPS2=$RPS1
-    zle reset-prompt
+# Vi mode cursor: block for normal, beam for insert
+function zle-keymap-select {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[2 q' ;;      # block cursor
+        viins|main) echo -ne '\e[6 q' ;;  # beam cursor
+    esac
+}
+function zle-line-init {
+    echo -ne '\e[6 q'  # default to beam cursor
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
