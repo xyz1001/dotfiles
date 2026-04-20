@@ -16,7 +16,6 @@ antigen bundle command-not-found
 antigen bundle vi-mode
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle skywind3000/z.lua
 antigen bundle paulirish/git-open
 
 antigen bundle zsh-users/zsh-autosuggestions
@@ -24,6 +23,8 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
+
+eval "$(zoxide init zsh)"
 
 source $HOME/.zsh/config.zsh
 
