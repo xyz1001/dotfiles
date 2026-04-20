@@ -94,6 +94,9 @@ function zle-line-init {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+# 隐藏 agnoster 主题的 user@host
+prompt_context() {}
+
 # 禁用Ctrl-s锁住终端
 stty -ixon
 
