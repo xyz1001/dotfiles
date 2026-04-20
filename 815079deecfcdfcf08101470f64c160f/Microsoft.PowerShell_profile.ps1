@@ -1,5 +1,6 @@
 Import-Module PSReadLine
 Import-Module git-aliases -DisableNameChecking
+Remove-Item Alias:gcb -Force -ErrorAction SilentlyContinue
 Import-Module posh-git -ArgumentList $false,$false,$true  # EnableProxyFunctionExpansion
 Import-Module gsudoModule
 
@@ -98,6 +99,26 @@ if (Test-Path $apiKeyFile) {
             }
         }
     } catch {
+    }
+}
+
+# git commit --fixup tab completion: show recent commits
+Register-ArgumentCompleter -CommandName git -Native -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+    $tokens = $commandAst.ToString() -split '\s+'
+    $hasFixup = $tokens | Where-Object { $_ -match '^--fixup' }
+    if ($hasFixup) {
+        $prefix = if ($wordToComplete -match '^--fixup=(.*)') { $Matches[1] } elseif ($tokens[-2] -match '^--fixup') { $wordToComplete } else { '' }
+        $isEqForm = $wordToComplete -match '^--fixup='
+        git log --oneline -30 2>$null | ForEach-Object {
+            if ($_ -match '^([0-9a-f]+)\s+(.*)$') {
+                $hash = $Matches[1]; $msg = $Matches[2]
+                if (-not $prefix -or $hash.StartsWith($prefix) -or $msg -like "*$prefix*") {
+                    $val = if ($isEqForm) { "--fixup=$hash" } else { $hash }
+                    [System.Management.Automation.CompletionResult]::new($val, "$hash $msg", 'ParameterValue', ' ')
+                }
+            }
+        }
     }
 }
 
