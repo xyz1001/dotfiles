@@ -34,7 +34,10 @@
         },
         "claude-opus-4-6": {
           "name": "Claude Opus 4.6"
-        }
+        },
+        "claude-opus-4-7": {
+          "name": "Claude Opus 4.7"
+        },
       }
     },
     "cchGPT": {
