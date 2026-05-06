@@ -13,9 +13,9 @@ dotfiles:
       path: ~/.config/yay/config.json
   27506103bd172d804c1c317ed0e335cc/oh-my-opencode.json:
     linux:
-      path: ~/.config/opencode/oh-my-opencode.json
+      path: ~/.config/opencode/oh-my-openagent.json
     windows:
-      path: ~\.config\opencode\oh-my-opencode.json
+      path: ~\.config\opencode\oh-my-openagent.json
   27506103bd172d804c1c317ed0e335cc/opencode.json:
     linux:
       path: ~/.config/opencode/opencode.json
