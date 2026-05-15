@@ -34,9 +34,15 @@ return {
 
 			local port = get_random_port()
 			local cmd = "opencode --port " .. port
-			local win_opts = {
-				split = "right",
-				width = math.floor(vim.o.columns * 0.4),
+			local snacks_terminal_opts = {
+				win = {
+					position = "right",
+					width = math.floor(vim.o.columns * 0.4),
+					enter = true,
+					on_win = function(win)
+						require("opencode.terminal").setup(win.win)
+					end,
+				},
 			}
 
 			vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
@@ -47,13 +53,20 @@ return {
 
 			local config = require("opencode.config")
 			config.opts.server.start = function()
-				require("opencode.terminal").open(cmd, win_opts)
+				require("snacks.terminal").open(cmd, snacks_terminal_opts)
 			end
 			config.opts.server.stop = function()
-				require("opencode.terminal").close()
+				require("snacks.terminal").get(cmd, snacks_terminal_opts):close()
 			end
 			config.opts.server.toggle = function()
-				require("opencode.terminal").toggle(cmd, win_opts)
+				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
+			end
+
+			local function opencode_toggle_no_enter()
+				local saved = snacks_terminal_opts.win.enter
+				snacks_terminal_opts.win.enter = false
+				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
+				snacks_terminal_opts.win.enter = saved
 			end
 
 			-- Enable window navigation and ESC for Opencode
@@ -87,20 +100,6 @@ return {
 						-- Map C-u/C-d to PageUp/PageDown for scrolling output
 						vim.keymap.set("t", "<C-u>", "<PageUp>", { buffer = event.buf, silent = true })
 						vim.keymap.set("t", "<C-d>", "<PageDown>", { buffer = event.buf, silent = true })
-
-						vim.api.nvim_create_autocmd("BufEnter", {
-							buffer = event.buf,
-							callback = function()
-								-- Guard: skip startinsert when a floating window (picker/input) is focused,
-								-- or when the current buffer isn't the opencode terminal (e.g. during TermRequest redraw hack)
-								local cur_win = vim.api.nvim_get_current_win()
-								local win_config = vim.api.nvim_win_get_config(cur_win)
-								if win_config.relative and win_config.relative ~= "" then
-									return
-								end
-								vim.cmd.startinsert()
-							end,
-						})
 					end
 				end,
 			})
@@ -108,16 +107,6 @@ return {
 			vim.keymap.set({ "n", "x" }, "<leader>oa", function()
 				local opencode = require("opencode")
 
-				-- 1. Check if window is already visible
-				for _, win in ipairs(vim.api.nvim_list_wins()) do
-					local buf = vim.api.nvim_win_get_buf(win)
-					if vim.api.nvim_buf_get_name(buf):find("opencode") then
-						opencode.ask(" @buffer", { submit = true })
-						return
-					end
-				end
-
-				-- 2. Check if buffer exists but is hidden (toggled off)
 				local opencode_buf_exists = false
 				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 					if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf):find("opencode") then
@@ -126,55 +115,23 @@ return {
 					end
 				end
 
-				if opencode_buf_exists then
-					-- Toggle window visible
+				if not opencode_buf_exists then
 					opencode.toggle()
-
-					-- If buffer existed, we just restored it. Skip session selection.
-					-- Wait a bit for window to be ready
-					vim.schedule(function()
-						opencode.ask(" @buffer", { submit = true })
-					end)
 					return
 				end
 
-				-- 3. If no buffer existed, this is a fresh start. Show session selector.
-				-- Custom logic to select session then ask
-				require("opencode.server")
-					.get()
-					:next(function(server)
-						server:get_sessions(function(sessions)
-							if not sessions or #sessions == 0 then
-								vim.schedule(function()
-									opencode.ask(" @buffer ", { submit = true })
-								end)
-								return
-							end
+				for _, win in ipairs(vim.api.nvim_list_wins()) do
+					local buf = vim.api.nvim_win_get_buf(win)
+					if vim.api.nvim_buf_get_name(buf):find("opencode") then
+						opencode.ask("@buffer ", { submit = true })
+						return
+					end
+				end
 
-							table.sort(sessions, function(a, b)
-								return a.time.updated > b.time.updated
-							end)
-							table.insert(sessions, 1, { id = "new", title = "New Session" })
-							vim.ui.select(sessions, {
-								prompt = "Select session:",
-								format_item = function(item)
-									return item.title or "Untitled"
-								end,
-							}, function(choice)
-								if choice then
-									if choice.id ~= "new" then
-										server:select_session(choice.id)
-									end
-									vim.schedule(function()
-										opencode.ask("@buffer ", { submit = true })
-									end)
-								end
-							end)
-						end)
-					end)
-					:catch(function(err)
-						vim.notify("Opencode error: " .. tostring(err), vim.log.levels.ERROR)
-					end)
+				opencode_toggle_no_enter()
+				vim.schedule(function()
+					opencode.ask("@buffer ", { submit = true })
+				end)
 			end, { desc = "Ask opencode…" })
 
 			vim.keymap.set({ "n", "x" }, "<leader>ot", function()
