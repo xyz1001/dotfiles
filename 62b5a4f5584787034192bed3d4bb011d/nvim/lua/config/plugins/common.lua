@@ -363,11 +363,16 @@ return {
 	{ "simeji/winresizer" },
 	{
 		"gbprod/yanky.nvim",
+		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
 			system_clipboard = {
 				sync_with_ring = false,
 			},
 		},
+		config = function(_, opts)
+			require("yanky").setup(opts)
+			require("telescope").load_extension("yank_history")
+		end,
 	},
 	{
 		"johmsalas/text-case.nvim",
