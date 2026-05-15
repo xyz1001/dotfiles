@@ -106,6 +106,8 @@ return {
 
 			vim.keymap.set({ "n", "x" }, "<leader>oa", function()
 				local opencode = require("opencode")
+				local mode = vim.fn.mode()
+				local context = (mode == "v" or mode == "V" or mode == "\22") and "@visible " or "@buffer "
 
 				local opencode_buf_exists = false
 				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -123,14 +125,14 @@ return {
 				for _, win in ipairs(vim.api.nvim_list_wins()) do
 					local buf = vim.api.nvim_win_get_buf(win)
 					if vim.api.nvim_buf_get_name(buf):find("opencode") then
-						opencode.ask("@buffer ", { submit = true })
+						opencode.ask(context, { submit = true })
 						return
 					end
 				end
 
 				opencode_toggle_no_enter()
 				vim.schedule(function()
-					opencode.ask("@buffer ", { submit = true })
+					opencode.ask(context, { submit = true })
 				end)
 			end, { desc = "Ask opencode…" })
 
