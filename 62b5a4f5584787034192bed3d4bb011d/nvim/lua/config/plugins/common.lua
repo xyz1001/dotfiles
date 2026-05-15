@@ -363,7 +363,11 @@ return {
 	{ "simeji/winresizer" },
 	{
 		"gbprod/yanky.nvim",
-		opts = {},
+		opts = {
+			system_clipboard = {
+				sync_with_ring = false,
+			},
+		},
 	},
 	{
 		"johmsalas/text-case.nvim",
