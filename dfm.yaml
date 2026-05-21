@@ -12,11 +12,15 @@ dotfiles:
     linux:
       path: ~/.config/yay/config.json
   27506103bd172d804c1c317ed0e335cc/oh-my-opencode.json:
+    darwin:
+      path: ~/.config/opencode/oh-my-openagent.json
     linux:
       path: ~/.config/opencode/oh-my-openagent.json
     windows:
       path: ~\.config\opencode\oh-my-openagent.json
   27506103bd172d804c1c317ed0e335cc/opencode.json:
+    darwin:
+      path: ~/.config/opencode/opencode.json
     linux:
       path: ~/.config/opencode/opencode.json
     windows:
@@ -196,12 +200,12 @@ dotfiles:
     linux:
       path: ~/.zshrc
   4d2e5a0220e12f571caf6be67ec64ec3/tui.json:
-    windows:
-      path: ~\.config\opencode\tui.json
-    linux:
-      path: ~/.config/opencode/tui.json
     darwin:
       path: ~/.config/opencode/tui.json
+    linux:
+      path: ~/.config/opencode/tui.json
+    windows:
+      path: ~\.config\opencode\tui.json
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme
