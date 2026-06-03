@@ -11,7 +11,7 @@
         "messages_undo": "<leader>u",
         "messages_redo": "<leader>r",
         "input_delete": "delete,shift+delete",
-        "input_paste": "ctrl+p,ctrl+v",
+        "input_paste": "ctrl+v",
         "terminal_suspend": "none"
     }
 }
