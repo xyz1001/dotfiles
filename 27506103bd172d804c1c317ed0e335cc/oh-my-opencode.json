@@ -2,7 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
     "agents": {
         "hephaestus": {
-            "model": "cchGPT/gpt-5.4",
+            "model": "nexus-codex/gpt-5.4",
             "variant": "medium"
         },
         "oracle": {
@@ -10,65 +10,35 @@
             "variant": "high"
         },
         "librarian": {
-            "model": "cchClaude/claude-haiku-4-5-20251001"
+            "model": "cchClaude/deepseek-v4-flash"
         },
         "explore": {
-            "model": "cchClaude/claude-haiku-4-5-20251001"
+            "model": "cchClaude/deepseek-v4-flash"
         },
         "multimodal-looker": {
             "model": "cchGemini/gemini-3-flash-preview"
         },
         "prometheus": {
-            "model": "cchClaude/claude-opus-4-6",
+            "model": "cchClaude/kimi-k2.6",
             "variant": "max"
         },
         "metis": {
-            "model": "cchClaude/claude-opus-4-6",
+            "model": "cchClaude/kimi-k2.6",
             "variant": "max"
         },
         "momus": {
-            "model": "cchGPT/gpt-5.4",
+            "model": "nexus-codex/gpt-5.4",
             "variant": "medium"
         },
         "atlas": {
-            "model": "cchClaude/claude-opus-4-6"
+            "model": "cchClaude/kimi-k2.6"
         },
         "sisyphus-junior": {
             "model": "opencode/gpt-5-nano"
         },
         "sisyphus": {
-            "model": "cchClaude/claude-opus-4-6",
+            "model": "cchClaude/kimi-k2.6",
             "variant": "max"
-        }
-    },
-    "categories": {
-        "visual-engineering": {
-            "model": "cchGemini/gemini-3.1-pro-preview",
-            "variant": "high"
-        },
-        "ultrabrain": {
-            "model": "cchGPT/gpt-5.4",
-            "variant": "xhigh"
-        },
-        "deep": {
-            "model": "cchClaude/claude-opus-4-6",
-            "variant": "medium"
-        },
-        "artistry": {
-            "model": "cchGemini/gemini-3.1-pro-preview",
-            "variant": "high"
-        },
-        "quick": {
-            "model": "cchGemini/gemini-3-flash-preview"
-        },
-        "unspecified-low": {
-            "model": "cchClaude/claude-haiku-4-5"
-        },
-        "unspecified-high": {
-            "model": "cchClaude/claude-opus-4-6"
-        },
-        "writing": {
-            "model": "cchGemini/gemini-3-flash-preview"
         }
     }
 }
