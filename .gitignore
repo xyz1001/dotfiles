@@ -5,3 +5,5 @@
 */.vim/backup/
 */.vim/undo/
 lazy-lock.json
+.antigravitycli/
+.sisyphus/
