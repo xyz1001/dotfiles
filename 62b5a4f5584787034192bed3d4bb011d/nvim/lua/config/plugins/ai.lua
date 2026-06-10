@@ -149,4 +149,11 @@ return {
 			end, { desc = "Execute opencode action…" })
 		end,
 	},
+	{
+		"cajames/copy-reference.nvim",
+		opts = {},
+		keys = {
+			{ "<leader>cp", "<cmd>CopyReference<cr>", mode = { "n", "v" }, desc = "Copy reference to clipboard" },
+		},
+	},
 }
