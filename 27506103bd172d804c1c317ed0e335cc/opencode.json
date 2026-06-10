@@ -8,14 +8,10 @@
                 "baseURL": "https://nexusacc.itssx.com/api/codex/codex"
             },
             "models": {
-                "gpt-5.3-codex": {
-                    "name": "GPT 5.3 Codex",
+                "gpt-5.4": {
+                    "name": "GPT 5.4",
                     "attachment": true
                 },
-                "gpt-5.2": {
-                    "name": "GPT 5.2",
-                    "attachment": true
-                }
             }
         },
         "cchClaude": {

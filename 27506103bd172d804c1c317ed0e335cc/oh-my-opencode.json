@@ -6,7 +6,7 @@
             "variant": "medium"
         },
         "oracle": {
-            "model": "cchGPT/gpt-5.4",
+            "model": "nexus-codex/gpt-5.4",
             "variant": "high"
         },
         "librarian": {
