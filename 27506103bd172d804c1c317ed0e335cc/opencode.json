@@ -43,6 +43,12 @@
                 },
                 "glm-5.1": {
                     "name": "GLM 5.1"
+                },
+                "kimi-k2.6": {
+                    "name": "Kimi K2.6"
+                },
+                "minimax-m3": {
+                    "name": "Minimax M3"
                 }
             }
         },
