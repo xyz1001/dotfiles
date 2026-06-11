@@ -27,47 +27,22 @@ return {
 			{ "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 		},
 		config = function()
-			local function get_random_port()
-				math.randomseed(vim.fn.getpid())
-				return math.random(49152, 65535)
-			end
-
-			local port = get_random_port()
-			local cmd = "opencode --port " .. port
+			local cmd = "opencode --port"
 			local snacks_terminal_opts = {
 				win = {
 					position = "right",
 					width = math.floor(vim.o.columns * 0.4),
-					enter = true,
-					on_win = function(win)
-						require("opencode.terminal").setup(win.win)
-					end,
+					enter = false,
 				},
 			}
 
 			vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
 				server = {
-					port = port,
+					start = function()
+						require("snacks.terminal").open(cmd, snacks_terminal_opts)
+					end,
 				},
 			})
-
-			local config = require("opencode.config")
-			config.opts.server.start = function()
-				require("snacks.terminal").open(cmd, snacks_terminal_opts)
-			end
-			config.opts.server.stop = function()
-				require("snacks.terminal").get(cmd, snacks_terminal_opts):close()
-			end
-			config.opts.server.toggle = function()
-				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
-			end
-
-			local function opencode_toggle_no_enter()
-				local saved = snacks_terminal_opts.win.enter
-				snacks_terminal_opts.win.enter = false
-				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
-				snacks_terminal_opts.win.enter = saved
-			end
 
 			-- Enable window navigation and ESC for Opencode
 			vim.api.nvim_create_autocmd("TermOpen", {
@@ -105,44 +80,22 @@ return {
 			})
 
 			vim.keymap.set({ "n", "x" }, "<leader>oa", function()
-				local opencode = require("opencode")
 				local mode = vim.fn.mode()
 				local context = (mode == "v" or mode == "V" or mode == "\22") and "@visible " or "@buffer "
-
-				local opencode_buf_exists = false
-				for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-					if vim.api.nvim_buf_is_valid(buf) and vim.api.nvim_buf_get_name(buf):find("opencode") then
-						opencode_buf_exists = true
-						break
-					end
-				end
-
-				if not opencode_buf_exists then
-					opencode.toggle()
-					return
-				end
-
-				for _, win in ipairs(vim.api.nvim_list_wins()) do
-					local buf = vim.api.nvim_win_get_buf(win)
-					if vim.api.nvim_buf_get_name(buf):find("opencode") then
-						opencode.ask(context, { submit = true })
-						return
-					end
-				end
-
-				opencode_toggle_no_enter()
-				vim.schedule(function()
-					opencode.ask(context, { submit = true })
-				end)
+				require("opencode").ask(context)
 			end, { desc = "Ask opencode…" })
 
+			vim.keymap.set({ "n", "t" }, "<C-.>", function()
+				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
+			end, { desc = "Toggle opencode" })
+
 			vim.keymap.set({ "n", "x" }, "<leader>ot", function()
-				require("opencode").toggle()
+				require("snacks.terminal").toggle(cmd, snacks_terminal_opts)
 			end, { desc = "Toggle opencode" })
 
 			vim.keymap.set({ "n", "x" }, "<leader>od", function()
-				require("opencode").ask(" @this ", { submit = true })
-			end, { desc = "Toggle opencode" })
+				require("opencode").prompt(" @this ")
+			end, { desc = "Ask opencode with @this" })
 
 			vim.keymap.set({ "n", "x" }, "<leader>os", function()
 				require("opencode").select()
