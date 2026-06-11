@@ -418,4 +418,11 @@ return {
 		"notaduck/auto-create-dirs.nvim",
 		config = {},
 	},
+	{
+		"cajames/copy-reference.nvim",
+		opts = {},
+		keys = {
+			{ "<leader>cp", "<cmd>CopyReference<cr>", mode = { "n", "v" }, desc = "Copy reference to clipboard" },
+		},
+	},
 }
