@@ -34,7 +34,7 @@
             "model": "cchClaude/kimi-k2.6"
         },
         "sisyphus-junior": {
-            "model": "opencode/gpt-5-nano"
+            "model": "cchClaude/kimi-k2.6"
         },
         "sisyphus": {
             "model": "cchClaude/kimi-k2.6",
