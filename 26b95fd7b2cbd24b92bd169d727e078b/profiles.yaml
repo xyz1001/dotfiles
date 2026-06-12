@@ -2,15 +2,15 @@
 
 current: LUVNiqad8h31
 items:
-- uid: mtXGCo8tdcfW
+- uid: Merge
   type: merge
   name: null
-  file: merge.yaml
+  file: Merge.yaml
   updated: 0
-- uid: svjFjZXnhFa8
+- uid: Script
   type: script
   name: null
-  file: script.js
+  file: Script.js
   updated: 0
 - uid: rWa8WcPR7ITQ
   type: rules
@@ -35,8 +35,8 @@ items:
   updated: 0
   option:
     allow_auto_update: true
-    merge: mtXGCo8tdcfW
-    script: svjFjZXnhFa8
+    merge: Merge
+    script: Script
     rules: rWa8WcPR7ITQ
     proxies: p35C7A6syZjR
     groups: gtlT7igSEz0W
