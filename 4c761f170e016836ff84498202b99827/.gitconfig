@@ -19,7 +19,6 @@
     rebase = true
 [include]
     path = ~/.gitconfig.diff
-    path = ~/.gitconfig.proxy
     path = ~/.gitconfig.work
 [credential "helperselector"]
 	selected = manager-core

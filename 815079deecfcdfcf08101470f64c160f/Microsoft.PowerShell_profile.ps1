@@ -121,9 +121,3 @@ Register-ArgumentCompleter -CommandName git -Native -ScriptBlock {
         }
     }
 }
-
-if (Get-Process -Name "Clash-Verge" -ErrorAction SilentlyContinue) {
-    $env:HTTP_PROXY = "http://127.0.0.1:7890"
-    $env:HTTPS_PROXY = "http://127.0.0.1:7890"
-    $env:NO_PROXY = "localhost,127.0.0.1"
-}

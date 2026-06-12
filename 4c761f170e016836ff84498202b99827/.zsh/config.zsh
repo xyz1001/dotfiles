@@ -104,14 +104,3 @@ if [[ -n "$CONTAINER_ID" ]]; then
     unset TMUX
     PROMPT="${CONTAINER_ID}:$PROMPT"
 fi
-
-
-#######################################################################
-#                               proxy                                 #
-#######################################################################
-
-if pgrep -f "clash-verge" >/dev/null 2>&1; then
-    export HTTP_PROXY="http://127.0.0.1:7890"
-    export HTTPS_PROXY="http://127.0.0.1:7890"
-    export NO_PROXY="localhost,127.0.0.1"
-fi
