@@ -11,6 +11,27 @@ dotfiles:
   1c047b64f01406fa23792385e03956ee/config.json:
     linux:
       path: ~/.config/yay/config.json
+  26b95fd7b2cbd24b92bd169d727e078b/profiles:
+    darwin:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles
+    linux:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles
+    windows:
+      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\profiles
+  26b95fd7b2cbd24b92bd169d727e078b/profiles.yaml:
+    darwin:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles.yaml
+    linux:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles.yaml
+    windows:
+      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\profiles.yaml
+  26b95fd7b2cbd24b92bd169d727e078b/verge.yaml:
+    darwin:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/verge.yaml
+    linux:
+      path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/verge.yaml
+    windows:
+      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\verge.yaml
   27506103bd172d804c1c317ed0e335cc/oh-my-opencode.json:
     darwin:
       path: ~/.config/opencode/oh-my-openagent.json

@@ -48,3 +48,8 @@
 [rerere]
 	enabled = true
 	autoupdate = true
+
+[filter "strip-clash-updated"]
+	clean = "sed -E 's/updated: [0-9]+/updated: 0/g'"
+	smudge = cat
+

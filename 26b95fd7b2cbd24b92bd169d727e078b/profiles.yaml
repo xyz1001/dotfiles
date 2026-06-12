@@ -1,0 +1,42 @@
+# Profiles Config for Clash Verge
+
+current: LUVNiqad8h31
+items:
+- uid: mtXGCo8tdcfW
+  type: merge
+  name: null
+  file: merge.yaml
+  updated: 0
+- uid: svjFjZXnhFa8
+  type: script
+  name: null
+  file: script.js
+  updated: 0
+- uid: rWa8WcPR7ITQ
+  type: rules
+  name: null
+  file: rules.yaml
+  updated: 0
+- uid: p35C7A6syZjR
+  type: proxies
+  name: null
+  file: proxies.yaml
+  updated: 0
+- uid: gtlT7igSEz0W
+  type: groups
+  name: null
+  file: groups.yaml
+  updated: 0
+- uid: LUVNiqad8h31
+  type: local
+  name: bwh
+  file: profile.yaml
+  desc: ''
+  updated: 0
+  option:
+    allow_auto_update: true
+    merge: mtXGCo8tdcfW
+    script: svjFjZXnhFa8
+    rules: rWa8WcPR7ITQ
+    proxies: p35C7A6syZjR
+    groups: gtlT7igSEz0W
