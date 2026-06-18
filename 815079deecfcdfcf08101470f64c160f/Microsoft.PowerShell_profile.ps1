@@ -103,7 +103,10 @@ if (Test-Path $apiKeyFile) {
 }
 
 # git commit --fixup tab completion: show recent commits
-Register-ArgumentCompleter -CommandName git -Native -ScriptBlock {
+$ctx = $ExecutionContext.GetType().GetField('_context', [System.Reflection.BindingFlags]'NonPublic,Instance').GetValue($ExecutionContext)
+$poshGitCompleter = $ctx.GetType().GetProperty('NativeArgumentCompleters', [System.Reflection.BindingFlags]'NonPublic,Instance').GetValue($ctx)['git']
+
+$gitCompleterScript = {
     param($wordToComplete, $commandAst, $cursorPosition)
     $tokens = $commandAst.ToString() -split '\s+'
     $hasFixup = $tokens | Where-Object { $_ -match '^--fixup' }
@@ -119,5 +122,9 @@ Register-ArgumentCompleter -CommandName git -Native -ScriptBlock {
                 }
             }
         }
+    } elseif ($poshGitCompleter) {
+        & $poshGitCompleter $wordToComplete $commandAst $cursorPosition
     }
-}
+}.GetNewClosure()
+
+Register-ArgumentCompleter -CommandName git -Native -ScriptBlock $gitCompleterScript
