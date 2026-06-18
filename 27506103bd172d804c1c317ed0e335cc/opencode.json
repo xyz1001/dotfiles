@@ -25,18 +25,6 @@
                 "apiKey": "{env:CCH_API_KEY}"
             },
             "models": {
-                "claude-haiku-4-5-20251001": {
-                    "name": "Claude Haiku 4.5"
-                },
-                "claude-sonnet-4-6": {
-                    "name": "Claude Sonnet 4.6"
-                },
-                "claude-opus-4-6": {
-                    "name": "Claude Opus 4.6"
-                },
-                "claude-opus-4-7": {
-                    "name": "Claude Opus 4.7"
-                },
                 "qwen3-7-max": {
                     "name": "Qwen 3.7 Max"
                 },
@@ -60,64 +48,6 @@
                 },
                 "deepseek-v4-pro": {
                     "name": "DeepSeek V4 Pro"
-                }
-            }
-        },
-        "cchGPT": {
-            "npm": "@ai-sdk/openai",
-            "name": "GPT via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1",
-                "apiKey": "{env:CCH_API_KEY}",
-                "store": false,
-                "setCacheKey": true
-            },
-            "models": {
-                "gpt-5.4": {
-                    "name": "GPT-5.4",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                },
-                "gpt-5.3-codex": {
-                    "name": "GPT-5.3-codex",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                },
-                "gpt-5.2": {
-                    "name": "GPT-5.2",
-                    "options": {
-                        "reasoningEffort": "xhigh",
-                        "store": false,
-                        "include": [
-                            "reasoning.encrypted_content"
-                        ]
-                    }
-                }
-            }
-        },
-        "cchGemini": {
-            "npm": "@ai-sdk/google",
-            "name": "Gemini via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1beta",
-                "apiKey": "{env:CCH_API_KEY}"
-            },
-            "models": {
-                "gemini-3.1-pro-preview": {
-                    "name": "Gemini 3.1 Pro Preview"
-                },
-                "gemini-3-flash-preview": {
-                    "name": "Gemini 3 Flash Preview"
                 }
             }
         }
