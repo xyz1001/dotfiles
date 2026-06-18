@@ -13,8 +13,8 @@
                     "attachment": true
                 },
                 "gpt-5-nano": {
-                    "name": "GPT 5 Nano",
-                },
+                    "name": "GPT 5 Nano"
+                }
             }
         },
         "cchClaude": {
@@ -43,8 +43,14 @@
                 "glm-5.1": {
                     "name": "GLM 5.1"
                 },
+                "glm-5.2": {
+                    "name": "GLM 5.2"
+                },
                 "kimi-k2.6": {
                     "name": "Kimi K2.6"
+                },
+                "kimi-k2.7-code": {
+                    "name": "Kimi K2.7 Code"
                 },
                 "minimax-m3": {
                     "name": "Minimax M3"
@@ -113,11 +119,6 @@
                 "gemini-3-flash-preview": {
                     "name": "Gemini 3 Flash Preview"
                 }
-            }
-        },
-        "zhipuai-coding-plan": {
-            "options": {
-                "apiKey": "{env:ZHIPUAI_API_KEY}"
             }
         }
     },
