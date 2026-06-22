@@ -36,6 +36,7 @@ vim.opt.undofile = true
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 vim.o.autoread = true
+vim.opt.title = true
 
 vim.g.mapleader = " "
 vim.keymap.set({ "", "v" }, "H", "^", { desc = "跳转至行首(不包含空格)" })

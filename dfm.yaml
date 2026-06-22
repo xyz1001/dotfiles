@@ -239,6 +239,9 @@ dotfiles:
       path: ~/.config/nvim
     windows:
       path: ~\AppData\Local\nvim
+  688d09f898cbdd1fc2b4b796bda530b8/wt_tmux.ahk:
+    windows:
+      path: ~\AppData\Roaming\ahk\wt_tmux.ahk
   6ee1504095caefc322f5ca38b8074fd4/config:
     android:
       path: ~/.ssh/config
@@ -284,6 +287,9 @@ dotfiles:
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
+  d75dcd47b9bc0d0546108f9c8d8bdc08/main.ahk:
+    windows:
+      path: ~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk
   e4a140e6cc142debe50dd8d647233b0b/settings_133128841309404354.ptb:
     windows:
       path: ~\Documents\PowerToys\Backup\settings_133128841309404354.ptb

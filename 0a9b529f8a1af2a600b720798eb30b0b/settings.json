@@ -1,8 +1,55 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
+    "disableAnimations": true,
     "actions": 
     [
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "id": "User.focusPane.left.0"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.focusPane.down.0"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "id": "User.focusPane.up.0"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "id": "User.focusPane.right.0"
+        },
+        {
+            "command": 
+            {
+                "action": "togglePaneZoom"
+            },
+            "id": "User.togglePaneZoom.0"
+        },
+        {
+            "command": 
+            {
+                "action": "switchSelectionEndpoint"
+            },
+            "id": "User.switchSelectionEndpoint.0"
+        },
         {
             "command": 
             {
@@ -82,6 +129,30 @@
     "keybindings": 
     [
         {
+            "id": "User.focusPane.left.0",
+            "keys": "ctrl+shift+alt+left"
+        },
+        {
+            "id": "User.focusPane.down.0",
+            "keys": "ctrl+shift+alt+down"
+        },
+        {
+            "id": "User.focusPane.up.0",
+            "keys": "ctrl+shift+alt+up"
+        },
+        {
+            "id": "User.focusPane.right.0",
+            "keys": "ctrl+shift+alt+right"
+        },
+        {
+            "id": "User.togglePaneZoom.0",
+            "keys": "ctrl+alt+z"
+        },
+        {
+            "id": "User.switchSelectionEndpoint.0",
+            "keys": "ctrl+shift+alt+o"
+        },
+        {
             "id": "User.splitPane.864CD510",
             "keys": "ctrl+alt+v"
         },
@@ -112,10 +183,6 @@
         {
             "id": null,
             "keys": "ctrl+k"
-        },
-        {
-            "id": null,
-            "keys": "alt+up"
         },
         {
             "id": null,
