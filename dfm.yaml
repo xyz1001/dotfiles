@@ -61,6 +61,13 @@ dotfiles:
   3c6508b18051e46534611c4203d2cbb0/classicui.conf:
     linux:
       path: ~/.config/fcitx5/conf/classicui.conf
+  3d8e2938fb8e9887c5a21cdf3f9764a4/mcp_config.json:
+    darwin:
+      path: ~/.gemini/config/mcp_config.json
+    linux:
+      path: ~/.gemini/config/mcp_config.json
+    windows:
+      path: ~\.gemini\config\mcp_config.json
   41d62a13ee890cadca00a018476d3d6f/pip.conf:
     darwin:
       path: ~/.config/pip/pip.conf
