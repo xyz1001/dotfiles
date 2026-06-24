@@ -1,8 +1,5 @@
 #Requires AutoHotkey v2.0
 
-; 仅在 Windows Terminal 窗口激活时生效
-#HotIf WinActive("ahk_class CASCADIA_HOSTING_WINDOW_CLASS")
-
 global tmux_prefix := false
 global copy_mode := false
 global selecting := false
@@ -10,26 +7,24 @@ global visual_line := false
 global line_dir := 0 ; 0: 未定, 1: 向下选择 (锚点在行首), -1: 向上选择 (锚点在行尾)
 global ih_copy := ""
 
+; 检测当前 Windows Terminal 标签页是否正在运行 Vim / Neovim
+IsVimActive() {
+    try {
+        return InStr(WinGetTitle("A"), "vim")
+    } catch {
+        return false
+    }
+}
+
+; 仅在 Windows Terminal 窗口激活且非 Vim/Neovim 时生效
+#HotIf WinActive("ahk_class CASCADIA_HOSTING_WINDOW_CLASS") and not tmux_prefix
+
 ; 拦截 Ctrl + a 进入前缀状态
-^a::
+$^a::
 {
     global tmux_prefix := true
     ; 设置 2 秒超时，超时未输入其他键则自动清除前缀状态
     SetTimer(ClearPrefix, -2000)
-}
-
-; 检测当前 Windows Terminal 标签页是否正在运行 Vim / Neovim
-IsVimActive() {
-    try {
-        title := WinGetTitle("A")
-        ; 使用正则精准匹配：
-        ; 1. 标题含有 " - NVIM" 或 " - VIM" (Vim 默认的窗口标题后缀)
-        ; 2. 标题以 "nvim" 或 "vim" 开头 (如独立运行或带参数启动)
-        ; 避免匹配到包含 ".vim" 或 "nvim" 的目录路径
-        return RegExMatch(title, "i)( - n?vim|^\s*n?vim(\s|$))")
-    } catch {
-        return false
-    }
 }
 
 ; ==================== 直接快捷键（仅在非 Vim/Neovim 环境下，且非复制模式时生效） ====================
@@ -87,13 +82,7 @@ z::
     Send("^!z")
 }
 
-; Ctrl + v -> 进入复制/选择模式 (触发 WT 标记模式)
-^v::
-{
-    global tmux_prefix := false
-    SetTimer(ClearPrefix, 0)
-    StartCopyMode()
-}
+
 
 ; Ctrl + h -> 切换到上一个标签页 (WT 默认: Ctrl + Shift + Tab)
 ; 采用 tmux -r (repeat) 机制：切换后不关闭前缀模式，而是刷新 1.5 秒的重复等待定时器
@@ -112,11 +101,11 @@ z::
 }
 
 ; 双击 Ctrl + a 发送原本的 Ctrl + a
-^a::
+$^a::
 {
     global tmux_prefix := false
     SetTimer(ClearPrefix, 0)
-    Send("^a")
+    Send("{Blind}a")
 }
 
 ; Esc -> 取消前缀
@@ -124,6 +113,17 @@ Esc::
 {
     global tmux_prefix := false
     SetTimer(ClearPrefix, 0)
+}
+
+; ==================== 仅在非 Vim 模式下生效的前缀快捷键 ====================
+#HotIf WinActive("ahk_class CASCADIA_HOSTING_WINDOW_CLASS") and tmux_prefix and not IsVimActive()
+
+; Ctrl + v -> 进入复制/选择模式 (触发 WT 标记模式)
+^v::
+{
+    global tmux_prefix := false
+    SetTimer(ClearPrefix, 0)
+    StartCopyMode()
 }
 
 

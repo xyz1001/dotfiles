@@ -46,6 +46,9 @@ dotfiles:
       path: ~/.config/opencode/opencode.json
     windows:
       path: ~\.config\opencode\opencode.json
+  27ee90e43d88c7313f5cc2c14ab64505/ahk:
+    windows:
+      path: ~\AppData\Roaming\ahk
   27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
     windows:
       path: ~\AppData\Roaming\topgrade.toml
@@ -239,9 +242,6 @@ dotfiles:
       path: ~/.config/nvim
     windows:
       path: ~\AppData\Local\nvim
-  688d09f898cbdd1fc2b4b796bda530b8/wt_tmux.ahk:
-    windows:
-      path: ~\AppData\Roaming\ahk\wt_tmux.ahk
   6ee1504095caefc322f5ca38b8074fd4/config:
     android:
       path: ~/.ssh/config
