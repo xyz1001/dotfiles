@@ -22,6 +22,15 @@
         "CONFLUENCE_USERNAME": "{env:CONFLUENCE_USERNAME}",
         "CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
       }
+    },
+    "jenkins": {
+      "command": "uvx",
+      "args": ["mcp-jenkins", "--read-only"],
+      "env": {
+        "JENKINS_URL": "{env:JENKINS_URL}",
+        "JENKINS_USERNAME": "{env:JENKINS_USERNAME}",
+        "JENKINS_PASSWORD": "{env:JENKINS_PASSWORD}"
+      }
     }
   },
   "mcp": {

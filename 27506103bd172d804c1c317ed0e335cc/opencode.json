@@ -81,6 +81,16 @@
                 "CONFLUENCE_USERNAME": "{env:CONFLUENCE_USERNAME}",
                 "CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
             }
+        },
+        "jenkins": {
+            "type": "local",
+            "command": [
+                "uvx",
+                "mcp-jenkins",
+                "--jenkins-url={env:JENKINS_URL}",
+                "--jenkins-username={env:JENKINS_USERNAME}",
+                "--jenkins-password={env:JENKINS_PASSWORD}"
+            ]
         }
     },
     "plugin": [
