@@ -16,7 +16,7 @@
             "model": "cchClaude/deepseek-v4-flash"
         },
         "multimodal-looker": {
-            "model": "cchGemini/gemini-3-flash-preview"
+            "model": "cchClaude/qwen3.7-plus"
         },
         "prometheus": {
             "model": "cchClaude/kimi-k2.6",
