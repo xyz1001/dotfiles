@@ -55,22 +55,23 @@ Remove-Item Alias:ls -Force -ErrorAction SilentlyContinue
 function ls { lsd @args }
 function ll { lsd -la @args }
 
-Set-PSReadLineOption -EditMode vi
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
-    if ($args[0] -eq 'Command') {
-        [Console]::Write("`e[2 q")
-    } else {
-        [Console]::Write("`e[6 q")
+if ($Host.Name -eq 'ConsoleHost' -and -not [Console]::IsOutputRedirected) {
+    Set-PSReadLineOption -EditMode vi
+    Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+    Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
+        if ($args[0] -eq 'Command') {
+            [Console]::Write("`e[2 q")
+        } else {
+            [Console]::Write("`e[6 q")
+        }
     }
+    Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
+    Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
+    Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
+    Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
+    Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
+    Set-PSReadLineOption -Colors @{ "Parameter" = "`e[97;2;3m"; "Operator" = "`e[97;2;3m" }
 }
-Set-PSReadLineKeyHandler -Chord Ctrl+p -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Chord Ctrl+n -Function HistorySearchForward
-Set-PSReadLineKeyHandler -Chord Tab -Function MenuComplete
-Set-PSReadLineKeyHandler -Chord Ctrl+o -Function ClearScreen
-Set-PSReadLineKeyHandler -Chord Ctrl+w BackwardDeleteWord
-
-Set-PSReadLineOption -Colors @{ "Parameter" = "`e[97;2;3m"; "Operator" = "`e[97;2;3m" }
 
 Remove-Item Alias:rm -Force -ErrorAction SilentlyContinue
 
