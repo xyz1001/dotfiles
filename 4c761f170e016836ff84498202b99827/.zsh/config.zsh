@@ -29,6 +29,8 @@ export PIP_BREAK_SYSTEM_PACKAGES=1
 
 export PATH=$HOME/Application:$GOPATH/bin:$HOME/.yarn/bin:$HOME/.local/bin:$PATH
 
+export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
+
 #######################################################################
 #                                alias                                #
 #######################################################################

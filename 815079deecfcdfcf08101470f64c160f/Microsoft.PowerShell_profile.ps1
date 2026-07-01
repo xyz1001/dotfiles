@@ -103,6 +103,8 @@ if (Test-Path $apiKeyFile) {
     }
 }
 
+$Env:OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
+
 # git commit --fixup tab completion: show recent commits
 $ctx = $ExecutionContext.GetType().GetField('_context', [System.Reflection.BindingFlags]'NonPublic,Instance').GetValue($ExecutionContext)
 $poshGitCompleter = $ctx.GetType().GetProperty('NativeArgumentCompleters', [System.Reflection.BindingFlags]'NonPublic,Instance').GetValue($ctx)['git']
