@@ -13,5 +13,8 @@
         "input_delete": "delete,shift+delete",
         "input_paste": "ctrl+v",
         "terminal_suspend": "none"
-    }
+    },
+    "plugin": [
+        "oh-my-opencode-slim"
+    ]
 }
