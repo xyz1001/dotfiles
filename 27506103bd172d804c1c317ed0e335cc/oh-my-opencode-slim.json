@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/alvinunreal/oh-my-opencode-slim/master/oh-my-opencode-slim.schema.json",
+    "agents": {
+        "orchestrator": {
+            "model": "openai/gpt-5.4"
+        },
+        "oracle": {
+            "model": "openai/gpt-5.4"
+        },
+        "librarian": {
+            "model": "opencode-go/deepseek-v4-flash"
+        },
+        "explorer": {
+            "model": "opencode-go/deepseek-v4-flash"
+        },
+        "designer": {
+            "model": "opencode-go/qwen3.7-plus"
+        },
+        "fixer": {
+            "model": "opencode-go/kimi-k2.7-code"
+        },
+        "observer": {
+            "model": "opencode-go/qwen3.7-plus"
+        }
+    }
+}

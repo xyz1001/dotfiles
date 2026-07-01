@@ -17,43 +17,6 @@
                 }
             }
         },
-        "cchClaude": {
-            "npm": "@ai-sdk/anthropic",
-            "name": "Claude via cch",
-            "options": {
-                "baseURL": "{env:CCH_URL}/v1",
-                "apiKey": "{env:CCH_API_KEY}"
-            },
-            "models": {
-                "qwen3.7-max": {
-                    "name": "Qwen 3.7 Max"
-                },
-                "qwen3.7-plus": {
-                    "name": "Qwen 3.7 Plus"
-                },
-                "glm-5.1": {
-                    "name": "GLM 5.1"
-                },
-                "glm-5.2": {
-                    "name": "GLM 5.2"
-                },
-                "kimi-k2.6": {
-                    "name": "Kimi K2.6"
-                },
-                "kimi-k2.7-code": {
-                    "name": "Kimi K2.7 Code"
-                },
-                "minimax-m3": {
-                    "name": "Minimax M3"
-                },
-                "deepseek-v4-flash": {
-                    "name": "DeepSeek V4 Flash"
-                },
-                "deepseek-v4-pro": {
-                    "name": "DeepSeek V4 Pro"
-                }
-            }
-        }
     },
     "mcp": {
         "context7": {
@@ -94,6 +57,6 @@
         }
     },
     "plugin": [
-        "oh-my-openagent@latest"
+        "oh-my-openagent-slim"
     ]
 }
