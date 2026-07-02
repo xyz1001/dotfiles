@@ -131,3 +131,55 @@ $gitCompleterScript = {
 }.GetNewClosure()
 
 Register-ArgumentCompleter -CommandName git -Native -ScriptBlock $gitCompleterScript
+
+# ==========================================
+# !! and !$ History Expansion (Bash-like)
+# ==========================================
+function Expand-HistoryToken {
+    $line = $null
+    $cursor = $null
+    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
+    
+    $beforeCursor = $line.Substring(0, $cursor)
+    
+    # Expand !! (last command)
+    if ($beforeCursor.EndsWith("!!")) {
+        $history = [Microsoft.PowerShell.PSConsoleReadLine]::GetHistoryItems()
+        if ($history.Count -gt 0) {
+            $lastCommand = $history[-1].CommandLine
+            [Microsoft.PowerShell.PSConsoleReadLine]::Replace($cursor - 2, 2, $lastCommand)
+            return $true
+        }
+    } 
+    # Expand !$ (last argument of last command)
+    elseif ($beforeCursor.EndsWith("!$")) {
+        $history = [Microsoft.PowerShell.PSConsoleReadLine]::GetHistoryItems()
+        if ($history.Count -gt 0) {
+            $lastCommand = $history[-1].CommandLine
+            $errors = $null
+            $tokens = [System.Management.Automation.PSParser]::Tokenize($lastCommand, [ref]$errors)
+            $lastToken = if ($tokens.Count -gt 0) { $tokens[-1].Content } else {
+                $parts = $lastCommand.Split(' ', [System.StringSplitOptions]::RemoveEmptyEntries)
+                if ($parts.Length -gt 0) { $parts[-1] }
+            }
+            if ($lastToken) {
+                [Microsoft.PowerShell.PSConsoleReadLine]::Replace($cursor - 2, 2, $lastToken)
+                return $true
+            }
+        }
+    }
+    return $false
+}
+
+# Bind Tab key: expand if !! or !$, else fallback to original MenuComplete
+Set-PSReadLineKeyHandler -Key Tab -BriefDescription "ExpandHistoryOrTabComplete" -ScriptBlock {
+    if (-not (Expand-HistoryToken)) {
+        [Microsoft.PowerShell.PSConsoleReadLine]::MenuComplete()
+    }
+}
+
+# Bind Enter key: expand if !! or !$, then accept line
+Set-PSReadLineKeyHandler -Key Enter -BriefDescription "ExpandHistoryOnEnter" -ScriptBlock {
+    $null = Expand-HistoryToken
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
