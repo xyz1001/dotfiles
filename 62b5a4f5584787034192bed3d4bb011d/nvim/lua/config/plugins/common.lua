@@ -183,6 +183,36 @@ return {
 		config = true,
 	},
 	{
+		"sindrets/diffview.nvim",
+		cond = not vim.g.vscode,
+		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
+		keys = {
+			{
+				"<leader>gd",
+				function()
+					if next(require("diffview.lib").views) == nil then
+						vim.cmd("DiffviewOpen")
+					else
+						vim.cmd("DiffviewClose")
+					end
+				end,
+				desc = "切换 AI 修改对比",
+			},
+			{
+				"<leader>gh",
+				function()
+					if next(require("diffview.lib").views) == nil then
+						vim.cmd("DiffviewFileHistory %")
+					else
+						vim.cmd("DiffviewClose")
+					end
+				end,
+				desc = "查看当前文件历史",
+			},
+		},
+		config = true,
+	},
+	{
 		"karb94/neoscroll.nvim",
 		opts = {
 			mappings = {
