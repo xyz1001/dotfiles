@@ -20,7 +20,22 @@ if (Test-Path $apiKeyFile) {
 $Env:OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
 
 # Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
-function Import-VisualStudioVars { Import-Module Pscx -Global; Import-VisualStudioVars @args }
+function Import-VisualStudioVars { Import-Module Pscx -Global; Pscx\Import-VisualStudioVars @args }
+
+
+
+# cmake 包装器：在执行 cmake 时自动加载 VS 编译环境
+function cmake {
+    if (-not $env:VCINSTALLDIR) {
+        Write-Host "Auto-loading Visual Studio environment variables..." -ForegroundColor Cyan
+        Import-VisualStudioVars 2022 -Architecture x64
+    }
+    $cmd = Get-Command cmake -CommandType Application -ErrorAction SilentlyContinue
+    if ($cmd) { & $cmd[0] @args } else { Write-Error "cmake.exe not found on PATH." }
+}
+function cmake.exe { cmake @args }
+
+
 
 # =====================================================================
 # 2. 交互式状态检测 (检测是否为交互式终端)
