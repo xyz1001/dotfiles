@@ -61,6 +61,13 @@ dotfiles:
   366b8beb3fec58d9fec3087e14d4602f/double_pinyin.custom.yaml:
     linux:
       path: ~/.local/share/fcitx5/rime/double_pinyin.custom.yaml
+  381d3c7eaeb5986835ebb300e650ec44/keybindings.json:
+    darwin:
+      path: ~/.gemini/antigravity-cli/keybindings.json
+    linux:
+      path: ~/.gemini/antigravity-cli/keybindings.json
+    windows:
+      path: ~\.gemini\antigravity-cli\keybindings.json
   3c6508b18051e46534611c4203d2cbb0/classicui.conf:
     linux:
       path: ~/.config/fcitx5/conf/classicui.conf
