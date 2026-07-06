@@ -107,7 +107,7 @@ return {
 					return nil
 				end
 
-				return "@" .. reference .. "\n"
+				return reference .. "\n"
 			end
 
 			local function open_ai_prompt_input(initial_text)
