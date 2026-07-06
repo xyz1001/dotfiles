@@ -55,6 +55,7 @@ return {
 			local active_ai_terminal = nil
 			local active_ai_terminal_buf = nil
 			local prompt_history = {}
+			local draft_input = nil
 
 			local function clear_inactive_ai_terminal()
 				if not active_ai_terminal_buf or not vim.api.nvim_buf_is_valid(active_ai_terminal_buf) then
@@ -148,8 +149,13 @@ return {
 					title_pos = "center",
 				})
 
-				if initial_text and initial_text ~= "" then
-					vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(initial_text, "\n", { plain = true }))
+				local initial = initial_text
+				if not initial or initial == "" then
+					initial = draft_input or get_normal_mode_context()
+				end
+
+				if initial and initial ~= "" then
+					vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(initial, "\n", { plain = true }))
 					vim.api.nvim_win_set_cursor(win, { vim.api.nvim_buf_line_count(buf), 0 })
 				end
 
@@ -161,6 +167,24 @@ return {
 
 				local history_idx = #prompt_history + 1
 				local temp_input = nil
+				local was_sent = false
+
+				vim.api.nvim_create_autocmd("BufWipeout", {
+					buffer = buf,
+					callback = function()
+						if not was_sent then
+							local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+							local content = table.concat(lines, "\n")
+							if content:gsub("^%s+", ""):gsub("%s+$", "") ~= "" then
+								draft_input = content
+							else
+								draft_input = nil
+							end
+						else
+							draft_input = nil
+						end
+					end,
+				})
 
 				local function set_buf_content(text)
 					vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(text, "\n", { plain = true }))
@@ -204,6 +228,7 @@ return {
 						text_to_send = "\27[200~" .. prompt .. "\27[201~"
 					end
 
+					was_sent = true
 					close_input()
 					vim.fn.chansend(job_id, text_to_send)
 					vim.fn.chansend(job_id, "\r")
@@ -262,8 +287,7 @@ return {
 			end, { desc = "Toggle agy" })
 
 			vim.keymap.set("n", "<leader>ai", function()
-				local context = get_normal_mode_context()
-				open_ai_prompt_input(context)
+				open_ai_prompt_input(nil)
 			end, { desc = "Send prompt to active AI" })
 
 			vim.keymap.set("x", "<leader>ai", function()
