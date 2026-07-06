@@ -110,6 +110,15 @@ return {
 				return reference .. "\n"
 			end
 
+			local function get_normal_mode_context()
+				local path = vim.fn.expand("%:p")
+				if path == "" then
+					return nil
+				end
+
+				return path .. "\n"
+			end
+
 			local function open_ai_prompt_input(initial_text)
 				clear_inactive_ai_terminal()
 
@@ -207,7 +216,8 @@ return {
 			end, { desc = "Toggle agy" })
 
 			vim.keymap.set("n", "<leader>ai", function()
-				open_ai_prompt_input()
+				local context = get_normal_mode_context()
+				open_ai_prompt_input(context)
 			end, { desc = "Send prompt to active AI" })
 
 			vim.keymap.set("x", "<leader>ai", function()
