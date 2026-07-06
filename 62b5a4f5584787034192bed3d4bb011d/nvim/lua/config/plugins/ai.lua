@@ -54,6 +54,7 @@ return {
 
 			local active_ai_terminal = nil
 			local active_ai_terminal_buf = nil
+			local prompt_history = {}
 
 			local function clear_inactive_ai_terminal()
 				if not active_ai_terminal_buf or not vim.api.nvim_buf_is_valid(active_ai_terminal_buf) then
@@ -158,12 +159,29 @@ return {
 					end
 				end
 
+				local history_idx = #prompt_history + 1
+				local temp_input = nil
+
+				local function set_buf_content(text)
+					vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(text, "\n", { plain = true }))
+					local line_count = vim.api.nvim_buf_line_count(buf)
+					local last_line = vim.api.nvim_buf_get_lines(buf, line_count - 1, line_count, false)[1] or ""
+					pcall(vim.api.nvim_win_set_cursor, win, { line_count, #last_line })
+				end
+
 				local function send_prompt()
 					local lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
 					local prompt = table.concat(lines, "\n"):gsub("^%s+", ""):gsub("%s+$", "")
 					if prompt == "" then
 						vim.notify("Prompt is empty.", vim.log.levels.WARN)
 						return
+					end
+
+					if #prompt_history == 0 or prompt_history[#prompt_history] ~= prompt then
+						table.insert(prompt_history, prompt)
+						if #prompt_history > 5 then
+							table.remove(prompt_history, 1)
+						end
 					end
 
 					clear_inactive_ai_terminal()
@@ -195,6 +213,34 @@ return {
 				vim.keymap.set("n", "<CR>", send_prompt, { buffer = buf, desc = "Send prompt" })
 				vim.keymap.set("n", "<Esc>", close_input, { buffer = buf, desc = "Cancel prompt" })
 				vim.keymap.set("n", "q", close_input, { buffer = buf, desc = "Cancel prompt" })
+
+				vim.keymap.set("n", "<C-k>", function()
+					if #prompt_history == 0 then
+						return
+					end
+					if history_idx > 1 then
+						if history_idx == #prompt_history + 1 then
+							local current_lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+							temp_input = table.concat(current_lines, "\n")
+						end
+						history_idx = history_idx - 1
+						set_buf_content(prompt_history[history_idx])
+					end
+				end, { buffer = buf, desc = "Previous prompt history" })
+
+				vim.keymap.set("n", "<C-j>", function()
+					if #prompt_history == 0 then
+						return
+					end
+					if history_idx < #prompt_history + 1 then
+						history_idx = history_idx + 1
+						if history_idx == #prompt_history + 1 then
+							set_buf_content(temp_input or "")
+						else
+							set_buf_content(prompt_history[history_idx])
+						end
+					end
+				end, { buffer = buf, desc = "Next prompt history" })
 				vim.cmd.startinsert()
 			end
 
