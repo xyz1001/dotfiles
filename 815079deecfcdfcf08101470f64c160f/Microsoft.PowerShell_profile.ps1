@@ -17,6 +17,7 @@ if (Test-Path $apiKeyFile) {
     } catch {}
 }
 
+$Env:EDITOR="nvim"
 $Env:OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
 
 # Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
