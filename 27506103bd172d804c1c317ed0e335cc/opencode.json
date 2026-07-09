@@ -26,6 +26,16 @@
                     "name": "GPT 5 Nano"
                 }
             }
+        },
+        "xyz1001": {
+            "npm": "@ai-sdk/openai",
+            "options": {
+                "apiKey": "{env:XYZ1001_API_KEY}",
+                "baseURL": "{env:XYZ1001_API_URL}",
+                "modelsDiscovery": {
+                    "enabled": true
+                }
+            }
         }
     },
     "mcp": {
@@ -71,7 +81,8 @@
         "prune": true
     },
     "plugin": [
-        "oh-my-opencode-slim"
+        "oh-my-opencode-slim",
+        "opencode-models-discovery"
     ],
     "agent": {
         "explore": {
