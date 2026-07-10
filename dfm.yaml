@@ -33,6 +33,8 @@ dotfiles:
     windows:
       path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\verge.yaml
   27506103bd172d804c1c317ed0e335cc/oh-my-opencode-slim.json:
+    android:
+      path: ~/.config/opencode/oh-my-opencode-slim.json
     darwin:
       path: ~/.config/opencode/oh-my-opencode-slim.json
     linux:
@@ -40,6 +42,8 @@ dotfiles:
     windows:
       path: ~\.config\opencode\oh-my-opencode-slim.json
   27506103bd172d804c1c317ed0e335cc/opencode.json:
+    android:
+      path: ~/.config/opencode/opencode.json
     darwin:
       path: ~/.config/opencode/opencode.json
     linux:
@@ -62,6 +66,8 @@ dotfiles:
     linux:
       path: ~/.local/share/fcitx5/rime/double_pinyin.custom.yaml
   381d3c7eaeb5986835ebb300e650ec44/keybindings.json:
+    android:
+      path: ~/.gemini/antigravity-cli/keybindings.json
     darwin:
       path: ~/.gemini/antigravity-cli/keybindings.json
     linux:
@@ -72,6 +78,8 @@ dotfiles:
     linux:
       path: ~/.config/fcitx5/conf/classicui.conf
   3d8e2938fb8e9887c5a21cdf3f9764a4/mcp_config.json:
+    android:
+      path: ~/.gemini/config/mcp_config.json
     darwin:
       path: ~/.gemini/config/mcp_config.json
     linux:
@@ -231,6 +239,8 @@ dotfiles:
     linux:
       path: ~/.zshrc
   4d2e5a0220e12f571caf6be67ec64ec3/tui.json:
+    android:
+      path: ~/.config/opencode/tui.json
     darwin:
       path: ~/.config/opencode/tui.json
     linux:
