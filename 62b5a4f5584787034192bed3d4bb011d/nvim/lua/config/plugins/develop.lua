@@ -138,6 +138,12 @@ return {
 		keys = {
 			{ "<leader>e", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "显示诊断列表" },
 		},
+		config = function()
+			if vim.fn.has("android") == 1 then
+				vim.lsp.enable("clangd")
+				vim.lsp.enable("lua_ls")
+			end
+		end,
 		init = function()
 			-- 配置诊断显示
 			vim.diagnostic.config({
