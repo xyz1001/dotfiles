@@ -94,3 +94,20 @@ if vim.fn.has("nvim-0.11") == 1 then
 	pcall(vim.keymap.del, "n", "grn")
 	pcall(vim.keymap.del, "n", "grr")
 end
+
+-- Termux 剪贴板双向同步支持
+if vim.fn.executable("termux-clipboard-set") == 1 then
+	vim.g.clipboard = {
+		name = "termux",
+		copy = {
+			["+"] = "termux-clipboard-set",
+			["*"] = "termux-clipboard-set",
+		},
+		paste = {
+			["+"] = "termux-clipboard-get",
+			["*"] = "termux-clipboard-get",
+		},
+		cache_enabled = 1,
+	}
+end
+
