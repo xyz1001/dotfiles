@@ -89,8 +89,8 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 -- Neovim 0.11添加了这些用于lsp
 if vim.fn.has("nvim-0.11") == 1 then
-	vim.keymap.del("n", "gra")
-	vim.keymap.del("n", "gri")
-	vim.keymap.del("n", "grn")
-	vim.keymap.del("n", "grr")
+	pcall(vim.keymap.del, "n", "gra")
+	pcall(vim.keymap.del, "n", "gri")
+	pcall(vim.keymap.del, "n", "grn")
+	pcall(vim.keymap.del, "n", "grr")
 end
