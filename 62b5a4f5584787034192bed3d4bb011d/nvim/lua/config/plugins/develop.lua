@@ -251,14 +251,21 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		dependencies = { "mason.nvim", "neovim/nvim-lspconfig" },
-		opts = {
-			ensure_installed = { "lua_ls", "clangd", "jsonls", "pyright" },
-			handlers = {
-				function(server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
-			},
-		},
+		opts = function()
+			local ensure = { "jsonls", "pyright" }
+			if vim.fn.has("android") == 0 then
+				table.insert(ensure, "lua_ls")
+				table.insert(ensure, "clangd")
+			end
+			return {
+				ensure_installed = ensure,
+				handlers = {
+					function(server_name)
+						require("lspconfig")[server_name].setup({})
+					end,
+				},
+			}
+		end,
 	},
 
 	-- complement
@@ -442,9 +449,18 @@ return {
 	{
 		"zapling/mason-conform.nvim",
 		dependencies = { "stevearc/conform.nvim", "williamboman/mason.nvim" },
-		opts = {
-			ensure_installed = { "clang-format", "stylua", "dart-format", "ruff", "jq", "cmakelang" },
-		},
+		opts = function()
+			local ignore = {}
+			if vim.fn.has("android") == 1 then
+				table.insert(ignore, "clang_format")
+				table.insert(ignore, "stylua")
+				table.insert(ignore, "dart_format")
+				table.insert(ignore, "ruff_format")
+			end
+			return {
+				ignore_install = ignore,
+			}
+		end,
 	},
 
 	-- lint
@@ -468,17 +484,19 @@ return {
 				vim.fn.system("scoop install luacheck")
 			end
 		end,
-		opts = {
-			ensure_installed = {
-				"cmakelint",
-				"shellcheck",
-				"jsonlint",
-				vim.fn.has("win32") == 0 and "luacheck" or nil,
-			},
-			ignore_install = {
-				vim.fn.has("win32") == 1 and "luacheck" or nil,
-			},
-		},
+		opts = function()
+			local ensure = { "cmakelint", "shellcheck", "jsonlint" }
+			local ignore = {}
+			if vim.fn.has("win32") == 1 or vim.fn.has("android") == 1 then
+				table.insert(ignore, "luacheck")
+			else
+				table.insert(ensure, "luacheck")
+			end
+			return {
+				ensure_installed = ensure,
+				ignore_install = ignore,
+			}
+		end,
 	},
 
 	-- comment
@@ -916,8 +934,14 @@ return {
 		"jay-babu/mason-nvim-dap.nvim",
 		cond = vim.fn.has("win32") == 0,
 		dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-		opts = {
-			ensure_installed = { "cpptools" },
-		},
+		opts = function()
+			local ensure = {}
+			if vim.fn.has("android") == 0 then
+				table.insert(ensure, "cpptools")
+			end
+			return {
+				ensure_installed = ensure,
+			}
+		end,
 	},
 }
