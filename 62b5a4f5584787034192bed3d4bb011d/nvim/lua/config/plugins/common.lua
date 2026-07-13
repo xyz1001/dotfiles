@@ -446,7 +446,7 @@ return {
 	},
 	{
 		"notaduck/auto-create-dirs.nvim",
-		config = {},
+		opts = {},
 	},
 	{
 		"cajames/copy-reference.nvim",
