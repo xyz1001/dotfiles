@@ -1,10 +1,10 @@
 dotfiles:
-  0a9b529f8a1af2a600b720798eb30b0b\settings.json:
+  0a9b529f8a1af2a600b720798eb30b0b/settings.json:
     windows:
-      path: ~\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
-  109dd9c58466739d9d846be552d645fc\Microsoft.PowerShell_profile.ps1:
+      path: ~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
+  109dd9c58466739d9d846be552d645fc/Microsoft.PowerShell_profile.ps1:
     windows:
-      path: ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+      path: ~/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
   1a01c474be4111dbd18a475dc83b3642/config:
     darwin:
       path: ~/.config/bat/config
@@ -17,21 +17,21 @@ dotfiles:
     linux:
       path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles
     windows:
-      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\profiles
+      path: ~/AppData/Roaming/io.github.clash-verge-rev.clash-verge-rev/profiles
   26b95fd7b2cbd24b92bd169d727e078b/profiles.yaml:
     darwin:
       path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles.yaml
     linux:
       path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/profiles.yaml
     windows:
-      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\profiles.yaml
+      path: ~/AppData/Roaming/io.github.clash-verge-rev.clash-verge-rev/profiles.yaml
   26b95fd7b2cbd24b92bd169d727e078b/verge.yaml:
     darwin:
       path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/verge.yaml
     linux:
       path: ~/.local/share/io.github.clash-verge-rev.clash-verge-rev/verge.yaml
     windows:
-      path: ~\AppData\Roaming\io.github.clash-verge-rev.clash-verge-rev\verge.yaml
+      path: ~/AppData/Roaming/io.github.clash-verge-rev.clash-verge-rev/verge.yaml
   27506103bd172d804c1c317ed0e335cc/oh-my-opencode-slim.json:
     android:
       path: ~/.config/opencode/oh-my-opencode-slim.json
@@ -40,7 +40,7 @@ dotfiles:
     linux:
       path: ~/.config/opencode/oh-my-opencode-slim.json
     windows:
-      path: ~\.config\opencode\oh-my-opencode-slim.json
+      path: ~/.config/opencode/oh-my-opencode-slim.json
   27506103bd172d804c1c317ed0e335cc/opencode.json:
     android:
       path: ~/.config/opencode/opencode.json
@@ -49,13 +49,13 @@ dotfiles:
     linux:
       path: ~/.config/opencode/opencode.json
     windows:
-      path: ~\.config\opencode\opencode.json
+      path: ~/.config/opencode/opencode.json
   27ee90e43d88c7313f5cc2c14ab64505/ahk:
     windows:
-      path: ~\AppData\Roaming\ahk
+      path: ~/AppData/Roaming/ahk
   27ee90e43d88c7313f5cc2c14ab64505/windows/topgrade.toml:
     windows:
-      path: ~\AppData\Roaming\topgrade.toml
+      path: ~/AppData/Roaming/topgrade.toml
   33b493d56cd7e8107b52f599e9851c79/fonts.conf:
     linux:
       path: ~/.config/fontconfig/fonts.conf
@@ -73,7 +73,7 @@ dotfiles:
     linux:
       path: ~/.gemini/antigravity-cli/keybindings.json
     windows:
-      path: ~\.gemini\antigravity-cli\keybindings.json
+      path: ~/.gemini/antigravity-cli/keybindings.json
   3c6508b18051e46534611c4203d2cbb0/classicui.conf:
     linux:
       path: ~/.config/fcitx5/conf/classicui.conf
@@ -85,7 +85,7 @@ dotfiles:
     linux:
       path: ~/.gemini/config/mcp_config.json
     windows:
-      path: ~\.gemini\config\mcp_config.json
+      path: ~/.gemini/config/mcp_config.json
   41d62a13ee890cadca00a018476d3d6f/pip.conf:
     darwin:
       path: ~/.config/pip/pip.conf
@@ -135,7 +135,7 @@ dotfiles:
     linux:
       path: ~/.gitconfig
     windows:
-      path: ~\.gitconfig
+      path: ~/.gitconfig
   4c761f170e016836ff84498202b99827/.gitconfig.cvte:
     android:
       path: ~/.gitconfig.cvte
@@ -144,7 +144,7 @@ dotfiles:
     linux:
       path: ~/.gitconfig.cvte
     windows:
-      path: ~\.gitconfig.cvte
+      path: ~/.gitconfig.cvte
   4c761f170e016836ff84498202b99827/.gitconfig.diff:
     android:
       path: ~/.gitconfig.diff
@@ -153,7 +153,7 @@ dotfiles:
     linux:
       path: ~/.gitconfig.diff
     windows:
-      path: ~\.gitconfig.diff
+      path: ~/.gitconfig.diff
   4c761f170e016836ff84498202b99827/.gitconfig.work:
     android:
       path: ~/.gitconfig.work
@@ -162,7 +162,7 @@ dotfiles:
     linux:
       path: ~/.gitconfig.work
     windows:
-      path: ~\.gitconfig.work
+      path: ~/.gitconfig.work
   4c761f170e016836ff84498202b99827/.gitignore_global:
     android:
       path: ~/.gitignore_global
@@ -186,7 +186,7 @@ dotfiles:
     linux:
       path: ~/.npmrc
     windows:
-      path: ~\.npmrc
+      path: ~/.npmrc
   4c761f170e016836ff84498202b99827/.pam_environment:
     linux:
       path: ~/.pam_environment
@@ -208,7 +208,7 @@ dotfiles:
     linux:
       path: ~/.vim
     windows:
-      path: ~\.vim
+      path: ~/.vim
   4c761f170e016836ff84498202b99827/.vimrc:
     android:
       path: ~/.vimrc
@@ -217,10 +217,10 @@ dotfiles:
     linux:
       path: ~/.vimrc
     windows:
-      path: ~\.vimrc
+      path: ~/.vimrc
   4c761f170e016836ff84498202b99827/.wslconfig:
     windows:
-      path: ~\.wslconfig
+      path: ~/.wslconfig
   4c761f170e016836ff84498202b99827/.xprofile:
     linux:
       path: ~/.xprofile
@@ -246,7 +246,7 @@ dotfiles:
     linux:
       path: ~/.config/opencode/tui.json
     windows:
-      path: ~\.config\opencode\tui.json
+      path: ~/.config/opencode/tui.json
   627a8fb1b384b9c32dac574fd981c74c/Solarized Dark.colorscheme:
     linux:
       path: ~/.kde4/share/apps/konsole/Solarized Dark.colorscheme
@@ -258,7 +258,7 @@ dotfiles:
     linux:
       path: ~/.config/nvim
     windows:
-      path: ~\AppData\Local\nvim
+      path: ~/AppData/Local/nvim
   6ee1504095caefc322f5ca38b8074fd4/config:
     android:
       path: ~/.ssh/config
@@ -267,7 +267,7 @@ dotfiles:
     linux:
       path: ~/.ssh/config
     windows:
-      path: ~\.ssh\config
+      path: ~/.ssh/config
   7c04b629a71eadcb7909a7f8bc4b67f1/termshark.toml:
     linux:
       path: ~/.config/termshark/termshark.toml
@@ -285,7 +285,7 @@ dotfiles:
     linux:
       path: ~/.config/secret.env
     windows:
-      path: ~\.config\secret.env
+      path: ~/.config/secret.env
   7db20105ed83a56e1a86dcc64c27f646/user-dirs.dirs:
     linux:
       path: ~/.config/user-dirs.dirs
@@ -305,10 +305,10 @@ dotfiles:
       path: ~/.tmux/tmuxcolor-tokyonight-night.conf
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
-      path: ~\Documents\Powershell\Microsoft.PowerShell_profile.ps1
+      path: ~/Documents/Powershell/Microsoft.PowerShell_profile.ps1
   d75dcd47b9bc0d0546108f9c8d8bdc08/main.ahk:
     windows:
-      path: ~\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\main.ahk
+      path: ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk
   e4a140e6cc142debe50dd8d647233b0b/settings_133128841309404354.ptb:
     windows:
-      path: ~\Documents\PowerToys\Backup\settings_133128841309404354.ptb
+      path: ~/Documents/PowerToys/Backup/settings_133128841309404354.ptb
