@@ -1,11 +1,11 @@
-6ee1504095caefc322f5ca38b8074fd4/config filter=git-crypt diff=git-crypt
-4c761f170e016836ff84498202b99827/.gitconfig.work filter=git-crypt diff=git-crypt
-4c761f170e016836ff84498202b99827/.gitconfig.cvte filter=git-crypt diff=git-crypt
-f575f66ef83134c794367c172716a54f/config.yaml filter=git-crypt diff=git-crypt
-4c761f170e016836ff84498202b99827/.pypirc filter=git-crypt diff=git-crypt
-7db20105ed83a56e1a86dcc64c27f646/secret.env filter=git-crypt diff=git-crypt
-26b95fd7b2cbd24b92bd169d727e078b/profiles/profile.yaml filter=git-crypt diff=git-crypt
-26b95fd7b2cbd24b92bd169d727e078b/profiles.yaml filter=strip-clash-updated
+files/6ee1504095caefc322f5ca38b8074fd4/config filter=git-crypt diff=git-crypt
+files/4c761f170e016836ff84498202b99827/.gitconfig.work filter=git-crypt diff=git-crypt
+files/4c761f170e016836ff84498202b99827/.gitconfig.cvte filter=git-crypt diff=git-crypt
+files/f575f66ef83134c794367c172716a54f/config.yaml filter=git-crypt diff=git-crypt
+files/4c761f170e016836ff84498202b99827/.pypirc filter=git-crypt diff=git-crypt
+files/7db20105ed83a56e1a86dcc64c27f646/secret.env filter=git-crypt diff=git-crypt
+files/26b95fd7b2cbd24b92bd169d727e078b/profiles/profile.yaml filter=git-crypt diff=git-crypt
+files/26b95fd7b2cbd24b92bd169d727e078b/profiles.yaml filter=strip-clash-updated
 
 # Making sure that .gitattributes is never encrypted. DON'T TOUCH THAT LINE AND ONE BELOW
 .gitattributes !filter !diff
