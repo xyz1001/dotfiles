@@ -313,6 +313,9 @@ dotfiles:
     windows:
       path: ~/Documents/PowerToys/Backup/settings_133128841309404354.ptb
 encryption:
+  rules:
+    files/6ee1504095caefc322f5ca38b8074fd4/config:
+      full: true
   sensitive_keys:
   - password
   - secret
