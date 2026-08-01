@@ -312,3 +312,13 @@ dotfiles:
   e4a140e6cc142debe50dd8d647233b0b/settings_133128841309404354.ptb:
     windows:
       path: ~/Documents/PowerToys/Backup/settings_133128841309404354.ptb
+encryption:
+  sensitive_keys:
+  - password
+  - secret
+  - token
+  - key
+  - email
+  - username
+  - user
+  - uuid
