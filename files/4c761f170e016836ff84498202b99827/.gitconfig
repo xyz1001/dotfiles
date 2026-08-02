@@ -19,7 +19,6 @@
     rebase = true
 [include]
     path = ~/.gitconfig.diff
-    path = ~/.gitconfig.work
 [credential "helperselector"]
 	selected = manager-core
 [push]
@@ -52,3 +51,5 @@
 	clean = "sed -E 's/updated: [0-9]+/updated: 0/g'"
 	smudge = cat
 
+[includeIf "gitdir:**/cvte/**"]
+   path = ~/.gitconfig.work

@@ -136,15 +136,6 @@ dotfiles:
       path: ~/.gitconfig
     windows:
       path: ~/.gitconfig
-  4c761f170e016836ff84498202b99827/.gitconfig.cvte:
-    android:
-      path: ~/.gitconfig.cvte
-    darwin:
-      path: ~/.gitconfig.cvte
-    linux:
-      path: ~/.gitconfig.cvte
-    windows:
-      path: ~/.gitconfig.cvte
   4c761f170e016836ff84498202b99827/.gitconfig.diff:
     android:
       path: ~/.gitconfig.diff
@@ -314,6 +305,10 @@ dotfiles:
       path: ~/Documents/PowerToys/Backup/settings_133128841309404354.ptb
 encryption:
   rules:
+    files/4c761f170e016836ff84498202b99827/.gitconfig.work:
+      keys:
+      - name
+      - email
     files/6ee1504095caefc322f5ca38b8074fd4/config:
       full: true
   sensitive_keys:
