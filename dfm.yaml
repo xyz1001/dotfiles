@@ -309,6 +309,8 @@ encryption:
       keys:
       - name
       - email
+    files/4c761f170e016836ff84498202b99827/.pypirc:
+      full: true
     files/6ee1504095caefc322f5ca38b8074fd4/config:
       full: true
   sensitive_keys:
