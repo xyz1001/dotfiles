@@ -68,10 +68,6 @@ auto_log_clean: 2
 enable_auto_backup_schedule: false
 auto_backup_interval_hours: 24
 auto_backup_on_change: true
-verge_redir_port: 7895
-verge_redir_enabled: false
-verge_tproxy_port: 7896
-verge_tproxy_enabled: false
 verge_mixed_port: 7890
 verge_socks_port: 7898
 verge_socks_enabled: false
