@@ -51,6 +51,8 @@ return {
 		config = function(_, opts)
 			local ai = require("ai-terminals")
 			ai.setup(opts)
+			pcall(require, "ai-terminals.fswatch")
+			pcall(vim.api.nvim_clear_autocmds, { group = "FormatOnExternalChange" })
 
 			local active_ai_terminal = nil
 			local active_ai_terminal_buf = nil
