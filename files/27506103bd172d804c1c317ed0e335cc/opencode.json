@@ -76,7 +76,6 @@
             ]
         }
     },
-    "small_model": "opencode-go/deepseek-v4-flash",
     "compaction": {
         "prune": true
     },
