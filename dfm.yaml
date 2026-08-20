@@ -276,6 +276,15 @@ dotfiles:
   815079deecfcdfcf08101470f64c160f/Microsoft.PowerShell_profile.ps1:
     windows:
       path: ~/Documents/Powershell/Microsoft.PowerShell_profile.ps1
+  b5c52b9392820fc3b09c4cf8f3242539/config.toml:
+    android:
+      path: ~/.codex/config.toml
+    darwin:
+      path: ~/.codex/config.toml
+    linux:
+      path: ~/.codex/config.toml
+    windows:
+      path: ~/.codex/config.toml
   d75dcd47b9bc0d0546108f9c8d8bdc08/main.ahk:
     windows:
       path: ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk

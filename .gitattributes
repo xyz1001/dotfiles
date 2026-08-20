@@ -1,6 +1,8 @@
 files/6ee1504095caefc322f5ca38b8074fd4/config filter=dfm-encrypt diff=dfm-encrypt
 files/4c761f170e016836ff84498202b99827/.gitconfig.work filter=dfm-encrypt diff=dfm-encrypt
 files/26b95fd7b2cbd24b92bd169d727e078b/profiles.yaml filter=strip-clash-updated
+# Keep machine-local Codex project trust out of Git while preserving it in the working file.
+files/b5c52b9392820fc3b09c4cf8f3242539/config.toml filter=strip-codex-local-state
 
 # Making sure that .gitattributes is never encrypted. DON'T TOUCH THAT LINE AND ONE BELOW
 .gitattributes !filter !diff

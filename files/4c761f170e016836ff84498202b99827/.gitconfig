@@ -48,5 +48,11 @@
 	clean = "sed -E 's/updated: [0-9]+/updated: 0/g'"
 	smudge = cat
 
+# Strip the machine-local [projects.*] tables when adding Codex config to Git.
+[filter "strip-codex-local-state"]
+	clean = "awk 'BEGIN { skip = 0 } /^[[:space:]]*\\[projects(\\.|\\])/ { skip = 1; next } /^[[:space:]]*\\[/ { skip = 0 } !skip { print }'"
+	smudge = cat
+	required = true
+
 [includeIf "gitdir:**/cvte/**"]
    path = ~/.gitconfig.work

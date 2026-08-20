@@ -1,0 +1,35 @@
+model = "gpt-5.6-sol"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+model_reasoning_effort = "high"
+approvals_reviewer = "user"
+service_tier = "fast"
+[tui]
+vim_mode_default = true
+status_line = ["model-with-reasoning", "current-dir"]
+status_line_use_colors = true
+theme = "solarized-dark"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 1
+
+[notice.model_migrations]
+"gpt-5.4" = "gpt-5.6-terra"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+env_http_headers = { CONTEXT7_API_KEY = "CONTEXT7_API_KEY" }
+
+[mcp_servers.gh_grep]
+url = "https://mcp.grep.app"
+
+[mcp_servers.mcp-atlassian]
+command = "uvx"
+args = ["mcp-atlassian"]
+env_vars = ["JIRA_URL", "JIRA_USERNAME", "JIRA_PERSONAL_TOKEN", "CONFLUENCE_URL", "CONFLUENCE_USERNAME", "CONFLUENCE_PERSONAL_TOKEN"]
+
+[mcp_servers.jenkins]
+command = "sh"
+args = ["-c", "exec uvx mcp-jenkins --jenkins-url=\"$JENKINS_URL\" --jenkins-username=\"$JENKINS_USERNAME\" --jenkins-password=\"$JENKINS_PASSWORD\""]
+env_vars = ["JENKINS_URL", "JENKINS_USERNAME", "JENKINS_PASSWORD"]

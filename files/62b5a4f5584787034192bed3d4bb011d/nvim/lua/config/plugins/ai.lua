@@ -46,6 +46,7 @@ return {
 			terminals = {
 				opencode = { cmd = "opencode" },
 				agy = { cmd = "agy" },
+				codex = { cmd = "codex" },
 			},
 		},
 		config = function(_, opts)
@@ -127,7 +128,7 @@ return {
 				clear_inactive_ai_terminal()
 
 				if not active_ai_terminal then
-					vim.notify("Start opencode or agy before sending a prompt.", vim.log.levels.ERROR)
+					vim.notify("Start opencode, agy, or codex before sending a prompt.", vim.log.levels.ERROR)
 					return
 				end
 
@@ -287,6 +288,10 @@ return {
 			vim.keymap.set({ "n", "x" }, "<leader>aa", function()
 				toggle_ai_terminal("agy")
 			end, { desc = "Toggle agy" })
+
+			vim.keymap.set({ "n", "x" }, "<leader>ac", function()
+				toggle_ai_terminal("codex")
+			end, { desc = "Toggle codex" })
 
 			vim.keymap.set("n", "<leader>ai", function()
 				open_ai_prompt_input(nil)
