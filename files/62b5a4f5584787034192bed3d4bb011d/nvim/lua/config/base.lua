@@ -111,3 +111,15 @@ if vim.fn.executable("termux-clipboard-set") == 1 then
 	}
 end
 
+-- 以指定编码重新加载当前文件（默认 gbk，如 :Reopen 或 :Reopen utf-8）
+vim.api.nvim_create_user_command("Reopen", function(opts)
+	local enc = opts.args ~= "" and opts.args or "gbk"
+	vim.cmd((opts.bang and "edit! ++enc=" or "edit ++enc=") .. enc)
+end, { bang = true, nargs = "?" })
+
+-- 以指定编码保存当前文件（默认 utf-8，如 :Resave 或 :Resave gbk）
+vim.api.nvim_create_user_command("Resave", function(opts)
+	local enc = opts.args ~= "" and opts.args or "utf-8"
+	vim.cmd("set fenc=" .. enc)
+	vim.cmd("write" .. (opts.bang and "!" or ""))
+end, { bang = true, nargs = "?" })
