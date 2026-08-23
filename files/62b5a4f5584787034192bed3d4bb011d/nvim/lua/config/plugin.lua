@@ -16,4 +16,5 @@ require("lazy").setup({
 	require("config.plugins.common"),
 	require("config.plugins.develop"),
 	require("config.plugins.ai"),
+	require("config.plugins.custom"),
 })
