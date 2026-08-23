@@ -464,4 +464,144 @@ return {
 			vim.g.jieba_vim_keymap = 1
 		end,
 	},
+	{
+		"fei6409/log-highlight.nvim",
+		cond = not vim.g.vscode,
+		event = "BufReadPost",
+		opts = {
+			extension = { "log" },
+			filename = {},
+			pattern = {},
+			keyword = {
+				error = {
+					"[E]",
+					"[F]",
+				},
+				warning = {
+					"[W]",
+				},
+				info = {
+					"[I]",
+				},
+				debug = {
+					"[D]",
+					"[T]",
+				},
+				pass = {
+					"[P]",
+				},
+			},
+		},
+		config = function(_, opts)
+			require("log-highlight").setup(opts)
+
+			-- 线程 ID (TID) 专属 12 色调色板
+			local tid_palette = {
+				"#bb9af7", -- 紫色
+				"#7dcfff", -- 青蓝
+				"#ff9e64", -- 暖橙
+				"#9ece6a", -- 浅绿
+				"#7aa2f7", -- 亮蓝
+				"#e0af68", -- 琥珀金
+				"#f7768e", -- 珊瑚粉
+				"#b4f9f8", -- 水绿
+				"#ff757f", -- 浅玫红
+				"#c0caf5", -- 薰衣草
+				"#2ac3de", -- 天蓝
+				"#1abc9c", -- 绿松石
+			}
+
+			local function hash_str(str)
+				local hash = 0
+				for i = 1, #str do
+					hash = (hash * 31 + str:byte(i)) % 1000000
+				end
+				return hash
+			end
+
+			local function apply_log_highlight()
+				if vim.bo.filetype ~= "log" and vim.fn.expand("%:e") ~= "log" then
+					return
+				end
+
+				-- 1. 基础消息级别染色（从级别标签到行尾全段：包含模块/文件/行号/函数名/正文）
+				vim.cmd([===[
+					syn match LogMsgError   /\[[EF]\].*$/ containedin=ALL
+					syn match LogMsgWarning /\[W\].*$/   containedin=ALL
+					syn match LogMsgInfo    /\[I\].*$/   containedin=ALL
+					syn match LogMsgDebug   /\[[DT]\].*$/ containedin=ALL
+					syn match LogMsgPass    /\[P\].*$/   containedin=ALL
+
+					syn match LogTagError   /\[[EF]\]/ containedin=ALL
+					syn match LogTagWarning /\[W\]/   containedin=ALL
+					syn match LogTagInfo    /\[I\]/   containedin=ALL
+					syn match LogTagDebug   /\[[DT]\]/ containedin=ALL
+					syn match LogTagPass    /\[P\]/   containedin=ALL
+
+					hi def link LogMsgError   DiagnosticError
+					hi def link LogMsgWarning DiagnosticWarn
+					hi def link LogMsgInfo    DiagnosticInfo
+					hi def link LogMsgDebug   DiagnosticHint
+					hi def link LogMsgPass    DiagnosticOk
+
+					hi def link LogTagError   ErrorMsg
+					hi def link LogTagWarning WarningMsg
+					hi def link LogTagInfo    Directory
+					hi def link LogTagDebug   Special
+					hi def link LogTagPass    DiagnosticOk
+				]===])
+
+				-- 2. 线程 ID 采样与性能保护机制
+				-- 保护 1：超大文件（> 50MB）跳过扫描，防止卡顿
+				local file_size = vim.fn.getfsize(vim.fn.expand("%"))
+				if file_size > 50 * 1024 * 1024 then
+					return
+				end
+
+				local bufnr = vim.api.nvim_get_current_buf()
+				local line_count = vim.api.nvim_buf_line_count(bufnr)
+				-- 保护 2：仅采样前 5000 行（主工作线程/线程池通常在启动前几千行即完全出现，耗时 < 1ms）
+				local sample_limit = math.min(line_count, 5000)
+				local lines = vim.api.nvim_buf_get_lines(bufnr, 0, sample_limit, false)
+				local unique_tids = {}
+
+				for _, line in ipairs(lines) do
+					for tid in line:gmatch("%[tid ([^%]]+)%]") do
+						if not unique_tids[tid] then
+							unique_tids[tid] = true
+						end
+					end
+				end
+
+				local tid_list = {}
+				for tid in pairs(unique_tids) do
+					table.insert(tid_list, tid)
+				end
+				table.sort(tid_list)
+
+				-- 保护 3：最多注册 24 个高频线程规则，保障极速平滑滚动
+				local max_rules = math.min(#tid_list, 24)
+				for i = 1, max_rules do
+					local tid = tid_list[i]
+					local color = tid_palette[((i - 1) % #tid_palette) + 1]
+					local group_name = "LogTid_" .. hash_str(tid)
+
+					-- 动态注册高亮组与加粗强调
+					vim.api.nvim_set_hl(0, group_name, { fg = color, bold = true })
+
+					-- 语法匹配覆盖到该特定 tid 标签
+					local escaped_tid = vim.fn.escape(tid, "/\\^$.*[]~")
+					local syn_cmd = string.format("syn match %s /\\[tid %s\\]/ containedin=ALL", group_name, escaped_tid)
+					vim.cmd(syn_cmd)
+				end
+			end
+
+			vim.api.nvim_create_autocmd({ "FileType", "BufReadPost", "BufEnter" }, {
+				pattern = { "log", "*.log" },
+				callback = apply_log_highlight,
+			})
+
+			apply_log_highlight()
+		end,
+	},
 }
