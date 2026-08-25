@@ -46,7 +46,7 @@ return {
 			terminals = {
 				opencode = { cmd = "opencode" },
 				agy = { cmd = "agy" },
-				codex = { cmd = "codex" },
+				codex = { cmd = "codex -c tui.vim_mode_default=false" },
 			},
 		},
 		config = function(_, opts)
@@ -234,7 +234,11 @@ return {
 					was_sent = true
 					close_input()
 					vim.fn.chansend(job_id, text_to_send)
-					vim.fn.chansend(job_id, "\r")
+					vim.defer_fn(function()
+						if vim.fn.jobwait({ job_id }, 0)[1] == -1 then
+							vim.fn.chansend(job_id, "\r")
+						end
+					end, 100)
 				end
 
 				vim.keymap.set({ "n", "i" }, "<C-s>", send_prompt, { buffer = buf, desc = "Send prompt" })
