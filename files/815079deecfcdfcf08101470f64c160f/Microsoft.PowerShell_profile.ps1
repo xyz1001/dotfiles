@@ -70,6 +70,7 @@ if (-not $isInteractive) {
 # 3. 仅交互式配置 (模块导入、提示符定制、按键绑定、补全等)
 # =====================================================================
 Import-Module PSReadLine
+Set-PSReadLineOption -MaximumHistoryCount 100000
 Import-Module git-aliases -DisableNameChecking
 Remove-Item Alias:gcb -Force -ErrorAction SilentlyContinue
 Import-Module posh-git -ArgumentList $false,$false,$true  # EnableProxyFunctionExpansion
