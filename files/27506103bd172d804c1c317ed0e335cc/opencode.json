@@ -39,6 +39,19 @@
         }
     },
     "mcp": {
+        "sentry": {
+            "type": "local",
+            "command": [
+                "npx",
+                "-y",
+                "@sentry/mcp-server@latest",
+                "--organization-slug={env:SENTRY_ORGANIZATION_SLUG}"
+            ],
+            "environment": {
+                "SENTRY_ACCESS_TOKEN": "{env:SENTRY_ACCESS_TOKEN}",
+                "SENTRY_HOST": "{env:SENTRY_HOST}"
+            }
+        },
         "context7": {
             "type": "remote",
             "url": "https://mcp.context7.com/mcp",
