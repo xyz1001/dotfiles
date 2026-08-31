@@ -14,6 +14,11 @@
         "input_paste": "ctrl+v",
         "terminal_suspend": "none"
     },
+    "attention": {
+        "enabled": true,
+        "notifications": true,
+        "sound": true
+    },
     "plugin": [
         "oh-my-opencode-slim"
     ]
