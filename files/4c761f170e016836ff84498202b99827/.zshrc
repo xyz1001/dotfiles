@@ -35,3 +35,7 @@ if [[ -f $HOME/.config/secret.env ]]; then
         set +a
     fi
 fi
+
+# Limit Node.js memory usage to prevent unbounded expansion
+export NODE_OPTIONS="--max-old-space-size=512"
+

@@ -7,6 +7,7 @@ return {
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
+			copilot_node_command = { "node", "--max-old-space-size=512" },
 			suggestion = { enabled = true, auto_trigger = true },
 			panel = { enabled = false },
 		},

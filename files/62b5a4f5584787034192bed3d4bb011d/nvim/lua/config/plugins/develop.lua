@@ -195,7 +195,14 @@ return {
 			})
 
 			local function get_clangd_cmd()
-				local cmd = { "clangd", "--header-insertion=never" }
+				local cmd = {
+					"clangd",
+					"--header-insertion=never",
+					"--malloc-trim",
+					"--background-index-priority=low",
+					"-j=4",
+					"--limit-results=100",
+				}
 				local compile_commands = vim.fn.getcwd() .. "/compile_commands.json"
 
 				if vim.fn.filereadable(compile_commands) == 1 then
