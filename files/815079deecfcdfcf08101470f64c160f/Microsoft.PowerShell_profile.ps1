@@ -20,6 +20,9 @@ if (Test-Path $apiKeyFile) {
 $Env:EDITOR="nvim"
 $Env:OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
 
+$env:CMAKE_C_COMPILER_LAUNCHER = "ccache"
+$env:CMAKE_CXX_COMPILER_LAUNCHER = "ccache"
+
 # Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
 function Import-VisualStudioVars { Import-Module Pscx -Global; Pscx\Import-VisualStudioVars @args }
 
