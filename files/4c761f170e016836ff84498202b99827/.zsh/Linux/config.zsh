@@ -5,6 +5,11 @@
 export ANDROID_HOME=$HOME/Android/Sdk
 export ANDROID_NDK_HOME=$HOME/Android/Sdk/ndk/16.1.4479499
 
+if (( $+commands[ccache] )); then
+    export CMAKE_C_COMPILER_LAUNCHER="${commands[ccache]}"
+    export CMAKE_CXX_COMPILER_LAUNCHER="${commands[ccache]}"
+fi
+
 #######################################################################
 #                                alias                                #
 #######################################################################
