@@ -198,7 +198,6 @@ return {
 				local cmd = {
 					"clangd",
 					"--header-insertion=never",
-					"--malloc-trim",
 					"--background-index-priority=low",
 					"-j=4",
 					"--limit-results=100",
