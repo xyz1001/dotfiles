@@ -31,10 +31,7 @@
             "npm": "@ai-sdk/openai",
             "options": {
                 "apiKey": "{env:XYZ1001_API_KEY}",
-                "baseURL": "{env:XYZ1001_API_URL}",
-                "modelsDiscovery": {
-                    "enabled": true
-                }
+                "baseURL": "{env:XYZ1001_API_URL}"
             }
         }
     },
@@ -93,8 +90,7 @@
         "prune": true
     },
     "plugin": [
-        "oh-my-opencode-slim",
-        "opencode-models-discovery"
+        "oh-my-opencode-slim"
     ],
     "agent": {
         "explore": {
