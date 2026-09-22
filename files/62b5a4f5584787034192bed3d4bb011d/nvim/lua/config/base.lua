@@ -1,4 +1,7 @@
 vim.opt.wrap = true
+-- 规避终端持续刷新时的光标消失或闪烁问题。
+vim.opt.termsync = false
+
 if not vim.g.vscode then
 	vim.opt.number = true
 	vim.opt.colorcolumn = "81"
