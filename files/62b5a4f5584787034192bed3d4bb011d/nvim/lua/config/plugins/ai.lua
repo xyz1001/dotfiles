@@ -3,25 +3,6 @@ if vim.g.vscode then
 end
 return {
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		opts = {
-			copilot_node_command = { "node", "--max-old-space-size=512" },
-			suggestion = { enabled = true, auto_trigger = true },
-			panel = { enabled = false },
-		},
-		config = true,
-	},
-	{
-		"AndreM222/copilot-lualine",
-		config = function()
-			current = require("lualine").get_config()
-			table.insert(current.sections.lualine_x, 1, "copilot")
-			require("lualine").setup(current)
-		end,
-	},
-	{
 		"aweis89/ai-terminals.nvim",
 		dependencies = {
 			{
