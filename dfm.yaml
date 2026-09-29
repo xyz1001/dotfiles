@@ -288,6 +288,15 @@ dotfiles:
       path: ~/.codex/config.toml
     windows:
       path: ~/.codex/config.toml
+  c6c3a0ecd5b0ff47304db78944a19706/NuGet.Config:
+    android:
+      path: ~/.nuget/NuGet/NuGet.Config
+    darwin:
+      path: ~/.nuget/NuGet/NuGet.Config
+    linux:
+      path: ~/.nuget/NuGet/NuGet.Config
+    windows:
+      path: ~/AppData/Roaming/NuGet/NuGet.Config
   d75dcd47b9bc0d0546108f9c8d8bdc08/main.ahk:
     windows:
       path: ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/main.ahk
