@@ -11,27 +11,31 @@
         "*": "allow"
     },
     "provider": {
-        "nexus-codex": {
-            "npm": "@ai-sdk/openai",
-            "options": {
-                "apiKey": "{env:NEXUS_API_KEY}",
-                "baseURL": "https://nexusacc.itssx.com/api/codex/codex"
-            },
-            "models": {
-                "gpt-5.4": {
-                    "name": "GPT 5.4",
-                    "attachment": true
-                },
-                "gpt-5-nano": {
-                    "name": "GPT 5 Nano"
-                }
-            }
-        },
         "xyz1001": {
             "npm": "@ai-sdk/openai",
             "options": {
                 "apiKey": "{env:XYZ1001_API_KEY}",
                 "baseURL": "{env:XYZ1001_API_URL}"
+            },
+            "models": {
+                "gpt-6-astra": {
+                    "name": "GPT 6 Astra"
+                },
+                "gpt-6-astra-fast": {
+                    "name": "GPT 6 Astra Fast"
+                },
+                "gpt-6-sol": {
+                    "name": "GPT 6 Sol"
+                },
+                "gpt-6-sol-fast": {
+                    "name": "GPT 6 Sol Fast"
+                },
+                "gpt-6-luna": {
+                    "name": "GPT 6 Luna"
+                },
+                "gpt-6-luna-fast": {
+                    "name": "GPT 6 Luna Fast"
+                }
             }
         }
     },
