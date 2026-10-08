@@ -4,7 +4,7 @@
     "presets": {
         "openai": {
             "orchestrator": {
-                "model": "openai/gpt-6-sol-fast",
+                "model": "openai/gpt-6.1-sol-fast",
                 "variant": "medium",
                 "skills": [
                     "*"
@@ -39,13 +39,13 @@
                 "mcps": []
             },
             "designer": {
-                "model": "openai/gpt-6-sol-fast",
+                "model": "openai/gpt-6.1-sol-fast",
                 "variant": "medium",
                 "skills": [],
                 "mcps": []
             },
             "fixer": {
-                "model": "openai/gpt-6-sol-fast",
+                "model": "openai/gpt-6.1-sol-fast",
                 "variant": "high",
                 "skills": [],
                 "mcps": []
