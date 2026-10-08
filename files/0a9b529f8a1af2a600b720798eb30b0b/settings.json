@@ -1,11 +1,10 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "disableAnimations": true,
-    "actions": 
+    "actions":
     [
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "left"
@@ -13,7 +12,7 @@
             "id": "User.focusPane.left.0"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "down"
@@ -21,7 +20,14 @@
             "id": "User.focusPane.down.0"
         },
         {
-            "command": 
+            "command":
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTab.5DEADB41"
+        },
+        {
+            "command":
             {
                 "action": "moveFocus",
                 "direction": "up"
@@ -29,36 +35,14 @@
             "id": "User.focusPane.up.0"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "id": "User.focusPane.right.0"
-        },
-        {
-            "command": 
-            {
-                "action": "togglePaneZoom"
-            },
-            "id": "User.togglePaneZoom.0"
-        },
-        {
-            "command": 
-            {
-                "action": "switchSelectionEndpoint"
-            },
-            "id": "User.switchSelectionEndpoint.0"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "scrollUp"
             },
             "id": "User.scrollUp.0"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "resizePane",
                 "direction": "right"
@@ -66,34 +50,26 @@
             "id": "User.resizePane.87C324ED"
         },
         {
-            "command": 
+            "command":
             {
-                "action": "resizePane",
-                "direction": "down"
+                "action": "moveFocus",
+                "direction": "right"
             },
-            "id": "User.resizePane.F747588A"
+            "id": "User.focusPane.right.0"
         },
         {
-            "command": 
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "id": "User.resizePane.2A0DA8E0"
+            "command": "togglePaneZoom",
+            "id": "User.togglePaneZoom.0"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": 
+            "command":
             {
                 "action": "scrollDown"
             },
             "id": "User.scrollDown.0"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "right"
@@ -101,64 +77,86 @@
             "id": "User.splitPane.864CD510"
         },
         {
-            "command": 
-            {
-                "action": "newTab"
-            },
-            "id": "User.newTab.5DEADB41"
+            "command": "switchSelectionEndpoint",
+            "id": "User.switchSelectionEndpoint.0"
         },
         {
-            "command": 
+            "command":
             {
-                "action": "splitPane",
-                "split": "down"
+                "action": "resizePane",
+                "direction": "down"
             },
-            "id": "User.splitPane.D5151347"
+            "id": "User.resizePane.F747588A"
         },
         {
-            "command": 
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "id": "User.resizePane.2A0DA8E0"
+        },
+        {
+            "command":
             {
                 "action": "resizePane",
                 "direction": "up"
             },
             "id": "User.resizePane.6CD791B"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "id": "User.splitPane.D5151347"
         }
     ],
     "defaultProfile": "{3debc2de-f113-4648-aeb4-39f5c8562b13}",
+    "disableAnimations": true,
+    "disabledProfileSources":
+    [
+        "Windows.Terminal.Azure"
+    ],
     "initialRows": 80,
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "User.focusPane.left.0",
-            "keys": "ctrl+shift+alt+left"
+            "keys": "ctrl+alt+shift+left"
         },
         {
             "id": "User.focusPane.down.0",
-            "keys": "ctrl+shift+alt+down"
+            "keys": "ctrl+alt+shift+down"
+        },
+        {
+            "id": "User.switchSelectionEndpoint.0",
+            "keys": "ctrl+alt+shift+o"
         },
         {
             "id": "User.focusPane.up.0",
-            "keys": "ctrl+shift+alt+up"
+            "keys": "ctrl+alt+shift+up"
         },
         {
             "id": "User.focusPane.right.0",
-            "keys": "ctrl+shift+alt+right"
+            "keys": "ctrl+alt+shift+right"
         },
         {
             "id": "User.togglePaneZoom.0",
             "keys": "ctrl+alt+z"
         },
         {
-            "id": "User.switchSelectionEndpoint.0",
-            "keys": "ctrl+shift+alt+o"
+            "id": "User.scrollUp.0",
+            "keys": "ctrl+shift+j"
         },
         {
             "id": "User.splitPane.864CD510",
             "keys": "ctrl+alt+v"
-        },
-        {
-            "id": "User.scrollUp.0",
-            "keys": "ctrl+shift+j"
         },
         {
             "id": "User.resizePane.F747588A",
@@ -214,19 +212,19 @@
         }
     ],
     "launchMode": "maximized",
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "bellStyle": "none",
             "colorScheme": "Tokyo Night Storm",
-            "font": 
+            "font":
             {
                 "face": "FiraCode Nerd Font Mono",
                 "size": 11
@@ -234,7 +232,7 @@
             "historySize": 50001,
             "icon": "none"
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "wsl.exe -d archlinux  --cd ~ tmux",
@@ -248,7 +246,7 @@
             {
                 "colorScheme": "Tokyo Night Storm",
                 "commandline": "pwsh.exe -NoLogo",
-                "font": 
+                "font":
                 {
                     "face": "FiraCode Nerd Font Mono"
                 },
@@ -265,10 +263,20 @@
                 "hidden": true,
                 "name": "Visual Studio Debug Console",
                 "source": "VSDebugConsole"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
             }
         ]
     },
-    "schemes": 
+    "schemes":
     [
         {
             "background": "#002B36",
