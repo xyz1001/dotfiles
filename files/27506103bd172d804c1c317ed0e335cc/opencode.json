@@ -88,6 +88,12 @@
                 "--jenkins-username={env:JENKINS_USERNAME}",
                 "--jenkins-password={env:JENKINS_PASSWORD}"
             ]
+        },
+        "servers": {
+          "figma": {
+            "type": "remote",
+            "url": "https://mcp.figma.com/mcp"
+          }
         }
     },
     "compaction": {
