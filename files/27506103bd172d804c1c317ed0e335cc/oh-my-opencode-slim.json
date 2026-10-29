@@ -15,7 +15,7 @@
                 ]
             },
             "oracle": {
-                "model": "openai/gpt-6-astra",
+                "model": "openai/gpt-6-astra-fast",
                 "variant": "high",
                 "skills": [
                     "simplify"
@@ -23,7 +23,7 @@
                 "mcps": []
             },
             "librarian": {
-                "model": "openai/gpt-6-luna-fast",
+                "model": "openai/gpt-6.1-terra-fast",
                 "variant": "low",
                 "skills": [],
                 "mcps": [
@@ -33,7 +33,7 @@
                 ]
             },
             "explorer": {
-                "model": "openai/gpt-6-luna-fast",
+                "model": "openai/gpt-6.1-terra-fast",
                 "variant": "low",
                 "skills": [],
                 "mcps": []
@@ -45,7 +45,7 @@
                 "mcps": []
             },
             "fixer": {
-                "model": "openai/gpt-6.1-sol-fast",
+                "model": "openai/gpt-6.1-terra-fast",
                 "variant": "high",
                 "skills": [],
                 "mcps": []
