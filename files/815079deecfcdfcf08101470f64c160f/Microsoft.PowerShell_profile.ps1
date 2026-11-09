@@ -23,8 +23,8 @@ $Env:OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS = "true"
 $env:CMAKE_C_COMPILER_LAUNCHER = "ccache"
 $env:CMAKE_CXX_COMPILER_LAUNCHER = "ccache"
 
-# Pscx: 懒加载，首次调用 Import-VisualStudioVars 时才加载
-function Import-VisualStudioVars { Import-Module Pscx -Global; Pscx\Import-VisualStudioVars @args }
+# Pscx 使用 PowerShell 原生模块自动加载：启动时不导入，也不定义同名包装函数。
+# 首次执行命令或补全参数时才加载模块，保留原生参数补全。
 
 
 
