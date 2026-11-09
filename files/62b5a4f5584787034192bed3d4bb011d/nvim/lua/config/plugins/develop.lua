@@ -55,7 +55,6 @@ return {
 				"qmljs",
 				"regex",
 				"ssh_config",
-				"tmux",
 				"xml",
 				"yaml",
 				"diff",
@@ -65,6 +64,9 @@ return {
 				"python",
 				"groovy",
 			}
+			if vim.fn.has("win32") == 0 then
+				table.insert(parsers, "tmux")
+			end
 			require("nvim-treesitter").install(parsers)
 
 			vim.api.nvim_create_autocmd("FileType", {
