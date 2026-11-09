@@ -288,6 +288,32 @@ return {
 	},
 	{
 		"JuanZoran/Trans.nvim",
+		init = function()
+			if vim.fn.has("win32") == 0 or vim.g.sqlite_clib_path ~= nil then
+				return
+			end
+
+			local dirs = { vim.fn.fnamemodify(vim.v.progpath, ":p:h") }
+			vim.list_extend(dirs, vim.split(vim.env.PATH or "", ";", { plain = true, trimempty = true }))
+			local python = vim.fn.exepath("python")
+			if python ~= "" then
+				table.insert(dirs, vim.fn.fnamemodify(vim.fn.resolve(python), ":p:h") .. "/DLLs")
+			end
+			for _, dir in ipairs(dirs) do
+				local dll = dir .. "/sqlite3.dll"
+				if vim.fn.filereadable(dll) == 1 then
+					local ffi = require("ffi")
+					ffi.cdef("int sqlite3_initialize(void);")
+					local lib = ffi.load(dll)
+					local result = lib.sqlite3_initialize()
+					assert(result == 0, "sqlite3_initialize failed for " .. dll .. ": " .. result)
+					-- Keep the initialized DLL loaded until sqlite.lua uses it.
+					package.loaded["trans.sqlite_clib"] = lib
+					vim.g.sqlite_clib_path = dll
+					break
+				end
+			end
+		end,
 		build = function()
 			require("Trans").install()
 		end,
