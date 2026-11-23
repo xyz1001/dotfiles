@@ -1,6 +1,6 @@
 {
     "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-    "preset": "openai",
+    "preset": "opencode",
     "presets": {
         "openai": {
             "orchestrator": {
@@ -51,9 +51,9 @@
                 "mcps": []
             }
         },
-        "opencode-go": {
+        "opencode": {
             "orchestrator": {
-                "model": "opencode-go/glm-5.2",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "skills": [
                     "*"
                 ],
@@ -63,7 +63,7 @@
                 ]
             },
             "oracle": {
-                "model": "opencode-go/qwen3.7-max",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "variant": "max",
                 "skills": [
                     "simplify"
@@ -71,7 +71,7 @@
                 "mcps": []
             },
             "librarian": {
-                "model": "opencode-go/deepseek-v4-flash",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "skills": [],
                 "mcps": [
                     "websearch",
@@ -80,24 +80,24 @@
                 ]
             },
             "explorer": {
-                "model": "opencode-go/deepseek-v4-flash",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "skills": [],
                 "mcps": []
             },
             "designer": {
-                "model": "opencode-go/kimi-k2.7-code",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "variant": "medium",
                 "skills": [],
                 "mcps": []
             },
             "fixer": {
-                "model": "opencode-go/deepseek-v4-flash",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "variant": "high",
                 "skills": [],
                 "mcps": []
             },
             "observer": {
-                "model": "opencode-go/kimi-k2.6",
+                "model": "opencode/deepseek-v4.1-flash-free",
                 "skills": [],
                 "mcps": []
             }
