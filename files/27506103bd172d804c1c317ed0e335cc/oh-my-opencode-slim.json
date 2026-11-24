@@ -1,10 +1,10 @@
 {
     "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
-    "preset": "opencode",
+    "preset": "openai",
     "presets": {
         "openai": {
             "orchestrator": {
-                "model": "openai/gpt-6.1-sol-fast",
+                "model": "openai/gpt-6.2-sol-fast",
                 "variant": "medium",
                 "skills": [
                     "*"
@@ -39,7 +39,7 @@
                 "mcps": []
             },
             "designer": {
-                "model": "openai/gpt-6.1-sol-fast",
+                "model": "openai/gpt-6.2-sol-fast",
                 "variant": "medium",
                 "skills": [],
                 "mcps": []
@@ -47,57 +47,6 @@
             "fixer": {
                 "model": "openai/gpt-6.1-terra-fast",
                 "variant": "high",
-                "skills": [],
-                "mcps": []
-            }
-        },
-        "opencode": {
-            "orchestrator": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "skills": [
-                    "*"
-                ],
-                "mcps": [
-                    "*",
-                    "!context7"
-                ]
-            },
-            "oracle": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "variant": "max",
-                "skills": [
-                    "simplify"
-                ],
-                "mcps": []
-            },
-            "librarian": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "skills": [],
-                "mcps": [
-                    "websearch",
-                    "context7",
-                    "gh_grep"
-                ]
-            },
-            "explorer": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "skills": [],
-                "mcps": []
-            },
-            "designer": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "variant": "medium",
-                "skills": [],
-                "mcps": []
-            },
-            "fixer": {
-                "model": "opencode/deepseek-v4.1-flash-free",
-                "variant": "high",
-                "skills": [],
-                "mcps": []
-            },
-            "observer": {
-                "model": "opencode/deepseek-v4.1-flash-free",
                 "skills": [],
                 "mcps": []
             }
